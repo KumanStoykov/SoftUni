@@ -1,0 +1,5 @@
+function attachEvents() {
+    
+}
+
+attachEvents();
