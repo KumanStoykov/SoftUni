@@ -1,0 +1,17 @@
+{
+  "name": "01.messenger",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.1",
+    "playwright-chromium": "^1.19.2"
+  }
+}
+  
