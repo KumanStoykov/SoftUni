@@ -30,7 +30,7 @@ const detailsTemplate = (car, isOwner, onDelete) => html`
 export async function detailsView(context) {
 
     const id = context.params.id;
-    //?????????????????????????????? need to make better
+    
     context.render(detailsTemplate(await loadCar(id), isOwner(), onDelete));
     
     async function loadCar(id) {
