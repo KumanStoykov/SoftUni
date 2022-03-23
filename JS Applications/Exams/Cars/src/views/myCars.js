@@ -2,12 +2,12 @@ import { html } from '../library/lib.js';
 import { getMyCars } from '../services/data.js';
 import { getUserData } from '../util.js';
 
-const allMyCarsTemplate = (cars, count) => html`
+const allMyCarsTemplate = (cars) => html`
 <section id="my-listings">
     <h1>My car listings</h1>
     <div class="listings">
     
-       ${ count == 0 
+       ${cars.length == 0
         ? html `<p class="no-cars">You haven\'t listed any cars yet.</p>` 
         : cars.map(myCarTemplate)
         }      
@@ -35,7 +35,6 @@ const myCarTemplate = (car) => html`
 export async function myCarsView(context) {
     const userId = getUserData().id;
     const myCars = await getMyCars(userId);
-    const count = myCars.length
 
-    context.render(allMyCarsTemplate(myCars, count));
+    context.render(allMyCarsTemplate(myCars));
 }

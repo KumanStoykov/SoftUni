@@ -1,12 +1,12 @@
 import { html } from '../library/lib.js';
 import { getAllCars } from '../services/data.js';
 
-const allCarsTemplate = (cars, count) => html`
+const allCarsTemplate = (cars) => html`
 <section id="car-listings">
     <h1>Car Listings</h1>
     <div class="listings">
     
-       ${ count == 0 
+       ${ cars.length == 0 
         ? html `<p class="no-cars">No cars in database.</p>` 
         : cars.map(carTemplate)
         }      
@@ -33,7 +33,7 @@ const carTemplate = (car) => html`
 
 export async function allCarsView(context) {
     const cars = await getAllCars();
-    const count = cars.length;
-    context.render(allCarsTemplate(cars, count));
+    
+    context.render(allCarsTemplate(cars));
 }
 
