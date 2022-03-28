@@ -1,7 +1,9 @@
 import { html, nothing } from '../library/library.js';
-import { deleteGame, getAllComments, getOneGame, postComments } from '../services/data.js';
+import { deleteGame, getAllComments, getOneGame } from '../services/data.js';
+import { commentFormView } from './commentsFormView.js';
+import { commentView } from './commentsView.js';
 
-const detailsTemplate = (game, isOwner, isLogged, deleteHandler, comments, commentsHandler) => html`
+const detailsTemplate = (game, isOwner, isLogged, deleteHandler, comments, commentFormView) => html`
 <section id="game-details">
     <h1>Game Details</h1>
     <div class="info-section">
@@ -14,16 +16,7 @@ const detailsTemplate = (game, isOwner, isLogged, deleteHandler, comments, comme
         </div>
         <p class="text">${game.summary}</p>
 
-        <div class="details-comments">
-            <h2>Comments:</h2>
-            ${comments.length == 0
-            ? html`<p class="no-comment">No comments.</p>`
-            : html`<ul>
-                    ${comments.map(listAllCommentsTemplate)}
-                  </ul>`
-            }
-
-        </div>
+       ${commentView(comments)}
 
         ${isOwner
          ? buttonsTemplate(game._id, deleteHandler)
@@ -32,27 +25,11 @@ const detailsTemplate = (game, isOwner, isLogged, deleteHandler, comments, comme
     </div>
 
     ${!isOwner && isLogged
-        ? commentFormTemplate(commentsHandler)
+        ? commentFormView
         : nothing
     }
 
 </section>`;
-
-
-const commentFormTemplate = (commentsHandler) => html`
-<article class="create-comment">
-<label>Add new comment:</label>
-<form @submit=${commentsHandler} class="form">
-    <textarea name="comment" placeholder="Comment......"></textarea>
-    <input class="btn submit" type="submit" value="Add Comment">
-</form>
-</article>`;
-
-
-const listAllCommentsTemplate = (comment) => html`
-<li class="comment">
-    <p>Content: ${comment.comment}</p>
-</li>`;
 
 const buttonsTemplate = (id, deleteHandler) => html`
 <div class="buttons">
@@ -81,27 +58,7 @@ export const detailsView = async (context) => {
         context.page.redirect('/');
     }
 
-    //Comments-------------------------------------------------------------
-
-    const commentsHandler = async (e) => {
-        e.preventDefault();
-
-        const formDate = new FormData(e.target);
-        const comment = formDate.get('comment').trim();
-        
-        if(comment == '') {
-            return;
-        }       
-            postComments({
-                gameId: currentGame._id,
-                comment
-            });
-                    
-        e.target.reset();      
-               
-        context.page.redirect(`/details/${currentGame._id}`);
-    }
-    context.render(detailsTemplate(currentGame, isOwner, isLogged, deleteHandler, allComments, commentsHandler));
+    context.render(detailsTemplate(currentGame, isOwner, isLogged, deleteHandler, allComments, commentFormView(currentGame, context)));
 }
 
 
