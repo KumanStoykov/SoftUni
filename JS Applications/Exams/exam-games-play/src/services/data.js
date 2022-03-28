@@ -2,7 +2,7 @@ import * as api from './api.js';
 
 const endpoints = {
     allGames: '/data/games?sortBy=_createdOn%20desc',
-    allGamesHome: '/data/games?sortBy=_createdOn%20desc&distinct=category',
+    threeGames: '/data/games?sortBy=_createdOn%20desc&distinct=category&pageSize=3',
     createGame: '/data/games',
     currentGame: '/data/games/',
     deleteGame: '/data/games/',
@@ -14,7 +14,7 @@ const endpoints = {
 
 export const getAllGames = async () =>  await api.get(endpoints.allGames);
 
-export const getGamesHome = async () =>  await api.get(endpoints.allGamesHome);
+export const getThreeGames = async () =>  await api.get(endpoints.threeGames);
 
 export const getOneGame = async (id) =>  await api.get(endpoints.currentGame + id);
 

@@ -1,5 +1,5 @@
 import { html } from '../library/library.js';
-import { getGamesHome } from '../services/data.js';
+import { getThreeGames } from '../services/data.js';
 
 const homeTemplate = (games) => html`
 <section id="welcome-world">
@@ -33,11 +33,11 @@ const gameTemplate = (game) => html`<div class="game">
     </div>
 </div>`;
 
-export const homeView = async (context) => {
-        const allGames = await getGamesHome();
+export const homeView =  (context) => {
+        getThreeGames()
+        .then(games => {
+            context.render(homeTemplate(games));
 
-        const firstThree = allGames.slice(0, 3);
-        
+        });      
 
-    context.render(homeTemplate(firstThree));
 } 
