@@ -55,11 +55,12 @@ const app = http.createServer((req, res) => {
             const form = new formidable.IncomingForm();
 
             form.parse(req, (err, fields, files) => {
+                // console.log(fields);
+                console.log('/////////////////////////////////////////////');
+                console.log(fields);
 
                 res.end();
-            });
-
-            
+            });            
 
         }
             break;        
