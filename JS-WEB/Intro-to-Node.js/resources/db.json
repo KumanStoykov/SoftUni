@@ -14,6 +14,11 @@
       "name": "Easy Lasagna ssssss",
       "description": "asdas",
       "breed": "Fluffy Cat"
+    },
+    {
+      "name": "Lisa",
+      "description": "Lisa is Angor cat.",
+      "breed": "Angor"
     }
   ],
   "breeds": [
@@ -22,6 +27,18 @@
     },
     {
       "breed": "Persian"
+    },
+    {
+      "breed": "American Bobtail"
+    },
+    {
+      "breed": "Asian Semi-longhair"
+    },
+    {
+      "breed": "Birman"
+    },
+    {
+      "breed": "Unknown"
     }
   ]
 }
