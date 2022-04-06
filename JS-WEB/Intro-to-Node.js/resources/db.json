@@ -1,0 +1,27 @@
+{
+  "cats": [
+    {
+      "name": "Roy",
+      "description": "asa;smdas;mda;msdams;ld",
+      "breed": "Fluffy Cat"
+    },
+    {
+      "name": "Sara",
+      "description": "asa;smdas;mda;msdams;ld",
+      "breed": "Fluffy Cat"
+    },
+    {
+      "name": "Easy Lasagna ssssss",
+      "description": "asdas",
+      "breed": "Fluffy Cat"
+    }
+  ],
+  "breeds": [
+    {
+      "breed": "Angor"
+    },
+    {
+      "breed": "Persian"
+    }
+  ]
+}

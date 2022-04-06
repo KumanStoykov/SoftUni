@@ -1,8 +1,9 @@
 const http = require('http');
 const fs = require('fs');
-const formidable = require('formidable'); 
+const formidable = require('formidable');
 
 const storageService = require('./services/storageServices.js');
+const db = require('./db.json');
 
 const port = 3000;
 
@@ -14,57 +15,112 @@ const app = http.createServer((req, res) => {
                 'Content-Type': 'text/html'
             });
             fs.readFile('./views/home/index.html', (err, result) => {
-                if(err) {
+                if (err) {
                     err.statusCode = 404;
-                   return res.end();
+                    return res.end();
                 }
 
                 res.write(result);
                 res.end();
             });
             break;
-            case '/content/styles/site.css':
+        case '/content/styles/site.css':
             res.writeHead(200, {
                 'Content-Type': 'text/css'
             });
             fs.readFile('./content/styles/site.css', (err, result) => {
-                if(err) {
+                if (err) {
                     err.statusCode = 404;
-                   return res.end();
+                    return res.end();
                 }
 
                 res.write(result);
                 res.end();
             });
-            break;        
+            break;
         case '/cats/add-cat':
 
-        if(req.method == 'GET') {
+            if (req.method == 'GET') {
 
-            res.writeHead(200, {
-                'Content-Type': 'text/html'
-            });
-            fs.readFile('./views/addCat.html', (err, result) => {
-                if(err) {
-                    err.statusCode = 404;
-                   return res.end();
-                }
-                res.write(result);
-                res.end();
-            });
-        } else if (req.method == 'POST') {
+                res.writeHead(200, {
+                    'Content-Type': 'text/html'
+                });
+                fs.readFile('./views/addCat.html', 'utf-8', (err, result) => {
+                    if (err) {
+                        err.statusCode = 404;
+                        return res.end();
+                    }
+                    let mappedBreeds = db.breeds.map(b => {
+                       return `<option value="${b.breed}">${b.breed}</option>`
+                    });
+                    console.log(mappedBreeds);
+                    
+                    result = result.replace('{{breeds}}', mappedBreeds);
 
-            const form = new formidable.IncomingForm();
+                    res.write(result);
+                    res.end();
+                });
+            } else if (req.method == 'POST') {
 
-            form.parse(req, (err, fields, files) => {
-                
-                console.log(fields);
+                const form = new formidable.IncomingForm();
 
-                res.end();
-            });            
+                form.parse(req, (err, fields, files) => {
 
-        }
-            break;        
+                    storageService.saveCat(fields)
+                        .then(() => {
+
+                            res.end();
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
+
+                    res.writeHead(302, {
+                        'Location': '/'
+                    });
+                    res.end();
+                });
+
+            }
+            break;
+
+        case '/cats/add-breed':
+
+            if (req.method == 'GET') {
+
+                res.writeHead(200, {
+                    'Content-Type': 'text/html'
+                });
+                fs.readFile('./views/addBreed.html', (err, result) => {
+                    if (err) {
+                        err.statusCode = 404;
+                        return res.end();
+                    }
+                    res.write(result);
+                    res.end();
+                });
+            } else if (req.method == 'POST') {
+
+                const form = new formidable.IncomingForm();
+
+                form.parse(req, (err, fields, files) => {
+
+                    storageService.saveBreed(fields)
+                        .then(() => {
+
+                            res.end();
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
+
+                    res.writeHead(302, {
+                        'Location': '/cats/add-breed'
+                    });
+                    res.end();
+                });
+            }
+            break;
         default:
             res.statusCode = 404;
             res.end();
