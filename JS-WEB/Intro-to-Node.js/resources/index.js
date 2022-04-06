@@ -2,6 +2,8 @@ const http = require('http');
 const fs = require('fs');
 const formidable = require('formidable'); 
 
+const storageService = require('./services/storageServices.js');
+
 const port = 3000;
 
 const app = http.createServer((req, res) => {
@@ -55,8 +57,7 @@ const app = http.createServer((req, res) => {
             const form = new formidable.IncomingForm();
 
             form.parse(req, (err, fields, files) => {
-                // console.log(fields);
-                console.log('/////////////////////////////////////////////');
+                
                 console.log(fields);
 
                 res.end();
