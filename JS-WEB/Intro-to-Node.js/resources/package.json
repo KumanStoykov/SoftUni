@@ -8,10 +8,10 @@
   },
   "author": "",
   "license": "MIT",
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  },
   "dependencies": {
     "formidable": "^2.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
