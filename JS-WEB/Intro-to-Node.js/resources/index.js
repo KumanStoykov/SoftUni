@@ -1,132 +1,38 @@
 const http = require('http');
-const fs = require('fs');
-const formidable = require('formidable');
 
-const storageService = require('./services/storageServices.js');
-const db = require('./db.json');
+
+const router = require('./router.js');
+
+const homeController = require('./controllers/homeController.js');
+const addCatController = require('./controllers/addCatController.js'); 
+const addBreedController = require('./controllers/addBreedController.js'); 
+
+const createController = require('./controllers/createController.js'); 
+const deleteController = require('./controllers/deleteController.js');
+const shelterController = require('./controllers/shelterController.js');
+
+
+router.get('/', homeController);
+router.get('/cats/add-cat', addCatController);
+router.get('/cats/add-breed', addBreedController);
+router.get('/cats/catShelter', shelterController);
+
+router.post('/create', createController);
+
+router.get('/delete', deleteController);
+
+
 
 const port = 3000;
+const app = http.createServer(requestHandler);
 
-const app = http.createServer((req, res) => {
+function requestHandler(req, res) {
+    const url = new URL(req.url, 'http://localhost');
 
-    switch (req.url) {
-        case '/':
-            res.writeHead(200, {
-                'Content-Type': 'text/html'
-            });
-            fs.readFile('./views/index.html', (err, result) => {
-                if (err) {
-                    err.statusCode = 404;
-                    return res.end();
-                }
+    const handler = router.match(req.method, url.pathname);
 
-                res.write(result);
-                res.end();
-            });
-            break;
-        case '/content/styles/site.css':
-            res.writeHead(200, {
-                'Content-Type': 'text/css'
-            });
-            fs.readFile('./content/styles/site.css', (err, result) => {
-                if (err) {
-                    err.statusCode = 404;
-                    return res.end();
-                }
-
-                res.write(result);
-                res.end();
-            });
-            break;
-        case '/cats/add-cat':
-
-            if (req.method == 'GET') {
-
-                res.writeHead(200, {
-                    'Content-Type': 'text/html'
-                });
-                fs.readFile('./views/addCat.html', 'utf-8', (err, result) => {
-                    if (err) {
-                        err.statusCode = 404;
-                        return res.end();
-                    }
-                    let mappedBreeds = db.breeds.map(b => {
-                       return `<option value="${b.breed}">${b.breed}</option>`
-                    });
-                    console.log(mappedBreeds);
-                    
-                    result = result.replace('{{breeds}}', mappedBreeds);
-
-                    res.write(result);
-                    res.end();
-                });
-            } else if (req.method == 'POST') {
-
-                const form = new formidable.IncomingForm();
-
-                form.parse(req, (err, fields, files) => {
-
-                    storageService.saveCat(fields)
-                        .then(() => {
-
-                            res.end();
-                        })
-                        .catch(err => {
-                            console.log(err);
-                        });
-
-                    res.writeHead(302, {
-                        'Location': '/'
-                    });
-                    res.end();
-                });
-
-            }
-            break;
-
-        case '/cats/add-breed':
-
-            if (req.method == 'GET') {
-
-                res.writeHead(200, {
-                    'Content-Type': 'text/html'
-                });
-                fs.readFile('./views/addBreed.html', (err, result) => {
-                    if (err) {
-                        err.statusCode = 404;
-                        return res.end();
-                    }
-                    res.write(result);
-                    res.end();
-                });
-            } else if (req.method == 'POST') {
-
-                const form = new formidable.IncomingForm();
-
-                form.parse(req, (err, fields, files) => {
-
-                    storageService.saveBreed(fields)
-                        .then(() => {
-
-                            res.end();
-                        })
-                        .catch(err => {
-                            console.log(err);
-                        });
-
-                    res.writeHead(302, {
-                        'Location': '/cats/add-breed'
-                    });
-                    res.end();
-                });
-            }
-            break;
-        default:
-            res.statusCode = 404;
-            res.end();
-            break;
-    }
-});
+    handler(req, res);
+}
 
 app.listen(port);
 

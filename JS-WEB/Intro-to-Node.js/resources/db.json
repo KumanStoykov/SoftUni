@@ -1,24 +1,18 @@
 {
   "cats": [
     {
-      "name": "Roy",
-      "description": "asa;smdas;mda;msdams;ld",
-      "breed": "Fluffy Cat"
-    },
-    {
-      "name": "Sara",
-      "description": "asa;smdas;mda;msdams;ld",
-      "breed": "Fluffy Cat"
-    },
-    {
-      "name": "Easy Lasagna ssssss",
-      "description": "asdas",
-      "breed": "Fluffy Cat"
-    },
-    {
       "name": "Lisa",
-      "description": "Lisa is Angor cat.",
-      "breed": "Angor"
+      "description": "Lisa is good cat.",
+      "breed": "Angor",
+      "image": "./content/images/Lisa.jpg",
+      "_id": "-47452279"
+    },
+    {
+      "name": "Misho",
+      "description": "Misho is good cat.",
+      "breed": "American Bobtail",
+      "image": "./content/images/Misho.jpg",
+      "_id": "3589cdec"
     }
   ],
   "breeds": [
@@ -39,6 +33,9 @@
     },
     {
       "breed": "Unknown"
+    },
+    {
+      "breed": "Ocicat"
     }
   ]
 }
