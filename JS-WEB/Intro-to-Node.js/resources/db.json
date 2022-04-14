@@ -13,6 +13,20 @@
       "breed": "American Bobtail",
       "image": "./content/images/Misho.jpg",
       "_id": "3589cdec"
+    },
+    {
+      "name": "Lyli",
+      "description": "I am Lyli.",
+      "breed": "Birman",
+      "image": "./content/images/Lily.jpg",
+      "_id": "ad4983f"
+    },
+    {
+      "name": "asdas",
+      "description": "asdasd",
+      "breed": "Angor",
+      "image": "./content/images/Ana.jpg",
+      "_id": "-766fec87"
     }
   ],
   "breeds": [
