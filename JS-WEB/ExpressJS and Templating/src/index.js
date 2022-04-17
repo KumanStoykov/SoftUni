@@ -4,8 +4,7 @@ const path = require('path');
 const config = require('./config/config.json')[process.env.NODE_ENV || 'development'];
 
 
-const homeController = require('./controllers/homeController');
-
+const router = require('./router');
 
 
 const app = express();
@@ -15,7 +14,7 @@ require('./config/handlebars')(app);
 app.use(express.static(path.resolve(__dirname, './content')));
 
 
-app.use(homeController);
+app.use(router);
 
 
 app.listen(config.PORT, console.log.bind(console, `Application is running on http://localhost:${config.PORT}`));
