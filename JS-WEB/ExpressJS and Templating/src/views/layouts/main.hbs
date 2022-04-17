@@ -21,10 +21,12 @@
                 </ul>
             </nav>
             <h1>Cat Shelter</h1>
+            {{#if search}}            
             <form action="/search">
                 <input type="text">
                 <button type="button">Search</button>
             </form>
+            {{/if}}
         </header>
 
         {{{ body }}}
