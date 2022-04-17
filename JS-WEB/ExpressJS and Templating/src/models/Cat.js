@@ -2,7 +2,7 @@ const uniqid = require('uniqid');
 
 class Cat {
     static #cats = [
-
+        
     ];
 
     constructor(name, description, image, breed) {
