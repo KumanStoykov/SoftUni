@@ -25,13 +25,16 @@ const createBreed = (breed) => {
 
 const editCat = (catId, cat) => Cat.findByIdAndUpdate(catId, cat);
 
+const catDelete = (catId) => Cat.deleteCat(catId);
+
 const catServices = {
     getAllCats,
     createCat,
     getAllBreeds,
     createBreed,
     getById,
-    editCat
+    editCat,
+    catDelete
 };
 
 

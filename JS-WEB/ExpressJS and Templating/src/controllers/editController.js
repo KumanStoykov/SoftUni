@@ -33,7 +33,7 @@ const editCat = async (req, res) => {
     res.redirect('/');
 }
 
-router.get('/cats/:catId', renderEdit);
-router.post('/cats/:catId', editCat);
+router.get('/cats/edit/:catId', renderEdit);
+router.post('/cats/edit/:catId', editCat);
 
 module.exports = router;

@@ -47,6 +47,11 @@ class Cat {
 
         Cat.#cats.splice(index, 1, cat);
     }
+
+    static deleteCat(catId) {
+        const index = Cat.#cats.findIndex(c => catId == c.id);
+        Cat.#cats.splice(index, 1);
+    }
 }
 
 module.exports = Cat;
