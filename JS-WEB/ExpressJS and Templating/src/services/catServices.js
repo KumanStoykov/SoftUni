@@ -3,10 +3,15 @@ const Breed = require('../models/Breed');
 
 const getAllCats = () => Cat.cats;
 
+const getById = (id) => {
+    const cats = Cat.cats;
+    return cats.find(c => id == c.id);
+};
+
 const createCat = (name, description, upload, breed) => {
 
     const cat = new Cat(name, description, upload, breed);
-    console.log(cat)
+
     Cat.add(cat);
 }
 
@@ -18,11 +23,15 @@ const createBreed = (breed) => {
     Breed.add(addBreed);
 }
 
+const updateOne = (catId, cat) => Cat.findByIdAndUpdate(catId, cat);
+
 const catServices = {
     getAll: getAllCats,
     createCat,
     getAllBreeds,
-    createBreed
+    createBreed,
+    getById,
+    updateOne
 };
 
 

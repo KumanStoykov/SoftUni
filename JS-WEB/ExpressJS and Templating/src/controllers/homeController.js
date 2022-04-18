@@ -9,6 +9,8 @@ const home = (req, res) => {
         search: true,
         cats
     });
+
+    console.log(cats);
 }
 
 router.get('/', home);

@@ -40,6 +40,13 @@ class Cat {
     static add(cat) {
         Cat.#cats.push(cat);
     }
+
+    static findByIdAndUpdate(catId, cat) {
+        const index = Cat.#cats.findIndex(c => catId == c.id);
+        cat.id = uniqid();  
+
+        Cat.#cats.splice(index, 1, cat);
+    }
 }
 
 module.exports = Cat;

@@ -15,13 +15,13 @@ const renderAddCat = (req, res) => {
 
 const createCat = async (req, res) => {
     const { name, description, breed } = req.body;
-    const image = req.files.upload;
+    const currentImage = req.files.upload;
 
-    await image.mv(path.resolve(__dirname, '../content/images/' + image.name));
-    const imagePath = '/images/' + image.name;
-    console.log(name, description, imagePath, breed)
+    await currentImage.mv(path.resolve(__dirname, '../content/images/' + currentImage.name));
+    const image = '/images/' + currentImage.name;
 
-    catService.createCat(name, description, imagePath, breed);
+   
+    catService.createCat(name, description, image, breed);
 
     res.redirect('/');
 }
