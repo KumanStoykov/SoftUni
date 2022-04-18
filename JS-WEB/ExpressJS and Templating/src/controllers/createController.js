@@ -20,7 +20,7 @@ const createCat = async (req, res) => {
     await currentImage.mv(path.resolve(__dirname, '../content/images/' + currentImage.name));
     const image = '/images/' + currentImage.name;
 
-   
+
     catService.createCat(name, description, image, breed);
 
     res.redirect('/');

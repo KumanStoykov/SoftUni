@@ -30,7 +30,7 @@ const catDelete = (catId) => Cat.deleteCat(catId);
 
 const search = (searchInput) => {
     const result = Cat.cats.filter(c => c.name.toLowerCase().includes(searchInput.toLowerCase()));
-    
+
     return result;
 }
 

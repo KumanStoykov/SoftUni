@@ -11,7 +11,7 @@ const renderSalter = (req, res) => {
 
 const deleteCat = (req, res) => {
     const catId = req.params.catId;
-    
+
     catService.catDelete(catId);
     res.redirect('/');
 }

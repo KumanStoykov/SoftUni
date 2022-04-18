@@ -13,10 +13,10 @@ const home = (req, res) => {
 
 const search = (req, res) => {
 
-    const searchInput =  req.query.search;
+    const searchInput = req.query.search;
 
     const cats = catService.search(searchInput);
-    
+
     res.render('index', {
         searchView: true,
         cats

@@ -20,13 +20,13 @@ const editCat = async (req, res) => {
 
     const { name, description, breed } = req.body;
 
-    if(req.files == undefined) {
+    if (req.files == undefined) {
         return;
     }
     const currentImage = req.files.upload;
-    
+
     await currentImage.mv(path.resolve(__dirname, '../content/images/' + currentImage.name));
-    const image = '/images/' + currentImage.name;    
+    const image = '/images/' + currentImage.name;
 
     catService.editCat(catId, { name, description, image, breed });
 

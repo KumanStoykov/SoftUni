@@ -43,7 +43,7 @@ class Cat {
 
     static findByIdAndUpdate(catId, cat) {
         const index = Cat.#cats.findIndex(c => catId == c.id);
-        cat.id = uniqid();  
+        cat.id = uniqid();
 
         Cat.#cats.splice(index, 1, cat);
     }
