@@ -5,8 +5,9 @@ const getAllCats = () => Cat.cats;
 
 const createCat = (name, description, upload, breed) => {
 
-    const cats = new Cat(name, description, upload, breed);
-    Cat.add(cats);
+    const cat = new Cat(name, description, upload, breed);
+    console.log(cat)
+    Cat.add(cat);
 }
 
 const getAllBreeds = () => Breed.breeds;
