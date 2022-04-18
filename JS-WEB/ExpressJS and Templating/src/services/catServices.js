@@ -23,15 +23,15 @@ const createBreed = (breed) => {
     Breed.add(addBreed);
 }
 
-const updateOne = (catId, cat) => Cat.findByIdAndUpdate(catId, cat);
+const editCat = (catId, cat) => Cat.findByIdAndUpdate(catId, cat);
 
 const catServices = {
-    getAll: getAllCats,
+    getAllCats,
     createCat,
     getAllBreeds,
     createBreed,
     getById,
-    updateOne
+    editCat
 };
 
 

@@ -4,13 +4,11 @@ const catService = require('../services/catServices');
 const router = express.Router();
 
 const home = (req, res) => {
-    const cats = catService.getAll();
+    const cats = catService.getAllCats();
     res.render('index', {
         search: true,
         cats
     });
-
-    console.log(cats);
 }
 
 router.get('/', home);

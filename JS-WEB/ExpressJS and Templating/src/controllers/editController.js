@@ -1,4 +1,3 @@
-const { request } = require('express');
 const express = require('express');
 const path = require('path');
 
@@ -27,10 +26,9 @@ const editCat = async (req, res) => {
     const currentImage = req.files.upload;
     
     await currentImage.mv(path.resolve(__dirname, '../content/images/' + currentImage.name));
-    const image = '/images/' + currentImage.name;
-    
+    const image = '/images/' + currentImage.name;    
 
-    catService.updateOne(catId, { name, description, image, breed });
+    catService.editCat(catId, { name, description, image, breed });
 
     res.redirect('/');
 }
