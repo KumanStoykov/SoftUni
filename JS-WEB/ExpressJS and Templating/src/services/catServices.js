@@ -1,6 +1,7 @@
 const Cat = require('../models/Cat');
 const Breed = require('../models/Breed');
 
+
 const getAllCats = () => Cat.cats;
 
 const getById = (id) => {
@@ -27,6 +28,12 @@ const editCat = (catId, cat) => Cat.findByIdAndUpdate(catId, cat);
 
 const catDelete = (catId) => Cat.deleteCat(catId);
 
+const search = (searchInput) => {
+    const result = Cat.cats.filter(c => c.name.toLowerCase().includes(searchInput.toLowerCase()));
+    
+    return result;
+}
+
 const catServices = {
     getAllCats,
     createCat,
@@ -34,7 +41,8 @@ const catServices = {
     createBreed,
     getById,
     editCat,
-    catDelete
+    catDelete,
+    search
 };
 
 
