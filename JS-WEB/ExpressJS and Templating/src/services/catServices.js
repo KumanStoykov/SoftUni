@@ -1,15 +1,27 @@
 const Cat = require('../models/Cat');
+const Breed = require('../models/Breed');
 
-const getAll = () => Cat.cats;
+const getAllCats = () => Cat.cats;
 
-const create = (name, description, upload, breed) => {
-    
-     const cat = new Cat(name, description, upload, breed);
-     Cat.add(cat);
+const createCat = (name, description, upload, breed) => {
+
+    const cats = new Cat(name, description, upload, breed);
+    Cat.add(cats);
 }
+
+const getAllBreeds = () => Breed.breeds;
+
+const createBreed = (breed) => {
+    const addBreed = new Breed(breed);
+
+    Breed.add(addBreed);
+}
+
 const catServices = {
-    getAll,
-    create,
+    getAll: getAllCats,
+    createCat,
+    getAllBreeds,
+    createBreed
 };
 
 

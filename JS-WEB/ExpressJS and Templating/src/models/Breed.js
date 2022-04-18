@@ -1,5 +1,18 @@
 class Breed {
-    static #breeds = []
+    static #breeds = [
+        {
+            breedName: 'Ocicat'
+        },
+        {
+            breedName: 'Angor'
+        },
+        {
+            breedName: 'American bobcat'
+        },
+        {
+            breedName: 'Persian'
+        },
+    ]
 
     constructor(breedName) {
         this.breedName = breedName
@@ -13,3 +26,5 @@ class Breed {
         Breed.#breeds.push(breed);
     }
 }
+
+module.exports = Breed;
