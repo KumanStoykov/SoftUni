@@ -21,7 +21,6 @@ app.use(router);
 
 initDatabase(config.DB_CONNECTION_STRING)
     .then(() => {
-        console.log('Is connect')
         app.listen(config.PORT, console.log.bind(console, `Application is running on http://localhost:${config.PORT}`));
     })
     .catch(err =>  {
