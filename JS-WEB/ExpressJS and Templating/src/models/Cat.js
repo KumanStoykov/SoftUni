@@ -10,7 +10,7 @@ const catSchema = new mongoose.Schema({
         required: true,
         maxlength: 120
     },
-    image: {
+    imageUrl: {
         type: String,
         required: true,
         validate: [/^https?:\/\//i, 'Invalid image url']
