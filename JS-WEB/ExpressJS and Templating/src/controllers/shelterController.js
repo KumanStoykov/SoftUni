@@ -3,16 +3,16 @@ const express = require('express');
 const catService = require('../services/catServices');
 const router = express.Router();
 
-const renderSalter = (req, res) => {
-    const cat = catService.getById(req.params.catId);
+const renderSalter = async (req, res) => {
+    const cat = await catService.getById(req.params.catId);
 
     res.render('catShelter', { cat });
 };
 
-const deleteCat = (req, res) => {
+const deleteCat = async (req, res) => {
     const catId = req.params.catId;
 
-    catService.catDelete(catId);
+   await catService.catDelete(catId);
     res.redirect('/');
 }
 
