@@ -6,11 +6,11 @@
         <label for="description">Description</label>
         <textarea name="description" id="description"></textarea>
         <label for="image">Image</label>
-        <input name="image"  id="image">
+        <input name="imageUrl" type="text"  id="image">
         <label for="group">Breed</label>
         <select name="breed" id="group">
             {{#each allBreeds}}
-            <option value="{{breedName}}">{{breedName}}</option>
+            <option value="{{breed}}">{{breed}}</option>
             {{/each}}
         </select>
         <button type="submit">Add Cat</button>

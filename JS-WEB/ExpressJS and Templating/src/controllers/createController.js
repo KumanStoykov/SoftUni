@@ -1,41 +1,36 @@
 const express = require('express');
-const path = require('path');
 
 const catService = require('../services/catServices');
-
+const breedService = require('../services/breedService');
 
 
 const router = express.Router();
 
-const renderAddCat = (req, res) => {
-    const allBreeds = catService.getAllBreeds();
-
+const renderAddCat = async (req, res) => {
+    const allBreeds = await breedService.getAllBreeds();
+    
     res.render('addCat', { allBreeds });
 };
 
 const createCat = async (req, res) => {
-    const { name, description, breed } = req.body;
-    const currentImage = req.files.upload;
+    const { name, description, imageUrl, breed } = req.body;
 
-    await currentImage.mv(path.resolve(__dirname, '../content/images/' + currentImage.name));
-    const image = '/images/' + currentImage.name;
-
-
-    catService.createCat(name, description, image, breed);
+    await catService.createCat(name, description, imageUrl, breed);
 
     res.redirect('/');
-}
+};
 
 const renderAddBread = (req, res) => {
     res.render('addBreed');
 };
 
-const createBreed = (req, res) => {
+const createBreed = async (req, res) => {
+    const { breed } = req.body;
 
-    catService.createBreed(req.body.breed);
+    await breedService.createBreed(breed);
 
     res.redirect('/cats/add-breed');
-}
+};
 
 
 router.get('/cats/add-cat', renderAddCat);
