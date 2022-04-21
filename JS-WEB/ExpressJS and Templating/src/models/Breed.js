@@ -1,30 +1,11 @@
-class Breed {
-    static #breeds = [
-        {
-            breedName: 'Ocicat'
-        },
-        {
-            breedName: 'Angor'
-        },
-        {
-            breedName: 'American bobcat'
-        },
-        {
-            breedName: 'Persian'
-        },
-    ]
+const mongoose = require('mongoose');
 
-    constructor(breedName) {
-        this.breedName = breedName
+const breedSchema = new mongoose.Schema({
+    breed: {
+        type: String, 
+        required: true
     }
+});
 
-    static get breeds() {
-        return Breed.#breeds.slice();
-    }
-
-    static add(breed) {
-        Breed.#breeds.push(breed);
-    }
-}
-
+const Breed = mongoose.model('Breed', breedSchema);
 module.exports = Breed;
