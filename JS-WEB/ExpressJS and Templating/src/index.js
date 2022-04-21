@@ -1,6 +1,7 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
 const path = require('path');
+const initDatabase = require('./config/database');
 
 const config = require('./config/config.json')[process.env.NODE_ENV || 'development'];
 const router = require('./router');
@@ -14,7 +15,7 @@ app.use(fileUpload({
     createParentPath: true
 }));
 
-//Handlebars config 
+//Handlebars config init
 require('./config/handlebars')(app);
 
 app.use(express.static(path.resolve(__dirname, './content')));
@@ -22,5 +23,11 @@ app.use(express.static(path.resolve(__dirname, './content')));
 
 app.use(router);
 
-
-app.listen(config.PORT, console.log.bind(console, `Application is running on http://localhost:${config.PORT}`));
+initDatabase(config.DB_CONNECTION_STRING)
+    .then(() => {
+        console.log('Is connect')
+        app.listen(config.PORT, console.log.bind(console, `Application is running on http://localhost:${config.PORT}`));
+    })
+    .catch(err =>  {
+        console.log('Application init failed: ', err);
+    })
