@@ -3,8 +3,8 @@ const catService = require('../services/catServices');
 
 const router = express.Router();
 
-const home = (req, res) => {
-    const cats = catService.getAllCats();
+const home = async (req, res) => {
+    const cats = await catService.getAllCats();
     res.render('index', {
         searchView: true,
         cats
