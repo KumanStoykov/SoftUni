@@ -1,33 +1,22 @@
 const express = require('express');
-const path = require('path');
 
 const catService = require('../services/catServices');
 
+
 const router = express.Router();
 
-const renderEdit = (req, res) => {
-    const cat = catService.getById(req.params.catId);
-    const allBreeds = catService.getAllBreeds();
+const renderEdit = async (req, res) => {
+    const cat = await catService.getById(req.params.catId);
+    
 
-    res.render('editCat', {
-        cat,
-        allBreeds
-    });
+    res.render('editCat', { cat });
 };
 
 const editCat = async (req, res) => {
     const catId = req.params.catId;
 
-    const { name, description, breed } = req.body;
-
-    if (req.files == undefined) {
-        return;
-    }
-    const currentImage = req.files.upload;
-
-    await currentImage.mv(path.resolve(__dirname, '../content/images/' + currentImage.name));
-    const image = '/images/' + currentImage.name;
-
+    const { name, description, image, breed } = req.body;
+   
     catService.editCat(catId, { name, description, image, breed });
 
     res.redirect('/');
