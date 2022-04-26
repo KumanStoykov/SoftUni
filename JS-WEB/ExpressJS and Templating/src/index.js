@@ -1,15 +1,18 @@
 const express = require('express');
 const path = require('path');
-const initDatabase = require('./config/database');
+const cookiesParser = require('cookie-parser');
 
 const config = require('./config/config.json')[process.env.NODE_ENV || 'development'];
 const router = require('./router');
+const initDatabase = require('./config/database');
+const authMiddleware = require('./middlewares/authMiddleware');
 
 
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
-
+app.use((cookiesParser()));
+app.use(authMiddleware.auth);
 
 //Handlebars config init
 require('./config/handlebars')(app);

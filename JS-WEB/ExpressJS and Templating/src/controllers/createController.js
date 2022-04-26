@@ -1,10 +1,9 @@
-const express = require('express');
+const router = require('express').Router();
 
 const catService = require('../services/catServices');
 const breedService = require('../services/breedService');
+const authMiddleware = require('../middlewares/authMiddleware');
 
-
-const router = express.Router();
 
 const renderAddCat = async (req, res) => {
     const allBreeds = await breedService.getAllBreeds();
