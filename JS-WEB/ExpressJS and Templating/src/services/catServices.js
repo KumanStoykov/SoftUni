@@ -5,9 +5,9 @@ const getAllCats = async () => Cat.find({}).lean();
 
 const getById = async (id) => await Cat.findById(id).lean();
 
-const createCat = async (name, description, imageUrl, breed) => {
+const createCat = async (name, description, imageUrl, breed, userId) => {
 
-    const cat = new Cat({ name, description, imageUrl, breed });
+    const cat = new Cat({ name, description, imageUrl, breed, owner: userId });
 
     return await cat.save();
 };

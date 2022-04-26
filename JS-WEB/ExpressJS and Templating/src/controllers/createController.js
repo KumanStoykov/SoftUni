@@ -16,7 +16,7 @@ const createCat = async (req, res) => {
 
     try{
 
-        await catService.createCat(name, description, imageUrl, breed);
+        await catService.createCat(name, description, imageUrl, breed, req.user._id);
     
         res.redirect('/');
     }catch(err) {

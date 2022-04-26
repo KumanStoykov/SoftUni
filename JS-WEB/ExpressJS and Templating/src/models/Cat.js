@@ -18,6 +18,10 @@ const catSchema = new mongoose.Schema({
     breed: {
         type: String,
         required: true
+    },
+    owner: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
     }
 });
 

@@ -1,9 +1,7 @@
-const express = require('express');
+const router = require('express').Router();
 
 const catService = require('../services/catServices');
-
-
-const router = express.Router();
+const isOwner = require('../middlewares/catAuthMiddleware');
 
 const renderEdit = async (req, res) => {
     const cat = await catService.getById(req.params.catId);
@@ -22,7 +20,7 @@ const editCat = async (req, res) => {
     res.redirect('/');
 }
 
-router.get('/cats/edit/:catId', renderEdit);
-router.post('/cats/edit/:catId', editCat);
+router.get('/cats/edit/:catId', isOwner, renderEdit);
+router.post('/cats/edit/:catId', isOwner, editCat);
 
 module.exports = router;

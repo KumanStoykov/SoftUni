@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const catService = require('../services/catServices');
+const isOwner = require('../middlewares/catAuthMiddleware');
 
 const renderShelter = async (req, res) => {
     const cat = await catService.getById(req.params.catId);
@@ -14,7 +15,7 @@ const deleteCat = async (req, res) => {
     res.redirect('/');
 }
 
-router.get('/cats/shelter/:catId', renderShelter);
-router.get('/cats/delete/:catId', deleteCat);
+router.get('/cats/shelter/:catId', isOwner, renderShelter);
+router.get('/cats/delete/:catId', isOwner, deleteCat);
 
 module.exports = router;
