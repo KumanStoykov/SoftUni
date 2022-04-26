@@ -15,9 +15,15 @@ const renderAddCat = async (req, res) => {
 const createCat = async (req, res) => {
     const { name, description, imageUrl, breed } = req.body;
 
-    await catService.createCat(name, description, imageUrl, breed);
+    try{
 
-    res.redirect('/');
+        await catService.createCat(name, description, imageUrl, breed);
+    
+        res.redirect('/');
+    }catch(err) {
+        res.status(400).send(err.message);
+    }
+
 };
 
 const renderAddBread = (req, res) => {
