@@ -11,5 +11,8 @@ router.use(homeController);
 router.use(createController);
 router.use(catShelter);
 router.use(editCat);
+router.use('*', (req, res) => {
+    res.status(404).render('404');
+});
 
 module.exports  = router;
