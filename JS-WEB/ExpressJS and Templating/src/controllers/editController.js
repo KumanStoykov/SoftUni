@@ -10,13 +10,12 @@ const renderEdit = async (req, res) => {
     res.render('editCat', { cat });
 };
 
-const editCat = async (req, res) => {
+const editCat = (req, res) => {
     const catId = req.params.catId;
 
-    const { name, description, imageUrl, breed } = req.body;
-    
+    const { name, description, imageUrl, breed } = req.body;    
 
-    await catService.editCat(catId, { name, description, imageUrl, breed });
+    catService.editCat(catId, { name, description, imageUrl, breed });
 
     res.redirect('/');
 };

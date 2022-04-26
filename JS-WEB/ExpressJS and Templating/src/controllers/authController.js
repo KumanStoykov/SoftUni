@@ -27,25 +27,25 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-   const { username, password } = req.body;
+    const { username, password } = req.body;
 
-   let user = await authServices.login(username, password);
+    let user = await authServices.login(username, password);
 
-   if(!user) {
-       return res.redirect('/register');
-   }
-   let token = await authServices.createToken(user);
+    if (!user) {
+        return res.redirect('/register');
+    }
+    let token = await authServices.createToken(user);
 
-   res.cookie(TOKEN_COOKIE_NAME, token, {
+    res.cookie(TOKEN_COOKIE_NAME, token, {
         httpOnly: true
-   });
+    });
     res.redirect('/');
 });
 
 router.get('/logout', (req, res) => {
-   res.clearCookie(TOKEN_COOKIE_NAME);
+    res.clearCookie(TOKEN_COOKIE_NAME);
 
-   res.redirect('/');
+    res.redirect('/');
 });
 
 module.exports = router;

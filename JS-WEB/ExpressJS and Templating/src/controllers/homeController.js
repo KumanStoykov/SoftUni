@@ -15,7 +15,7 @@ const search = async (req, res) => {
 
     const searchInput = req.query.search;
 
-    const cats = await catService.search(searchInput);    
+    const cats = await catService.search(searchInput);
 
     res.render('index', {
         searchView: true,

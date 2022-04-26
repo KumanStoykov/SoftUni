@@ -8,10 +8,10 @@ const renderShelter = async (req, res) => {
     res.render('catShelter', { cat });
 };
 
-const deleteCat = async (req, res) => {
+const deleteCat = (req, res) => {
     const catId = req.params.catId;
 
-   await catService.catDelete(catId);
+    catService.catDelete(catId);
     res.redirect('/');
 }
 

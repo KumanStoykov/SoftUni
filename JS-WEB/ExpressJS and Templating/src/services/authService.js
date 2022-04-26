@@ -13,13 +13,13 @@ const login = async (username, password) => {
         let user = await User.findByUsername(username);
         let isValid = await user.validatePassword(password);
 
-        if(isValid) {
+        if (isValid) {
             return user;
         } else {
             throw new Error('Cannot find username or password!');
         }
 
-    } catch(err) {
+    } catch (err) {
         console.log(err.message);
     }
 };

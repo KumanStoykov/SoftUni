@@ -7,19 +7,19 @@ const authMiddleware = require('../middlewares/authMiddleware');
 
 const renderAddCat = async (req, res) => {
     const allBreeds = await breedService.getAllBreeds();
-    
+
     res.render('addCat', { allBreeds });
 };
 
 const createCat = async (req, res) => {
     const { name, description, imageUrl, breed } = req.body;
 
-    try{
+    try {
 
         await catService.createCat(name, description, imageUrl, breed, req.user._id);
-    
+
         res.redirect('/');
-    }catch(err) {
+    } catch (err) {
         res.status(400).send(err.message);
     }
 

@@ -1,20 +1,20 @@
 const Cat = require('../models/Cat');
 
 
-const getAllCats = async () => Cat.find({}).lean();
+const getAllCats = () => Cat.find({}).lean();
 
-const getById = async (id) => await Cat.findById(id).lean();
+const getById = (id) => Cat.findById(id).lean();
 
-const createCat = async (name, description, imageUrl, breed, userId) => {
+const createCat = (name, description, imageUrl, breed, userId) => {
 
     const cat = new Cat({ name, description, imageUrl, breed, owner: userId });
 
-    return await cat.save();
+    return cat.save();
 };
 
-const editCat = async (catId, cat) => await Cat.findByIdAndUpdate(catId, cat).lean();
+const editCat = (catId, cat) => Cat.findByIdAndUpdate(catId, cat).lean();
 
-const catDelete = async (catId) => Cat.deleteOne({ _id: catId });
+const catDelete = (catId) => Cat.deleteOne({ _id: catId });
 
 const search = async (searchInput) => {
     const searchCats = await getAllCats();
