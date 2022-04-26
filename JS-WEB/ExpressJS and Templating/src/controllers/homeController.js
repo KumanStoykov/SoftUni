@@ -11,11 +11,11 @@ const home = async (req, res) => {
     });
 }
 
-const search = (req, res) => {
+const search = async (req, res) => {
 
     const searchInput = req.query.search;
 
-    const cats = catService.search(searchInput);
+    const cats = await catService.search(searchInput);    
 
     res.render('index', {
         searchView: true,

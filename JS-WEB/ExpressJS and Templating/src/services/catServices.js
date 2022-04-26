@@ -14,13 +14,15 @@ const createCat = async (name, description, imageUrl, breed, userId) => {
 
 const editCat = async (catId, cat) => await Cat.findByIdAndUpdate(catId, cat).lean();
 
-const catDelete = async (catId) => Cat.deleteOne({_id: catId});
+const catDelete = async (catId) => Cat.deleteOne({ _id: catId });
 
-const search = (searchInput) => {
-    const result = getAllCats().filter(c => c.name.toLowerCase().includes(searchInput.toLowerCase()));
+const search = async (searchInput) => {
+    const searchCats = await getAllCats();
+
+    const result = searchCats.filter(c => c.name.toLowerCase().includes(searchInput.toLowerCase()));
 
     return result;
-}
+};
 
 const catServices = {
     getAllCats,
