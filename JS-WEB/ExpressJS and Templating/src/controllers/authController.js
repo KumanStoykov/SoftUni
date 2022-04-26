@@ -32,7 +32,7 @@ router.post('/login', async (req, res) => {
    let user = await authServices.login(username, password);
 
    if(!user) {
-       return res.redirect('404');
+       return res.redirect('/register');
    }
    let token = await authServices.createToken(user);
 
