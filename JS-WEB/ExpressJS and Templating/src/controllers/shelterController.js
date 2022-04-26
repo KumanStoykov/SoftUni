@@ -1,7 +1,5 @@
-const express = require('express');
-
+const router = require('express').Router();
 const catService = require('../services/catServices');
-const router = express.Router();
 
 const renderShelter = async (req, res) => {
     const cat = await catService.getById(req.params.catId);
