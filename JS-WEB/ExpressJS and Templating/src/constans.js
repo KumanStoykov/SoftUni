@@ -1,0 +1,2 @@
+exports.SECRET = '68A81F485187F3C14CF848F5FF2BF';
+exports.TOKEN_COOKIE_NAME = 'user_token';
