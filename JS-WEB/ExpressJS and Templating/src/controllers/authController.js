@@ -42,4 +42,10 @@ router.post('/login', async (req, res) => {
     res.redirect('/');
 });
 
+router.get('/logout', (req, res) => {
+   res.clearCookie(TOKEN_COOKIE_NAME);
+
+   res.redirect('/');
+});
+
 module.exports = router;
