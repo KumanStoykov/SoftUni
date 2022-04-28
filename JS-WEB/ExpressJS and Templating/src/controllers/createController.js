@@ -12,6 +12,7 @@ const renderAddCat = async (req, res) => {
 };
 
 const createCat = async (req, res) => {
+    const allBreeds = await breedService.getAllBreeds();
     const { name, description, imageUrl, breed } = req.body;
 
     try {
@@ -20,7 +21,8 @@ const createCat = async (req, res) => {
 
         res.redirect('/');
     } catch (err) {
-        res.status(400).send(err.message);
+        const errors = Object.keys(err.errors).map(x => err.errors[x].message);
+        res.render('addCat', { allBreeds, errors });
     }
 
 };
@@ -32,9 +34,15 @@ const renderAddBread = (req, res) => {
 const createBreed = async (req, res) => {
     const { breed } = req.body;
 
-    await breedService.createBreed(breed);
+    try{
 
-    res.redirect('/cats/add-breed');
+        await breedService.createBreed(breed);
+    
+        res.redirect('/cats/add-breed');
+    } catch(err) {
+        res.render('addBreed', { errors: [err.message]})
+    }
+
 };
 
 
