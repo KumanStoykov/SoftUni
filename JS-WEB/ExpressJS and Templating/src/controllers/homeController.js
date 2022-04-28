@@ -5,6 +5,11 @@ const router = express.Router();
 
 const home = async (req, res) => {
     const cats = await catService.getAllCats();
+
+    cats.map(cat => {
+        cat.isOwn = cat.owner == req.user?._id
+    });
+
     res.render('index', {
         searchView: true,
         cats
