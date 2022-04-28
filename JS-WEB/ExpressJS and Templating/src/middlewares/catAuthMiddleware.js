@@ -7,7 +7,7 @@ const isOwner = async (req, res, next) => {
         req.cat = cat;
 
         next();
-    } else {
+    } else {        
         next('You are not authorized to edit this cat');
     }
 };

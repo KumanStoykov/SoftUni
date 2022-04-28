@@ -3,8 +3,10 @@
     <h3>{{name}}</h3>
     <p><span>Breed: </span>{{breed}}</p>
     <p><span>Description: </span>{{description}}</p>
+    {{#if isOwn}}
     <ul class="buttons">
         <li class="btn edit"><a href="/cats/edit/{{_id}}">Change Info</a></li>
         <li class="btn delete"><a href="/cats/shelter/{{_id}}">New Home</a></li> 
     </ul>
+    {{/if}}
 </li>

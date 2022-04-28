@@ -12,7 +12,7 @@ const createCat = (name, description, imageUrl, breed, userId) => {
     return cat.save();
 };
 
-const editCat = (catId, cat) => Cat.findByIdAndUpdate(catId, cat).lean();
+const editCat = (catId, cat) => Cat.findByIdAndUpdate(catId, cat);
 
 const catDelete = (catId) => Cat.deleteOne({ _id: catId });
 
