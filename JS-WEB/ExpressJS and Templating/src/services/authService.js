@@ -3,7 +3,7 @@ const jwtUtils = require('../utility/jwtUtils');
 const { SECRET } = require('../constants');
 
 
-const register = (username, password, repeatPassword) => {
+const register = (username, password) => {
     return User.create({ username, password });
 };
 

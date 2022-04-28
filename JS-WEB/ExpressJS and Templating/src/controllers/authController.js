@@ -7,19 +7,26 @@ router.get('/register', (req, res) => {
     res.render('user/register');
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
+    const { username, password, repeatPassword } = req.body;
 
     try {
-        const { username, password, repeatPassword } = req.body;
+        if (password != repeatPassword) {
+            throw new Error('Password don\'t match!');
+        }
 
-        authServices.register(username, password, repeatPassword)
-            .then(() => {
-                res.redirect('/login');
-            });
+        await authServices.register(username, password);
+
+        res.redirect('/login');
 
     } catch (err) {
-        res.status(400).send(err.message);
+        const errors = Object.keys(err.errors).map(x => err.errors[x].message);
+        
+        res.locals.errors = errors;
+        
+        res.render('user/register');
     }
+    
 });
 
 router.get('/login', (req, res) => {
@@ -29,17 +36,29 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
-    let user = await authServices.login(username, password);
+    
+    try {
+        let user = await authServices.login(username, password);
 
-    if (!user) {
-        return res.redirect('/register');
+        if (!username || !password) {
+            throw new Error('Username and password is required!');
+        }
+        
+        if(!user) {
+            res.locals.isNotRegistered = true;
+            
+            throw new Error('User is not registered!');
+        }
+        
+        let token = await authServices.createToken(user);
+        
+        res.cookie(TOKEN_COOKIE_NAME, token, {
+            httpOnly: true
+        });
+        res.redirect('/');
+    }catch(err) {
+        res.render('user/login', { errors: [err]});
     }
-    let token = await authServices.createToken(user);
-
-    res.cookie(TOKEN_COOKIE_NAME, token, {
-        httpOnly: true
-    });
-    res.redirect('/');
 });
 
 router.get('/logout', (req, res) => {

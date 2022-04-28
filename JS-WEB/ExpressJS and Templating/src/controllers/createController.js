@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const catService = require('../services/catServices');
 const breedService = require('../services/breedService');
-const authMiddleware = require('../middlewares/authMiddleware');
+
 
 
 const renderAddCat = async (req, res) => {

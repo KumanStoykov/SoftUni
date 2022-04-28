@@ -245,4 +245,20 @@ body > form > label:nth-child(3) {
     color: white;
     border-radius: 5px;
     text-decoration: underline;
-  }
+}
+
+.notBtn {
+    width: 100px;
+    text-align: center;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 7px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: lightskyblue;
+    margin-bottom: 1.5rem;
+    display: block;      
+    margin: 0 auto;
+    
+}

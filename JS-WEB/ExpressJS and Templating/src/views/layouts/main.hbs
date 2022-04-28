@@ -34,11 +34,15 @@
             </form>
             {{/if}}
         </header>
-        {{#if error}}
+        {{#each errors}}
         <div id="notifications">
-            <p id="notification-message">{{error}}</p>
+            <p id="notification-message">{{this}}</p>
         </div>
-        {{/if}}
+        {{/each}}
+            {{#if isNotRegistered}}
+            <button class="notBtn"><a href="/register">Register</a></button>
+            {{/if}}
+
         {{{ body }}}
 
     </body>
