@@ -1,3 +1,5 @@
+import AboutCard from "./AboutCard";
+
 const About = () => (
     <>
        <div id="about" className="choose_section">
@@ -12,36 +14,23 @@ const About = () => (
         <div className="choose_section_2">
           <div className="container">
               <div className="row">
-                <div className="col-sm-4">
-                  <div className="power_full">
-                    <div className="icon"><a href="#"><img src="images/power-full-icon.png" /></a></div>
-                    <h2 className="powerful_text">Powerful Features</h2>
-                    <p className="making_tetx">making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still </p>
-                  </div>
-                  <div className="btn_main">
-                      <button type="button" className="read_bt"><a href="#">Read More</a></button>
-                  </div>
-                </div>
-                <div className="col-sm-4">
-                  <div className="power">
-                    <div className="icon"><a href="#"><img src="images/optimised-icon.png" /></a></div>
-                    <h2 className="totaly_text">Totaly Optimised</h2>
-                    <p className="making">making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still </p>
-                  </div>
-                  <div className="btn_main">
-                      <button type="button" className="read_bt"><a href="#">Read More</a></button>
-                  </div>
-                </div>
-                <div className="col-sm-4">
-                  <div className="power">
-                    <div className="icon"><a href="#"><img src="images/headfone-icon.png" /></a></div>
-                    <h2 className="totaly_text">Worldwide Support</h2>
-                    <p className="making">making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still </p>
-                  </div>
-                  <div className="btn_main">
-                      <button type="button" role="button"  className="read_bt"><a href="#">Read More</a></button>
-                  </div>
-                </div>
+
+                <AboutCard  
+                title="Powerful Features"
+                description="making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still "
+                imageUrl="images/power-full-icon.png"
+                />
+                <AboutCard  
+                title="Totaly Optimised"
+                description="making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still "
+                imageUrl="images/optimised-icon.png"
+                />
+                <AboutCard  
+                title="Worldwide Support"
+                description="making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still "
+                imageUrl="images/headfone-icon.png"
+                />
+                
               </div>    		
           </div>
         </div>
@@ -69,3 +58,4 @@ const About = () => (
 );
 
 export default About;
+
