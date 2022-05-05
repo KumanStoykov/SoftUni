@@ -19,16 +19,21 @@ const About = () => (
                 title="Powerful Features"
                 description="making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still "
                 imageUrl="images/power-full-icon.png"
+                isMark={true}
                 />
                 <AboutCard  
                 title="Totaly Optimised"
                 description="making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still "
                 imageUrl="images/optimised-icon.png"
+                isMark={false}
+
                 />
                 <AboutCard  
                 title="Worldwide Support"
                 description="making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still "
                 imageUrl="images/headfone-icon.png"
+                isMark={false}
+
                 />
                 
               </div>    		
