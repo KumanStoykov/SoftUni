@@ -2,12 +2,11 @@ import { useState } from "react";
 
 import Header from "./components/Header";
 import WelcomeWorld from "./components/WelcomeWorld";
+import Create from "./components/Create";
+import Catalog from "./components/Catalog";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Create from "./components/Create";
-import Edit from "./components/Edit";
-import Details from "./components/Details";
-import Catalog from "./components/Catalog";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
     const [page, setPage] = useState('/home');
@@ -33,7 +32,7 @@ function App() {
             />
 
             <main id="main-content">
-                { routes[page] || <h2> No Page Found!</h2> }
+                { routes[page] || <ErrorPage /> }
             </main>           
         </div>
 
