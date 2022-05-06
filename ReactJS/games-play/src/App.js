@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Header from "./components/Header";
-import WelcomeWorld from "./components/WelcomeWorld";
-import Create from "./components/Create";
-import Catalog from "./components/Catalog/Catalog";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import ErrorPage from "./components/ErrorPage";
+import Header from './components/Header';
+import WelcomeWorld from './components/WelcomeWorld';
+import Create from './components/Create';
+import Catalog from './components/Catalog/Catalog';
+import Login from './components/Login';
+import Register from './components/Register';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
     const [page, setPage] = useState('/home');
