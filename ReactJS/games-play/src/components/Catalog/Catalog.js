@@ -7,26 +7,26 @@ const Catalog = ({
     navigationChangeHandler
 }) => {
     const [games, setGames] = useState([]);
-    const [loading, setLoading] = useState(false); 
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
 
-        setLoading(true); 
+        setLoading(true);
 
         setTimeout(() => {
             gameService.getAll()
-            .then(result => {
-                setGames(result);
-    
-                setLoading(false);
-            });
+                .then(result => {
+                    setGames(result);
+
+                    setLoading(false);
+                });
         }, 1000);
     }, []);
 
     const loadingCardsStatement = (games) => {
-       return  games.length > 0 
+        return games.length > 0
             ? games.map(x => <GameCard key={x._id} game={x} navigationChangeHandler={navigationChangeHandler} />)
-            : <h3 className="no-articles">No games yet</h3>         
+            : <h3 className="no-articles">No games yet</h3>
     };
 
     return (
@@ -36,7 +36,7 @@ const Catalog = ({
             {loading
                 ? <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
                 : loadingCardsStatement(games)
-            }            
+            }
         </section>
     );
 };

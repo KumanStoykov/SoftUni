@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import Header from './components/Header';
-import WelcomeWorld from './components/WelcomeWorld';
+import WelcomeWorld from './components/WelcomeWorld/WelcomeWorld';
 import Create from './components/Create';
 import Catalog from './components/Catalog/Catalog';
 import Login from './components/Login';
@@ -25,7 +25,7 @@ function App() {
         let argument = pathNames[2];
 
         const routes = {
-            'home': <WelcomeWorld />,
+            'home': <WelcomeWorld navigationChangeHandler={navigationChangeHandler}/>,
             'games': <Catalog navigationChangeHandler={navigationChangeHandler} />,
             'create-game': <Create />,
             'login': <Login />,
