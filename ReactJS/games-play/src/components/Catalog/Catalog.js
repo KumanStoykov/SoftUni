@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import * as gameService from '../../service/gameService';
 
-import GameCard from "./GameCard";
+import GameCard from './GameCard';
 
 const Catalog = () => {
     const [games, setGames] = useState([]);
@@ -11,13 +12,12 @@ const Catalog = () => {
         setLoading(true); 
 
         setTimeout(() => {
-            fetch('http://localhost:3030/data/games?sortBy=_createdOn%20desc')
-                .then(res => res.json())
-                .then(result => {
-                    setGames(result);
-
-                    setLoading(false);
-                });
+            gameService.getAll()
+            .then(result => {
+                setGames(result);
+    
+                setLoading(false);
+            });
         }, 1000);
     }, []);
     const loadingCardsStatement = (games) => {
