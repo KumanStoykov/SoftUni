@@ -4,7 +4,7 @@ function App() {
       <div id="box">
 
 <header>
-    <h1><a class="home" href="#">GamesPlay</a></h1>
+    <h1><a className="home" href="#">GamesPlay</a></h1>
     <nav>
         <a href="#">All games</a>
         <div id="user">
@@ -23,7 +23,7 @@ function App() {
 
 <section id="welcome-world">
 
-    <div class="welcome-message">
+    <div className="welcome-message">
         <h2>ALL new games are</h2>
         <h3>Only in GamesPlay</h3>
     </div>
@@ -32,70 +32,70 @@ function App() {
     <div id="home-page">
         <h1>Latest Games</h1>
 
-        <div class="game">
-            <div class="image-wrap">
+        <div className="game">
+            <div className="image-wrap">
                 <img src="./images/CoverFire.png" />
             </div>
             <h3>Cover Fire</h3>
-            <div class="rating">
+            <div className="rating">
                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
             </div>
-            <div class="data-buttons">
-                <a href="#" class="btn details-btn">Details</a>
+            <div className="data-buttons">
+                <a href="#" className="btn details-btn">Details</a>
             </div>
         </div>
-        <div class="game">
-            <div class="image-wrap">
+        <div className="game">
+            <div className="image-wrap">
                 <img src="./images/ZombieLang.png" />
             </div>
             <h3>Zombie Lang</h3>
-            <div class="rating">
+            <div className="rating">
                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
             </div>
-            <div class="data-buttons">
-                <a href="#" class="btn details-btn">Details</a>
+            <div className="data-buttons">
+                <a href="#" className="btn details-btn">Details</a>
             </div>
         </div>
-        <div class="game">
-            <div class="image-wrap">
+        <div className="game">
+            <div className="image-wrap">
                 <img src="./images/MineCraft.png" />
             </div>
             <h3>MineCraft</h3>
-            <div class="rating">
+            <div className="rating">
                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
             </div>
-            <div class="data-buttons">
-                <a href="#" class="btn details-btn">Details</a>
+            <div className="data-buttons">
+                <a href="#" className="btn details-btn">Details</a>
             </div>
         </div>
 
-        <p class="no-articles">No games yet</p>
+        <p className="no-articles">No games yet</p>
     </div>
 </section>
 
-<section id="login-page" class="auth">
+<section id="login-page" className="auth">
     <form id="login">
 
-        <div class="container">
-            <div class="brand-logo"></div>
+        <div className="container">
+            <div className="brand-logo"></div>
             <h1>Login</h1>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Sokka@gmail.com" />
 
             <label for="login-pass">Password:</label>
             <input type="password" id="login-password" name="password" />
-            <input type="submit" class="btn submit" value="Login" />
-            <p class="field">
+            <input type="submit" className="btn submit" value="Login" />
+            <p className="field">
                 <span>If you don't have profile click <a href="#">here</a></span>
             </p>
         </div>
     </form>
 </section>
 
-<section id="register-page" class="content auth">
+<section id="register-page" className="content auth">
     <form id="register">
-        <div class="container">
-            <div class="brand-logo"></div>
+        <div className="container">
+            <div className="brand-logo"></div>
             <h1>Register</h1>
 
             <label for="email">Email:</label>
@@ -107,18 +107,18 @@ function App() {
             <label for="con-pass">Confirm Password:</label>
             <input type="password" name="confirm-password" id="confirm-password" />
 
-            <input class="btn submit" type="submit" value="Register" />
+            <input className="btn submit" type="submit" value="Register" />
 
-            <p class="field">
+            <p className="field">
                 <span>If you already have profile click <a href="#">here</a></span>
             </p>
         </div>
     </form>
 </section>
 
-<section id="create-page" class="auth">
+<section id="create-page" className="auth">
     <form id="create">
-        <div class="container">
+        <div className="container">
 
             <h1>Create Game</h1>
             <label for="leg-title">Legendary title:</label>
@@ -135,14 +135,14 @@ function App() {
 
             <label for="summary">Summary:</label>
             <textarea name="summary" id="summary"></textarea>
-            <input class="btn submit" type="submit" value="Create Game" />
+            <input className="btn submit" type="submit" value="Create Game" />
         </div>
     </form>
 </section>
 
-<section id="edit-page" class="auth">
+<section id="edit-page" className="auth">
     <form id="edit">
-        <div class="container">
+        <div className="container">
 
             <h1>Edit Game</h1>
             <label for="leg-title">Legendary title:</label>
@@ -159,7 +159,7 @@ function App() {
 
             <label for="summary">Summary:</label>
             <textarea name="summary" id="summary"></textarea>
-            <input class="btn submit" type="submit" value="Edit Game" />
+            <input className="btn submit" type="submit" value="Edit Game" />
 
         </div>
     </form>
@@ -167,46 +167,46 @@ function App() {
 
 <section id="game-details">
     <h1>Game Details</h1>
-    <div class="info-section">
+    <div className="info-section">
 
-        <div class="game-header">
-            <img class="game-img" src="images/MineCraft.png" />
+        <div className="game-header">
+            <img className="game-img" src="images/MineCraft.png" />
             <h1>Bright</h1>
-            <span class="levels">MaxLevel: 4</span>
-            <p class="type">Action, Crime, Fantasy</p>
+            <span className="levels">MaxLevel: 4</span>
+            <p className="type">Action, Crime, Fantasy</p>
         </div>
 
-        <p class="text">
+        <p className="text">
             Set in a world where fantasy creatures live side by side with humans. A human cop is forced to work
             with an Orc to find a weapon everyone is prepared to kill for. Set in a world where fantasy
             creatures live side by side with humans. A human cop is forced
             to work with an Orc to find a weapon everyone is prepared to kill for.
         </p>
 
-        <div class="details-comments">
+        <div className="details-comments">
             <h2>Comments:</h2>
             <ul>
-                <li class="comment">
+                <li className="comment">
                     <p>Content: I rate this one quite highly.</p>
                 </li>
-                <li class="comment">
+                <li className="comment">
                     <p>Content: The best game.</p>
                 </li>
             </ul>
-            <p class="no-comment">No comments.</p>
+            <p className="no-comment">No comments.</p>
         </div>
 
-        <div class="buttons">
-            <a href="#" class="button">Edit</a>
-            <a href="#" class="button">Delete</a>
+        <div className="buttons">
+            <a href="#" className="button">Edit</a>
+            <a href="#" className="button">Delete</a>
         </div>
     </div>
 
-    <article class="create-comment">
+    <article className="create-comment">
         <label>Add new comment:</label>
-        <form class="form">
+        <form className="form">
             <textarea name="comment" placeholder="Comment......"></textarea>
-            <input class="btn submit" type="submit" value="Add Comment" />
+            <input className="btn submit" type="submit" value="Add Comment" />
         </form>
     </article>
 
@@ -214,34 +214,34 @@ function App() {
 
 <section id="catalog-page">
     <h1>All Games</h1>
-    <div class="allGames">
-        <div class="allGames-info">
+    <div className="allGames">
+        <div className="allGames-info">
             <img src="./images/avatar-1.jpg" />
             <h6>Action</h6>
             <h2>Cover Fire</h2>
-            <a href="#" class="details-button">Details</a>
+            <a href="#" className="details-button">Details</a>
         </div>
 
     </div>
-    <div class="allGames">
-        <div class="allGames-info">
+    <div className="allGames">
+        <div className="allGames-info">
             <img src="./images/avatar-1.jpg" />
             <h6>Action</h6>
             <h2>Zombie lang</h2>
-            <a href="#" class="details-button">Details</a>
+            <a href="#" className="details-button">Details</a>
         </div>
 
     </div>
-    <div class="allGames">
-        <div class="allGames-info">
+    <div className="allGames">
+        <div className="allGames-info">
             <img src="./images/avatar-1.jpg" />
             <h6>Action</h6>
             <h2>MineCraft</h2>
-            <a href="#" class="details-button">Details</a>
+            <a href="#" className="details-button">Details</a>
         </div>
     </div>
 
-    <h3 class="no-articles">No articles yet</h3>
+    <h3 className="no-articles">No articles yet</h3>
 </section>
 </div>
     
