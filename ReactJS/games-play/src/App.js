@@ -8,6 +8,12 @@ import Details from "./components/Details";
 import Catalog from "./components/Catalog";
 
 function App() {
+    const routes = {
+        '/home': WelcomeWorld,
+        '/games': Catalog,
+        '/create': Create,
+    };
+    
     return (
 
         <div id="box">
