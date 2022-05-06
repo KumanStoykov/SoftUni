@@ -1,4 +1,18 @@
-const Details = () => {
+import { useEffect, useState } from 'react';
+import * as gameService from '../service/gameService';
+
+const Details = ({
+    id
+}) => {
+    const [game, setGames] = useState({});
+
+    useEffect(() => {
+        gameService.getOne(id)
+            .then(result => {
+                setGames(result);
+            })
+            .catch(err => alert(err.message));
+    }, []);
 
 
     return (
@@ -7,18 +21,13 @@ const Details = () => {
             <div className="info-section">
 
                 <div className="game-header">
-                    <img className="game-img" src="images/MineCraft.png" />
-                    <h1>Bright</h1>
-                    <span className="levels">MaxLevel: 4</span>
-                    <p className="type">Action, Crime, Fantasy</p>
+                    <img className="game-img" src={game.imageUrl} />
+                    <h1>{game.title}</h1>
+                    <span className="levels">MaxLevel: {game.maxLevel}</span>
+                    <p className="type">{game.category}</p>
                 </div>
 
-                <p className="text">
-                    Set in a world where fantasy creatures live side by side with humans. A human cop is htmlForced to work
-                    with an Orc to find a weapon everyone is prepared to kill htmlFor. Set in a world where fantasy
-                    creatures live side by side with humans. A human cop is htmlForced
-                    to work with an Orc to find a weapon everyone is prepared to kill htmlFor.
-                </p>
+                <p className="text">{game.summary}</p>
 
                 <div className="details-comments">
                     <h2>Comments:</h2>
