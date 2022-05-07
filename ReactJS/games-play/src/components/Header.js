@@ -1,19 +1,24 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
-const Header = () => {   
+const Header = () => {  
+    let activeLinkStyle = {
+        color: 'rgb(82, 133, 139)',
+        textDecoration: 'underline',
+    };
 
     return (
         <header >
             <h1><Link className="home" to="/">GamesPlay</Link></h1>
             <nav>
-                <Link to="/games">All games</Link>
-                <div id="user">
-                    <Link to="/create-game">Create Game</Link>
-                    <Link to="/logout">Logout</Link>
+                <NavLink  to="/games" style={({ isActive }) => (isActive ? activeLinkStyle : null)} >All</NavLink>
+
+                <div id="user"><NavLink  to="/create-game" style={({ isActive }) => (isActive ? activeLinkStyle : null)} >Create Game</NavLink>
+
+                    <Link  to="/logout">Logout</Link>
                 </div>
-                <div id="guest">
-                    <Link to="/login">Login</Link>
-                    <Link to="/register">Register</Link>
+                <div id="guest"><NavLink  to="/login" style={({ isActive }) => (isActive ? activeLinkStyle : null)} >Login</NavLink>
+
+                <NavLink  to="/register" style={({ isActive }) => (isActive ? activeLinkStyle : null)} >Register</NavLink>
                 </div>
             </nav>
         </header>
