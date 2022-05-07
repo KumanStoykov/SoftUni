@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import WelcomeWorld from './components/WelcomeWorld/WelcomeWorld';
@@ -9,43 +10,22 @@ import Register from './components/Register';
 import ErrorPage from './components/ErrorPage';
 import Details from './components/Details';
 
-function App() {
-    const [page, setPage] = useState('/home');
-
-    const navigationChangeHandler = (path) => {
-        setPage(path);
-    };
-
-   
-
-    const router = (path) => {
-        let pathNames = path.split('/');
-
-        let rootPath = pathNames[1];
-        let argument = pathNames[2];
-
-        const routes = {
-            'home': <WelcomeWorld navigationChangeHandler={navigationChangeHandler}/>,
-            'games': <Catalog navigationChangeHandler={navigationChangeHandler} />,
-            'create-game': <Create />,
-            'login': <Login />,
-            'register': <Register />,
-            'details': <Details id={argument} />,
-        };
-
-        return routes[rootPath];
-    }
+function App() {    
 
     return (
 
         <div id="box">
 
-            <Header 
-                navigationChangeHandler={navigationChangeHandler}
-            />
+            <Header />
 
             <main id="main-content">
-                { router(page) || <ErrorPage /> }
+                <Routes>
+                    <Route path="/" element={<WelcomeWorld />}/>
+                    <Route path="/games" element={<Catalog />}/>
+                    <Route path="/create-game" element={<Create />}/>
+                    <Route path="/login" element={<Login />}/>
+                    <Route path="/register" element={<Register />}/>
+                </Routes>
             </main>           
         </div>
 
