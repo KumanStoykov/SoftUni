@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Header from './components/Header';
 import WelcomeWorld from './components/WelcomeWorld/WelcomeWorld';
@@ -10,7 +9,8 @@ import Register from './components/Register';
 import ErrorPage from './components/ErrorPage';
 import Details from './components/Details';
 
-function App() {    
+function App() { 
+    const isLogout = true  
 
     return (
 
@@ -25,6 +25,13 @@ function App() {
                     <Route path="/create-game" element={<Create />}/>
                     <Route path="/login" element={<Login />}/>
                     <Route path="/register" element={<Register />}/>
+                    <Route path="/games/:gameId" element={<Details />}/>
+                    <Route path="/logout" element={
+                        isLogout 
+                        ? (<Navigate replace to="/"/>)
+                        : ('')
+                    } />
+                    <Route path="*" element={<ErrorPage />}/>
                 </Routes>
             </main>           
         </div>
