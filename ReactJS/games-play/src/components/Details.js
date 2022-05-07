@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+
 import * as gameService from '../service/gameService';
 
-const Details = ({
-    id
-}) => {
-    const [game, setGames] = useState({});
+const Details = () => {
+    
+    const [game, setGame] = useState({});
+
+    let id = useParams().gameId;
 
     useEffect(() => {
         gameService.getOne(id)
             .then(result => {
-                setGames(result);
+                setGame(result);
             })
             .catch(err => alert(err.message));
     }, []);

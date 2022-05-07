@@ -1,9 +1,17 @@
-const Login = () => {
+import { Link, useNavigate } from 'react-router-dom';
 
+const Login = () => {
+    const navigate = useNavigate();
+
+    const onFormSubmit = (e) => {
+        e.preventDefault();
+
+        navigate('/');
+    }
 
     return (
         <section id="login-page" className="auth">
-            <form id="login">
+            <form id="login" onSubmit={onFormSubmit}>
 
                 <div className="container">
                     <div className="brand-logo"></div>
@@ -15,7 +23,7 @@ const Login = () => {
                     <input type="password" id="login-password" name="password" />
                     <input type="submit" className="btn submit" value="Login" />
                     <p className="field">
-                        <span>If you don't have profile click <a href="#">here</a></span>
+                        <span>If you don't have profile click <Link to="/register">here</Link></span>
                     </p>
                 </div>
             </form>
