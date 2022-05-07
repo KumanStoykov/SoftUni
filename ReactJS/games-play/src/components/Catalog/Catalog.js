@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 
 import * as gameService from '../../service/gameService';
-import GameCard from './GameCard';
+//Code-Splitting-Bundling
+const GameCard = lazy(() => import('./GameCard'));
 
 const Catalog = () => {
     const [games, setGames] = useState([]);
@@ -22,6 +23,7 @@ const Catalog = () => {
     }, []);
 
     const loadingCardsStatement = (games) => {
+
         return games.length > 0
             ? games.map(x => <GameCard key={x._id} game={x} />)
             : <h3 className="no-articles">No games yet</h3>
@@ -30,11 +32,13 @@ const Catalog = () => {
     return (
         <section id="catalog-page">
             <h1>All Games</h1>
-
-            {loading
-                ? <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
-                : loadingCardsStatement(games)
-            }
+            {/* Wait for chunk */}
+            <Suspense fallback={<p>Loading...</p>}>
+                {loading
+                    ? <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+                    : loadingCardsStatement(games)
+                }
+            </Suspense>
         </section>
     );
 };

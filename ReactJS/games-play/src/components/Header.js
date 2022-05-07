@@ -10,15 +10,36 @@ const Header = () => {
         <header >
             <h1><Link className="home" to="/">GamesPlay</Link></h1>
             <nav>
-                <NavLink  to="/games" style={({ isActive }) => (isActive ? activeLinkStyle : null)} >All</NavLink>
+                <NavLink  to="/games"
+                style={({ isActive }) => (isActive ? activeLinkStyle : null)}
+                >
+                All games
+                </NavLink>
+                
+                <div id="user">
 
-                <div id="user"><NavLink  to="/create-game" style={({ isActive }) => (isActive ? activeLinkStyle : null)} >Create Game</NavLink>
+                    <NavLink  to="/create-game"
+                    style={({ isActive }) => (isActive ? activeLinkStyle : null)}
+                    >
+                    Create Game
+                    </NavLink>
 
-                    <Link  to="/logout">Logout</Link>
+                    <NavLink  to="/logout">Logout</NavLink>
                 </div>
-                <div id="guest"><NavLink  to="/login" style={({ isActive }) => (isActive ? activeLinkStyle : null)} >Login</NavLink>
+                <div id="guest">
 
-                <NavLink  to="/register" style={({ isActive }) => (isActive ? activeLinkStyle : null)} >Register</NavLink>
+                    <NavLink  to="/login"
+                    style={({ isActive }) => (isActive ? activeLinkStyle : null)}
+                    >
+                    Login
+                    </NavLink>
+
+                    <NavLink  to="/register"
+                    style={({ isActive }) => (isActive ? activeLinkStyle : null)}
+                    >
+                    Register
+                    </NavLink>
+
                 </div>
             </nav>
         </header>
