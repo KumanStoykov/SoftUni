@@ -4,7 +4,7 @@ const Header = () => {
 
     const backgroundIsActive = {
         background: 'rgb(248, 215, 107)'
-    }
+    };
 
     return (
         <header id="site-header">
@@ -12,7 +12,7 @@ const Header = () => {
                 <section className="navbar-dashboard">
                     <Link to="/">Dashboard</Link>
                     <div id="guest">
-                        
+
                         <NavLink className="button" to="/login"
                          style={({ isActive }) => (isActive ? backgroundIsActive : null)}
                         >
