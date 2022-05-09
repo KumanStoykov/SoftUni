@@ -7,7 +7,6 @@ const Details = () => {
 
     let params = useParams();
 
-    console.log(params)
     
     useEffect(() => {
 
