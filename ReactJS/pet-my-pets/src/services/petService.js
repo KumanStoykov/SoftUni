@@ -7,4 +7,11 @@ export const getAll = async () => {
    let pets = await res.json();
 
    return pets;
+};
+
+export const getOne = async (id) => {
+   let res = await fetch(`${baseUrl}/pets/${id}`);
+
+   let pet = await res.json();
+   return pet;
 }
