@@ -44,7 +44,8 @@ const Header = ({
     );
 
     const backgroundIsActive = {
-        background: 'rgb(248, 215, 107)'
+        background: 'rgb(248, 215, 107)',
+        color: 'black'
     };
 
     return (
