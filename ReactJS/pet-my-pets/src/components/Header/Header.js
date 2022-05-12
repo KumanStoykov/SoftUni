@@ -1,8 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 
 const Header = ({
-    isAuthenticated,
-    user
+    email
 }) => {
 
     let guestNavigate = (
@@ -25,7 +24,7 @@ const Header = ({
 
     let userNavigate = (
         <div id="user">
-            <span>Welcome, {user}</span>
+            <span>Welcome, {email}</span>
 
             <NavLink className="button" to="/my-pets"
                 style={({ isActive }) => (isActive ? backgroundIsActive : null)}
@@ -54,11 +53,11 @@ const Header = ({
                 <section className="navbar-dashboard">
                     <Link to="/dashboard">Dashboard</Link>
 
-                    {isAuthenticated
-                        ? userNavigate
-                        : guestNavigate
+                    {email
+                    ? userNavigate
+                    : guestNavigate
                     }
-
+                        
                 </section>
             </nav>
         </header>

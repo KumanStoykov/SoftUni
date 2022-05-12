@@ -17,12 +17,15 @@ const Login = ({
 
         authServices.login(email, password)
             .then(data => {
-                console.log(data);
+                onLogin(data);
+                navigate('/dashboard');
             })
+            .catch(err => {
+                //TODO: notification
+                alert(err.message);
+            });
 
-        onLogin(email);
 
-        navigate('/dashboard');
     }
 
     return (
@@ -39,7 +42,7 @@ const Login = ({
                     <p className="field">
                         <label htmlFor="password">Password</label>
                         <span className="input">
-                            <input  type="password" name="password" id="password" placeholder="Password" />
+                            <input type="password" name="password" id="password" placeholder="Password" />
                         </span>
                     </p>
                     <input className="button submit" type="submit" value="Login" />
