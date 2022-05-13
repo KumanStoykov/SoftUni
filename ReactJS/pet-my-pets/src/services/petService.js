@@ -33,3 +33,14 @@ export const create = async (pet, token) =>{
    return result
    
 };
+
+export const deleteOne = async (petId, token) => {
+   let res = await fetch(`${baseUrlData}/pets/${petId}`, {
+      method: 'DELETE',
+      headers: {
+         'X-Authorization': token
+      }
+   });
+
+   return res.json();
+};
