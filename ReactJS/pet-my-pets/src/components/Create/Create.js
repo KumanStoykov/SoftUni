@@ -1,33 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as petService from '../../services/petService';
+import { AuthContext } from '../../contexts/authContext';
 
 const Create = () => {
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
-    const [types, setTypes] = useState([]);
-    const [categories, setCategories] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:3030/jsonstore/types')
-            .then(res => res.json())
-            .then(result => {
-                let typesResult = Object.values(result);
-
-                let categories = typesResult.reduce((a, x) => {
-
-                    if (!a[x.category]) {
-                        a[x.category] = [];
-                    }
-                    a[x.category].push(x);
-
-                    return a;
-                }, {});
-
-                setCategories(categories);
-                setTypes(typesResult);
-            });
-    }, []);
-
 
     const onPetCreate = (e) => {
         e.preventDefault();
@@ -43,15 +21,14 @@ const Create = () => {
             description,
             imageUrl,
             type
+        }, user.accessToken)
+        .then(result => {
+
+            navigate('/Dashboard');
         });
-        navigate('/Dashboard');
     };
 
-    const onCategoryChange = (e) => {
-        setTypes(categories[e.target.value]);
-    };
-
-
+    
     return (
         <section id="create-page" className="create">
             <form id="create-form" method="POST" onSubmit={onPetCreate}>
@@ -74,20 +51,14 @@ const Create = () => {
                         <span className="input">
                             <input type="text" name="imageUrl" id="image" placeholder="Image" />
                         </span>
-                    </p>
-                    <p className="field">
-                        <label htmlFor="type">Category</label>
-                        <span className="input">
-                            <select id="type" name="type" onChange={onCategoryChange}>
-                                {Object.keys(categories).map(x => <option key={x} value={x}>{x}</option>)}
-                            </select>
-                        </span>
-                    </p>
+                    </p>                   
                     <p className="field">
                         <label htmlFor="type">Type</label>
                         <span className="input">
                             <select id="type" name="type">
-                                {types.map(x => <option key={x._id} value={x._id}>{x.name}</option>)}
+                                <option value="cats">cats</option>
+                                <option value="dogs">dog</option>
+                                <option value="other">other</option>
                             </select>
                         </span>
                     </p>
