@@ -1,8 +1,43 @@
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { AuthContext } from '../../contexts/authContext';
+import * as authService from '../../services/authServices';
+
 const Register = () => {
+    const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const registerSubmitHandler = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        try{
+            let email = formData.get('email').trim();
+            let password = formData.get('password').trim();
+            let rePass = formData.get('confirm-pass').trim();
+
+            if(!email || !password || !rePass) {
+                throw new Error('All fields are required');
+            }
+
+            if(password != rePass) {
+                throw new Error('Password don\'t match');
+            }
+
+            authService.register(email, password)
+             .then(res => {
+                login(res);
+                 navigate('/dashboard');
+             })
+
+        } catch(err) {
+            alert(err.message);
+        }
+    } 
 
     return (
         <section id="register-page" className="register">
-            <form id="register-form" action="" method="">
+            <form id="register-form"  method="POST" onSubmit={registerSubmitHandler}>
                 <fieldset>
                     <legend>Register Form</legend>
                     <p className="field">

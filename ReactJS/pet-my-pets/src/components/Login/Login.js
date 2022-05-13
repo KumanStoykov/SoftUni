@@ -5,9 +5,7 @@ import { AuthContext } from '../../contexts/authContext';
 
 import * as authServices from '../../services/authServices';
 
-const Login = ({
-    onLogin
-}) => {
+const Login = () => {
     const { login } = useContext(AuthContext)
     const navigate = useNavigate();
 
