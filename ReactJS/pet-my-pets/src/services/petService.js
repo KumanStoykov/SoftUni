@@ -1,6 +1,4 @@
-
 const baseUrlData = 'http://localhost:3030/data';
-const baseUrlJsonStore = 'http://localhost:3030/jsonstore';
 
 export const getAll = async () => {
    let res = await fetch(`${baseUrlData}/pets`);
@@ -17,14 +15,16 @@ export const getOne = async (id) => {
    return pet;
 };
 
-export const create = async (pet) =>{
-   let res = await fetch(`${baseUrlJsonStore}/pets`, {
+export const create = async (pet, token) =>{
+   let res = await fetch(`${baseUrlData}/pets`, {
       method: 'POST',
       headers: {
-         'content-type': 'application/json'
+         'content-type': 'application/json',
+         'X-Authorization': token
       },
       body: JSON.stringify({
-         pet
+         ...pet,
+         likes: []
       })
 
    });
