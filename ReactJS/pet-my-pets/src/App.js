@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { AuthContext } from './contexts/authContext';
+import useLocalStorage from './hooks/useLocalStorage';
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
@@ -12,22 +13,25 @@ import Create from './components/Create';
 import Details from './components/Details';
 import Edit from './components/Edit';
 
+const initialState = {
+  _id: '',
+  email: '',
+  accessToken: ''
+};
+
 function App() {
-  const [user, setUser] = useState({
-    _id: '',
-    email: '',
-    accessToken: ''
-  });
+  const [user, setUser] = useLocalStorage('user', initialState);
 
   const login = (data) => {
     setUser(data);
 
   };
-  const onLogout = () => {
+  const logout = () => {
+    setUser(initialState);
   };
 
   return (
-    <AuthContext.Provider value={{ user, login }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       <div id="container" >
         <Header />
 

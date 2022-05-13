@@ -44,8 +44,12 @@ export const login = async (email, password) => {
 
 
 };
-export const logout = () => {
-    localStorage.removeItem('username');
+export const logout = (token) => {
+    return fetch(`${baseUrl}/logout`, {
+        headers: {
+            'X-Authorization': token
+        }
+    });
 };
 
 export const getUSer = () => {
