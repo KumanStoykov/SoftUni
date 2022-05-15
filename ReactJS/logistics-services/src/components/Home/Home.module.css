@@ -1,6 +1,23 @@
-.searchCla {
+.search {
     max-width: 70%;
-    margin: 0 auto;
+    margin: 0px auto;
+    padding: 100px;
+}
+.inputSearch {
+    padding: 19px;
+}
+h2 {
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
 }
 
 .backImage {
