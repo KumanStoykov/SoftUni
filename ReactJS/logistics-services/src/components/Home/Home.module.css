@@ -1,0 +1,12 @@
+.searchCla {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.backImage {
+    height: 92vh;
+    background-image: url('../../../public/image/truck-home.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
