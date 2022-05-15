@@ -1,16 +1,16 @@
 import { Form, Button } from 'react-bootstrap';
 
-import classes from './Login.module.css';
+import classes from './Register.module.css';
 
 
 
-const Login = () => {
+const Register = () => {
 
 
     return (
-
+        
         <section className={classes.wrapper}>
-            <h2 className={classes.loginTitle}>Login</h2>
+            <h2 className={classes.loginTitle}>Register</h2>
             <Form className={classes.loginForm}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
@@ -22,13 +22,17 @@ const Login = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" name="Password" />
+                    <Form.Control type="password" placeholder="Password" name="Password"/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Repeat Password</Form.Label>
+                    <Form.Control type="password" placeholder="RepeatPassword" name="RepeatPassword"/>
                 </Form.Group>
                 {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group> */}
                 <Button variant="primary" type="submit">
-                    Login
+                    Register
                 </Button>
             </Form>
         </section>
@@ -36,4 +40,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
