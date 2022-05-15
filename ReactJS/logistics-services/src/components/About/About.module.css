@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+}
+.headerCard {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: antiquewhite;
+}
+.backImage {
+    max-width: 50%;
+    margin: 30px;
+}
+.text {
+    margin-top: 30px;
+    text-align: left;
+}

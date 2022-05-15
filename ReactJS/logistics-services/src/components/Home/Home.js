@@ -7,8 +7,8 @@ const Home = () => {
 
     return (
         <section className={classes.backImage}>
-            <h2>Safer and Faster</h2>
-            <h1>Logistics Service</h1>
+            <h2 className={classes.headingTwo}>Safer and Faster</h2>
+            <h1 className={classes.headingOne}>Logistics Service</h1>
             <Stack className={classes.search} direction="horizontal" gap={3}>
                 <Form.Control className={classes.inputSearch} placeholder="Tracking id" />
                 <Button variant="secondary">Track and Trace</Button>                
@@ -17,4 +17,4 @@ const Home = () => {
     );
 };
 
-export default Home
+export default Home;
