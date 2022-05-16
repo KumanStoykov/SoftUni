@@ -7,6 +7,7 @@ import ApartmentsForRecent from './components/ApartmentsForRecent/ApartmentsForR
 import Create from './components/Create/Create';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import Details from './components/Details/Details';
 import Search from './components/Search/Search';
 import NotFound from './components/NotFound/NotFound';
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/create" element={<Create />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
+          <Route path="/details/:id" element={<Details />}/>          
           <Route path="/search" element={<Search />}/>
           <Route path="*" element={<NotFound />} />
         </Routes>

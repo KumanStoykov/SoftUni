@@ -38,7 +38,7 @@ const Home = () => {
 
                     <div class="card-home">
                         <h2>Sunhouse C21</h2>
-                        <div class="cta-container"><a href="#" class="details-link">Details</a></div>
+                        <div class="cta-container"><a href="/details" class="details-link">Details</a></div>
                         <div class="card_image"><img src="/images/apartments.jpg" /></div>
 
                     </div>
