@@ -1,0 +1,10 @@
+.siteFooter{
+  height: 32px;
+}
+.siteFooter {
+  background: rgb(105, 86, 52);
+}
+.text {
+    color: rgb(198, 193, 193);
+    text-align: center;
+}

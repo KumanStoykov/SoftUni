@@ -1,4 +1,17 @@
-body {
-    box-sizing: border-box;
-    margin: 0px;
+* {
+  margin: 0;
 }
+html,
+body {
+  height: 100%;
+}
+.page-wrapper {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px;
+}
+.page-wrapper:after {
+  content: '';
+  display: block;
+}
+
