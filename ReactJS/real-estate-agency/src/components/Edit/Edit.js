@@ -5,49 +5,49 @@ const Edit = () => {
 
     return (
         <section id="edit-page">
-            <div class="edit-container">
-                <div class="box-image">
+            <div className="edit-container">
+                <div className="box-image">
 
                 </div>
-                <h2 class="box-heading">
+                <h2 className="box-heading">
                     Edit Home
                 </h2>
 
-                <form class="form" action="" method="">
-                    <div class="input">
-                        <input type="text" class="input-field" id="home-name" name="" value="" />
-                        <label class="home-name">Name:</label>
+                <form className="form" action="" method="">
+                    <div className="input">
+                        <input type="text" className="input-field" id="home-name" name="" value="" />
+                        <label className="home-name">Name:</label>
                     </div>
-                    <div class="input">
-                        <input type="text" class="input-field" id="type" name="" value="" />
-                        <label class="type">Property Type:</label>
+                    <div className="input">
+                        <input type="text" className="input-field" id="type" name="" value="" />
+                        <label className="type">Property Type:</label>
                     </div>
-                    <div class="input">
-                        <input type="number" class="input-field" id="year" name="" value="" />
-                        <label class="year">Year Built:</label>
+                    <div className="input">
+                        <input type="number" className="input-field" id="year" name="" value="" />
+                        <label className="year">Year Built:</label>
                     </div>
-                    <div class="input">
-                        <input type="text" class="input-field" id="city" name="" value="" />
-                        <label class="city">City</label>
-                    </div>
-
-                    <div class="input">
-                        <input type="text" class="input-field" id="homeImage" name="" value="" />
-                        <label class="homeImage">Home Image:</label>
+                    <div className="input">
+                        <input type="text" className="input-field" id="city" name="" value="" />
+                        <label className="city">City</label>
                     </div>
 
-                    <div class="input">
-                        <input type="text" class="input-field" id="description" name="" value="" />
-                        <label class="description">Property Description:</label>
+                    <div className="input">
+                        <input type="text" className="input-field" id="homeImage" name="" value="" />
+                        <label className="homeImage">Home Image:</label>
                     </div>
 
-                    <div class="input">
-                        <input type="number" class="input-field" id="availablePieces" name="" value="" />
-                        <label class="availablePieces">Available pieces:</label>
+                    <div className="input">
+                        <input type="text" className="input-field" id="description" name="" value="" />
+                        <label className="description">Property Description:</label>
                     </div>
 
-                    <div class="create-action">
-                        <button class="create-button">Edit</button>
+                    <div className="input">
+                        <input type="number" className="input-field" id="availablePieces" name="" value="" />
+                        <label className="availablePieces">Available pieces:</label>
+                    </div>
+
+                    <div className="create-action">
+                        <button className="create-button">Edit</button>
                     </div>
                 </form>
             </div>

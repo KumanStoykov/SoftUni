@@ -5,27 +5,27 @@ const Login = () => {
 
     return (
         <section id="login-page">
-            <div class="boxs">
-                <div class="card-image">
-                    <h2 class="card-heading">
+            <div className="boxs">
+                <div className="card-image">
+                    <h2 className="card-heading">
                         Login
                     </h2>
                 </div>
-                <form class="card-form" action="" method="">
+                <form className="card-form" action="" method="">
 
-                    <div class="input">
-                        <input type="text" class="input-field" placeholder="alexander" id="username" name="" value="" />
-                        <label class="username">Username</label>
+                    <div className="input">
+                        <input type="text" className="input-field" placeholder="alexander" id="username" name="" value="" />
+                        <label className="username">Username</label>
                     </div>
-                    <div class="input">
-                        <input type="password" class="input-field" id="password" name="" placeholder="******" />
-                        <label class="password">Password</label>
+                    <div className="input">
+                        <input type="password" className="input-field" id="password" name="" placeholder="******" />
+                        <label className="password">Password</label>
                     </div>
-                    <div class="action">
-                        <button class="action-button">Login</button>
+                    <div className="action">
+                        <button className="action-button">Login</button>
                     </div>
                 </form>
-                <div class="card-info">
+                <div className="card-info">
                     <p>Dont have an account?
                         <a href="/register">Sign up</a>.
                     </p>

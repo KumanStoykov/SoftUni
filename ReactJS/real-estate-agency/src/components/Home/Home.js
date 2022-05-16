@@ -6,10 +6,10 @@ const Home = () => {
     return(
         <>
         <main>
-            <section id="home-page" class="background-image">
-                <div class="home-container">
+            <section id="home-page" className="background-image">
+                <div className="home-container">
 
-                    <div class="info">
+                    <div className="info">
                         <h1>Discover Your Perfect Home</h1>
                         <h2>The Best Real Estate Deals</h2>
                     </div>
@@ -19,33 +19,33 @@ const Home = () => {
 
             <section id="top-houses">
                 <h1>Top Houses</h1>
-                <div class="houses">
+                <div className="houses">
 
 
-                    <div class="card-home">
+                    <div className="card-home">
                         <h2>Real House Luxury Villa</h2>
-                        <div class="cta-container"><a href="#" class="details-link">Details</a></div>
-                        <div class="card_image"><img src="/images/5.jpg" /></div>
+                        <div className="cta-container"><a href="#" className="details-link">Details</a></div>
+                        <div className="card_image"><img src="/images/5.jpg" /></div>
 
                     </div>
 
-                    <div class="card-home">
+                    <div className="card-home">
                         <h2>House Take Away</h2>
-                        <div class="cta-container"><a href="#" class="details-link">Details</a></div>
-                        <div class="card_image"><img src="/images/house2.jpg" /></div>
+                        <div className="cta-container"><a href="#" className="details-link">Details</a></div>
+                        <div className="card_image"><img src="/images/house2.jpg" /></div>
 
                     </div>
 
-                    <div class="card-home">
+                    <div className="card-home">
                         <h2>Sunhouse C21</h2>
-                        <div class="cta-container"><a href="/details" class="details-link">Details</a></div>
-                        <div class="card_image"><img src="/images/apartments.jpg" /></div>
+                        <div className="cta-container"><a href="/details" className="details-link">Details</a></div>
+                        <div className="card_image"><img src="/images/apartments.jpg" /></div>
 
                     </div>
 
                     {/* <!-- If there are still no offers for housing in the database display: --> */}
-                    <div class="no-data-container">
-                        <p class="no-data">There are no housing offers found...</p>
+                    <div className="no-data-container">
+                        <p className="no-data">There are no housing offers found...</p>
                     </div>
                 </div>
             </section>

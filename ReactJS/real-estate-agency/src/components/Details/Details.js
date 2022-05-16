@@ -5,13 +5,13 @@ const Details = () => {
 
     return (
         <section id="deatils-page">
-            <div class="wrapper">
-                <div class="product-img">
+            <div className="wrapper">
+                <div className="product-img">
                     <img src="./static/images/apartments.jpg" />
                 </div>
-                <div class="product-info">
-                    <div class="product-text">
-                        <div class="product-text">
+                <div className="product-info">
+                    <div className="product-text">
+                        <div className="product-text">
                             <h1>Name: Sunhouse C21</h1>
                             <h2>Type: Apartment</h2>
                             <h4>Year: 2021</h4>
@@ -24,14 +24,14 @@ const Details = () => {
                         </div>
                     </div>
 
-                    <div class="product-btn">
-                        <a href="#" class="edit">Edit</a>
-                        <a href="#" class="remove">Delete</a>
+                    <div className="product-btn">
+                        <a href="#" className="edit">Edit</a>
+                        <a href="#" className="remove">Delete</a>
 
-                        <a href="#" class="rentHome">Rent a home, available 2 housing</a>
-                        <p class="alRentHome">You have already rent this home</p>
+                        <a href="#" className="rentHome">Rent a home, available 2 housing</a>
+                        <p className="alRentHome">You have already rent this home</p>
 
-                        <p class="no-housing">No Housing Available!</p>
+                        <p className="no-housing">No Housing Available!</p>
                     </div>
                 </div>
             </div>

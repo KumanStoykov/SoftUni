@@ -5,47 +5,47 @@ const Create = () => {
 
     return (
         <section id="create-page">
-            <div class="create-container">
-                <div class="box-image"></div>
+            <div className="create-container">
+                <div className="box-image"></div>
 
-                <h2 class="box-heading"> Add new home</h2>
+                <h2 className="box-heading"> Add new home</h2>
 
 
-                <form class="form" action="" method="">
-                    <div class="input">
-                        <input type="text" class="input-field" id="home-name" placeholder="Real House Luxury Villa..." name="" value="" />
-                        <label class="home-name">Name:</label>
+                <form className="form" action="" method="">
+                    <div className="input">
+                        <input type="text" className="input-field" id="home-name" placeholder="Real House Luxury Villa..." name="" value="" />
+                        <label className="home-name">Name:</label>
                     </div>
-                    <div class="input">
-                        <input type="text" class="input-field" id="type" placeholder="Villa..." name="" value="" />
-                        <label class="type">Property Type:</label>
+                    <div className="input">
+                        <input type="text" className="input-field" id="type" placeholder="Villa..." name="" value="" />
+                        <label className="type">Property Type:</label>
                     </div>
-                    <div class="input">
-                        <input type="number" class="input-field" id="year" placeholder="2018..." name="" value="" />
-                        <label class="year">Year Built:</label>
+                    <div className="input">
+                        <input type="number" className="input-field" id="year" placeholder="2018..." name="" value="" />
+                        <label className="year">Year Built:</label>
                     </div>
-                    <div class="input">
-                        <input type="text" class="input-field" id="city" placeholder="Sofia..." name="" value="" />
-                        <label class="city">City</label>
-                    </div>
-
-                    <div class="input">
-                        <input type="text" class="input-field" id="homeImage" placeholder="Image..." name="" value="" />
-                        <label class="homeImage">Home Image:</label>
+                    <div className="input">
+                        <input type="text" className="input-field" id="city" placeholder="Sofia..." name="" value="" />
+                        <label className="city">City</label>
                     </div>
 
-                    <div class="input">
-                        <input type="text" class="input-field" id="description" placeholder="Description..." name="" value="" />
-                        <label class="description">Property Description:</label>
+                    <div className="input">
+                        <input type="text" className="input-field" id="homeImage" placeholder="Image..." name="" value="" />
+                        <label className="homeImage">Home Image:</label>
                     </div>
 
-                    <div class="input">
-                        <input type="number" class="input-field" id="availablePieces" placeholder="1" name="" value="" />
-                        <label class="availablePieces">Available pieces:</label>
+                    <div className="input">
+                        <input type="text" className="input-field" id="description" placeholder="Description..." name="" value="" />
+                        <label className="description">Property Description:</label>
                     </div>
 
-                    <div class="create-action">
-                        <button class="create-button">Add</button>
+                    <div className="input">
+                        <input type="number" className="input-field" id="availablePieces" placeholder="1" name="" value="" />
+                        <label className="availablePieces">Available pieces:</label>
+                    </div>
+
+                    <div className="create-action">
+                        <button className="create-button">Add</button>
                     </div>
 
 

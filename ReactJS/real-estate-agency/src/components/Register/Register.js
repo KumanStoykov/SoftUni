@@ -5,35 +5,35 @@ const Register = () => {
 
     return (
         <section id="register-page">
-            <div class="boxs">
-                <div class="card-image">
-                    <h2 class="card-heading">
+            <div className="boxs">
+                <div className="card-image">
+                    <h2 className="card-heading">
                         Create your account
                     </h2>
                 </div>
-                <form class="card-form" action="" method="">
-                    <div class="input">
-                        <input type="text" class="input-field" placeholder="Alexander Parkinson" id="name" name="" value="" />
-                        <label class="name">Full Name</label>
+                <form className="card-form" action="" method="">
+                    <div className="input">
+                        <input type="text" className="input-field" placeholder="Alexander Parkinson" id="name" name="" value="" />
+                        <label className="name">Full Name</label>
                     </div>
-                    <div class="input">
-                        <input type="text" class="input-field" placeholder="alexander" id="username" name="" value="" />
-                        <label class="username">Username</label>
+                    <div className="input">
+                        <input type="text" className="input-field" placeholder="alexander" id="username" name="" value="" />
+                        <label className="username">Username</label>
                     </div>
-                    <div class="input">
-                        <input type="password" class="input-field" id="password" name="" placeholder="******" />
-                        <label class="password">Password</label>
+                    <div className="input">
+                        <input type="password" className="input-field" id="password" name="" placeholder="******" />
+                        <label className="password">Password</label>
                     </div>
-                    <div class="input">
-                        <input type="password" class="input-field" id="re-password" name="" placeholder="******" />
-                        <label class="re-password">Repeat Password</label>
+                    <div className="input">
+                        <input type="password" className="input-field" id="re-password" name="" placeholder="******" />
+                        <label className="re-password">Repeat Password</label>
                     </div>
-                    <div class="action">
-                        <button class="action-button">Get started</button>
+                    <div className="action">
+                        <button className="action-button">Get started</button>
                     </div>
                 </form>
 
-                <div class="card-info">
+                <div className="card-info">
                     <small>Already have an account?<a href="/login"> Sign in</a>
                     </small>
                 </div>
