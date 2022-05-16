@@ -8,10 +8,11 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import About from './components/About/About';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <main className="site-wrapper">
+    <main className="page-wrapper">
      <Header />
 
      <Routes>
@@ -20,7 +21,8 @@ function App() {
        <Route path="/register" element={<Register />}/>
        <Route path="/about" element={<About />}/>
      </Routes>
-     
+
+     <Footer />     
     </main>
   );
 }
