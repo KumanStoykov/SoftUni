@@ -36,7 +36,7 @@ html, body {
 }
 
 .navigation li:nth-child(3) a::before {
-    content: "\f1b0";
+    content: "\26DF";
 }
 
 .navigation li:nth-child(4) a::before {
