@@ -1,9 +1,15 @@
 const { loadTemplate, renderLayout } = require('../utils/templateUtil');
 
+const vehicleData = require('../data/vehicleData.json');
+const { vehicleCard } = require('../views/template/vehicleCard');
+
 
 exports.homeController = async (req, res) => {
 
     let home = await loadTemplate('home');
+
+    home = home.replace('{{vehicle}}', vehicleData.map(x => vehicleCard(x)).join(''));
+
     let search = true;
     
 
