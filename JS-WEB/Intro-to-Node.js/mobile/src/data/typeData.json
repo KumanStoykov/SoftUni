@@ -1,0 +1,11 @@
+[
+    {
+            "type": "Car"
+    },
+    {
+            "type": "Truck"
+    },
+    {
+            "type": "Buss"
+    }
+]

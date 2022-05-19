@@ -1,17 +1,19 @@
 const { loadTemplate, renderLayout } = require('../utils/templateUtil');
-
-const vehicleData = require('../data/vehicleData.json');
 const { vehicleCard } = require('../views/template/vehicleCard');
+const dataServices = require('../services/dataServices');
+
 
 
 exports.homeController = async (req, res) => {
 
     let home = await loadTemplate('home');
 
-    home = home.replace('{{vehicle}}', vehicleData.map(x => vehicleCard(x)).join(''));
+    let allVehicle = await dataServices.getAll();
+
+    home = home.replace('{{vehicle}}', allVehicle.map(x => vehicleCard(x)).join(''));
 
     let search = true;
-    
+
 
     res.writeHead(200, {
         'Content-type': 'text/html'
