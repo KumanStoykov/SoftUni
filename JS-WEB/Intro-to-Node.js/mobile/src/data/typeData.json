@@ -1,11 +1,14 @@
 [
-    {
-            "type": "Car"
-    },
-    {
-            "type": "Truck"
-    },
-    {
-            "type": "Buss"
-    }
+  {
+    "type": "Car"
+  },
+  {
+    "type": "Boot"
+  },
+  {
+    "type": "Truck"
+  },
+  {
+    "type": "Buss"
+  }
 ]
