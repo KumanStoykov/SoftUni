@@ -19,6 +19,7 @@ exports.homeController = async (req, res) => {
         'Content-type': 'text/html'
     });
     res.write(await renderLayout(home, search));
+    
 
     res.end();
 };
