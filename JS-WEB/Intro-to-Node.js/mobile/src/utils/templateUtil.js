@@ -17,10 +17,9 @@ async function renderLayout(html, isHome) {
     let search = await loadTemplate('search');
 
     if(isHome) {
-        layout = layout.replace('{{search}}', search)
+        layout = layout.replace('{{search}}', search);
     } else {
-        layout = layout.replace('{{search}}', '')
-
+        layout = layout.replace('{{search}}', '');
     }
 
     return layout.replace('{{body}}', html);

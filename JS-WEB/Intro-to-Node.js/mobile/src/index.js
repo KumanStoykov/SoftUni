@@ -8,6 +8,7 @@ const app = http.createServer(requestHandler);
 
 async function requestHandler(req, res) {
     const url = new URL(req.url, 'http://localhost');
+    
 
    await router(req, res, url.pathname);   
 

@@ -1,7 +1,7 @@
 const { loadTemplate, renderLayout } = require('../utils/templateUtil');
 
 const formidable = require('formidable');
-const dataService = require('../services/dataServices');
+const dataService = require('../services/dataServices'); 
 
 
 exports.addTypeController = async (req, res) => {
@@ -15,7 +15,7 @@ exports.addTypeController = async (req, res) => {
                 res.end(String(err));
                 return;
             }
-            dataService.createType({type: fields.type });
+            dataService.createType({ type: fields.type });
             res.writeHead(302, {
                 'Location': 'add-type'
             });
