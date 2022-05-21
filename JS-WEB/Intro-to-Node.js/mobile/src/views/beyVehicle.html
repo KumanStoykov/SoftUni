@@ -1,19 +1,19 @@
 <main>
-  <form action="#" method="" class="cat-form">
+  <form action="/bey-vehicle?id={{_id}}" method="POST" class="cat-form">
     <h2>Bey Vehicle</h2>
     <img
-      src="https://cdn.pixabay.com/photo/2015/03/27/13/16/cat-694730_1280.jpg"
-      alt=""
+      src={{imageUrl}}
+      alt="image.png"
     />
-    <label for="name">Model</label>
-    <input type="text" id="name" value="Pretty Kitty" disabled />
+    <label for="model">Model</label>
+    <input type="text" id="model" value={{model}} disabled />
+    <label for="price">Price</label>
+    <input type="text" id="price" value={{price}} disabled />
     <label for="description">Description</label>
-    <textarea id="description" disabled>
-      Dominant and aggressive to other cats. Will probably eat you in your sleep. Very cute tho.</textarea
-    >
+    <textarea id="description" disabled>{{description}}</textarea>
     <label for="group">Type</label>
     <select id="group" disabled>
-      <option value="Fluffy Cat">Car</option>
+      <option value="Car">{{type}}</option>
     </select>
     <button>BEY VEHICLE</button>
   </form>
