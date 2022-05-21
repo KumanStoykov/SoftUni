@@ -1,0 +1,18 @@
+<main>
+  <form action="/edit/:id" method="POST" class="cat-form" enctype="multipart/form-data">
+    <h2>Edit Vehicle</h2>
+    <label for="name">Model</label>
+    <input type="text" id="name" value={{model}} />
+    <label for="name">Price</label>
+    <input type="text" id="name" value={{price}} />
+    <label for="description">Description</label>
+    <textarea id="description">{{description}}</textarea>
+    <label for="image">Image</label>
+    <input type="file" id="image" />
+    <label for="group">Type</label>
+    <select id="group">
+      <option value="Car">{{type}}</option>
+    </select>
+    <button>Edit Vehicle</button>
+  </form>
+</main>
