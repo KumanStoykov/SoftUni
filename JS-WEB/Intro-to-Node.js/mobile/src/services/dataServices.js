@@ -11,6 +11,13 @@ exports.getAll = async () => {
 
     return JSON.parse(allVehicle);
 };
+
+exports.getOne = async (id) => {
+    let all = await this.getAll();
+    let vehicle = all.find(x => x._id == id);
+
+    return vehicle;
+}
 exports.getTypes = async () => {
 
     let types = await fs.readFile('./src/data/typeData.json');
@@ -38,9 +45,7 @@ exports.createVehicle = (vehicle) => {
 };
 
 exports.deleteVehicle = async (id) => {
-    
-    let allData = await this.getAll();
-    let currentImage = allData.find(x => x._id == id);
+    let currentImage = await this.getOne(id);
     let currentVehicles = allData.filter(x => x._id != id);
 
 
@@ -50,4 +55,23 @@ exports.deleteVehicle = async (id) => {
 
     return fs.writeFile('./src/data/vehicleData.json', result);
 };
+
+exports.editVehicle = async (id, newVehicle) => {
+    
+    const all = await this.getAll();  
+    const oldVehicle = all.find(x => x._id == id);
+
+    const index = all.map(x => x._id == id).indexOf(true);
+
+    newVehicle._id = oldVehicle._id;
+
+    
+    vehicleData.splice(index, 1, newVehicle);
+
+
+    const result = JSON.stringify(vehicleData, '', 2);
+    
+    return fs.writeFile('./src/data/vehicleData.json', result);
+
+}
 

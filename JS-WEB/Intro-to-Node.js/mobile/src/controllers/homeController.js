@@ -4,6 +4,7 @@ const dataServices = require('../services/dataServices');
 
 
 
+
 exports.homeController = async (req, res) => {
 
     let home = await loadTemplate('home');
@@ -19,7 +20,9 @@ exports.homeController = async (req, res) => {
         'Content-type': 'text/html'
     });
     res.write(await renderLayout(home, search));
-    
+
 
     res.end();
+
+
 };
