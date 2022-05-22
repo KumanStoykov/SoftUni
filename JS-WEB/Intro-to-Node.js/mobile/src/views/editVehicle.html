@@ -1,18 +1,18 @@
 <main>
-  <form action="/edit/:id" method="POST" class="cat-form" enctype="multipart/form-data">
+  <form action="/edit-vehicle?id={{_id}}" method="POST" class="cat-form" enctype="multipart/form-data">
     <h2>Edit Vehicle</h2>
     <label for="name">Model</label>
-    <input type="text" id="name" value={{model}} />
+    <input name="model" type="text" id="name" value={{model}} />
     <label for="name">Price</label>
-    <input type="text" id="name" value={{price}} />
+    <input name="price" type="text" id="name" value={{price}} />
     <label for="description">Description</label>
-    <textarea id="description">{{description}}</textarea>
+    <textarea name="description" id="description">{{description}}</textarea>
     <label for="image">Image</label>
-    <input type="file" id="image" />
+    <input name="upload" type="file" id="image" accept=".jpg,.jpeg,.png" />
     <label for="group">Type</label>
-    <select id="group">
-      <option value="Car">{{type}}</option>
+    <select name="type" id="group">
+      {{type}}
     </select>
-    <button>Edit Vehicle</button>
+    <button type="submit">Edit Vehicle</button> 
   </form>
 </main>

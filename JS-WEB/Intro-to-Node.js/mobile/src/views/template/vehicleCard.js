@@ -11,7 +11,7 @@ exports.vehicleCard = (vehicle) => `
     <p><span>Description: </span>${vehicle.description}</p>
     <p><span>Price: </span>${vehicle.price}</p>
     <ul class="buttons">
-        <li class="btn edit"><a href="/edit/${vehicle._id}">Change Info</a></li>
+        <li class="btn edit"><a href="/edit-vehicle?id=${vehicle._id}">Change Info</a></li>
         <li class="btn delete"><a href="/bey-vehicle?id=${vehicle._id}">For Sale</a></li>
     </ul>
 </li>`;
