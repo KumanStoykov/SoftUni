@@ -1,7 +1,6 @@
 const { loadTemplate, renderLayout } = require('../utils/templateUtil');
 const { formFilling } = require('../utils/formFilling');
 
-const vehicleData = require('../data/vehicleData.json');
 
 const dataService = require('../services/dataServices');
 
@@ -23,11 +22,12 @@ exports.beyVehicleController = async (req, res) => {
 
             let beyView = await loadTemplate('beyVehicle');
 
-
-            const currentVehicle = vehicleData.filter(vehicle => vehicle._id == id)[0];
-
+            const currentVehicle = await dataService.getOne(id);
 
             let result = formFilling(beyView, currentVehicle);
+            let addTypes = `<option value="${currentVehicle.type}">${currentVehicle.type}</option>`;
+
+            result = result.replace('{{type}}', addTypes);
 
             res.write(await renderLayout(result));
             res.end();
