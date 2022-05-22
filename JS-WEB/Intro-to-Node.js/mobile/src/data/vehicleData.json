@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "model": "Opel  Astra 2.0 GTC",
+    "price": "8900",
+    "description": "Is family car. ",
+    "type": "Car",
+    "imageUrl": "/content/images/youssef-d-DkGUn0Y1VzA-unsplash.jpg",
+    "_id": "96d7d83"
+  },
+  {
+    "model": "BMW 430i",
+    "price": "32750",
+    "description": "Very good car.",
+    "type": "Car",
+    "imageUrl": "/content/images/mathieu-renier-4WBvCqeMaDE-unsplash.jpg",
+    "_id": "75cf40a2"
+  },
+  {
+    "model": "Langusta 211FS",
+    "price": "5780",
+    "description": "Small boat, but very fast.",
+    "type": "Boat",
+    "imageUrl": "/content/images/jan-valecka-h6bk9Xo_eDw-unsplash.jpg",
+    "_id": "5a360831"
+  },
+  {
+    "model": "Albatros",
+    "price": "3590000",
+    "description": "Luxury yacht, good quality!",
+    "type": "Boat",
+    "imageUrl": "/content/images/marcin-ciszewski-Zexjl0v3MRU-unsplash.jpg",
+    "_id": "-61113bf2"
+  },
+  {
+    "model": "SCANIA SF 1500",
+    "price": "65000",
+    "description": "Work truck for every day.",
+    "type": "Truck",
+    "imageUrl": "/content/images/juan-pablo-mascanfroni-uRPQ-yH23PE-unsplash.jpg",
+    "_id": "14c17f5c"
+  },
+  {
+    "model": "SCANIA BB 250",
+    "price": "74900",
+    "description": "Five years old in very good condition.",
+    "type": "Buss",
+    "imageUrl": "/content/images/dave-kim-M_2e8y12fRU-unsplash.jpg",
+    "_id": "38116a2b"
+  }
+]
