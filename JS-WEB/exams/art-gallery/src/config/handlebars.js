@@ -1,7 +1,7 @@
 const handlebars = require('express-handlebars');
 const path = require('path');
 
-exports.initHandlebars = (app) => {
+const initHandlebars = (app) => {
     //Change directory
     app.set('views', path.resolve('./src/views'));
 
@@ -12,3 +12,5 @@ exports.initHandlebars = (app) => {
     app.engine('hbs', hbs.engine);
     app.set('view engine', 'hbs');
 };
+
+module.exports = initHandlebars;
