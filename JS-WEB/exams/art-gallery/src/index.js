@@ -1,5 +1,9 @@
 const express = require('express');
-const { initHandlebars } = require('./config/handlebars');
+
+
+const config = require('./config/config.json')[process.env.NODE_ENV];
+const initHandlebars = require('./config/handlebars');
+const initDatabase = require('./config/database');
 
 const router = require('./router'); 
 
@@ -11,6 +15,12 @@ initHandlebars(app);
 
 app.use(router);
 
-const PORT = 3000;
 
-app.listen(PORT, console.log.bind(console, `App listen an ${PORT}`));
+initDatabase(config.DB_CONNECTION_STRING)
+    .then(() => {
+
+        app.listen(config.PORT, console.log.bind(console, `App listen an port:${config.PORT}`));
+    })
+    .catch(err => {
+        console.log('Application init failed:', err);
+    })
