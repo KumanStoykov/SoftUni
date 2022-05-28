@@ -8,22 +8,25 @@ const renderCreate = (req, res) => {
 
 const createPublication = async (req, res) => {
     let { title, paintingTechnique, picture, certificate } = req.body;
-    
+
     try {
         publicationService.create(title, paintingTechnique, picture, certificate);
+
         res.redirect('/');
 
-    } catch(err) {
+    } catch (err) {
         console.log(err);
     }
 };
 
-const renderDetails = (req, res) => {
-    res.render('details');
+const renderDetails = async (req, res) => {
+    let publication = await publicationService.getOne(req.params.id);
+
+    res.render('details', { ...publication });
 };
 
 router.get('/create', renderCreate);
 router.post('/create', createPublication);
-router.get('/details', renderDetails);
+router.get('/details/:id', renderDetails);
 
 module.exports = router;
