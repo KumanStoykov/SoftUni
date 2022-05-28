@@ -1,7 +1,10 @@
 const router = require('express').Router();
 
+const { TOKEN_COOKIE_NAME } = require('../constants');
+const authService = require('../services/authService');
 
-const login = (req, res) => {
+
+router.get('/login', (req, res) => {
     res.render('auth/login');
 });
 
@@ -17,16 +20,36 @@ router.post('/login', async (req, res) => {
 
     let token = await authService.crateToken(user);
 
-const register = (req, res) => {
+    res.cookie(TOKEN_COOKIE_NAME, token, {
+        httpOnly: true
+    });
+
+    res.redirect('/');
+});
+
+router.get('/register', (req, res) => {
     res.render('auth/register');
-};
+});
 
-const renderProfile = (req, res) => {
-    res.render('profile');
-}
+router.post('/register', async (req, res) => {
+    
+    try{
+        let { username, password, repeatPassword, address } = req.body;
 
-router.get('/login', login);
-router.get('/register', register);
-router.get('/profile', renderProfile);
+        if(password != repeatPassword) {
+            throw new Error('Password don\,t match');
+        }
 
-module.exports = router;
+        await authService.register(username, password, address);
+        res.render('auth/login');
+
+    } catch(err) {
+        console.log(err);
+    }
+});
+
+router.get('/profile', (req, res) => {
+    res.render('auth/profile');
+});
+
+module.exports = router; 
