@@ -48,6 +48,12 @@ router.post('/register', async (req, res) => {
     }
 });
 
+router.get('/logout', (req, res) => {
+    res.clearCookie(TOKEN_COOKIE_NAME);
+
+    res.redirect('/');
+});
+
 router.get('/profile', (req, res) => {
     res.render('auth/profile');
 });
