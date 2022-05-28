@@ -5,7 +5,7 @@ const publicationService = require('../services/publicationService');
 
 const home = async (req, res) => {
 
-   let publications = await publicationService.getAll();
+    let publications = await publicationService.getAll();
 
     res.render('home', { publications });
 };

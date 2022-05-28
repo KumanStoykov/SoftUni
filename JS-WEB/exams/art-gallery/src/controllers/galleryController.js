@@ -1,14 +1,14 @@
 const router = require('express').Router();
 
-const renderGallery = (req, res) => {
-    res.render('gallery');  
+const publicationService = require('../services/publicationService');
+
+
+const renderGallery = async (req, res) => {
+    let publications = await publicationService.getAll();
+    res.render('gallery', { publications });  
 };
 
-const renderCreate = (req, res) => {
-    res.render('create');
-};
 
 router.get('/view', renderGallery);
-router.get('/create', renderCreate);
 
-module.exports = router;
+module.exports = router; 
