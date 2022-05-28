@@ -2,6 +2,8 @@ const Publication = require('../models/Publication');
 
 const getAll = async () => await Publication.find({}).lean();
 
+const getOne = async (id) => await Publication.findById(id).lean();
+
 const create = async (title, paintingTechnique, picture, certificate) => {
     let publication = new Publication({
         title,
@@ -14,6 +16,7 @@ const create = async (title, paintingTechnique, picture, certificate) => {
 
 const publicationService = {
     getAll,
+    getOne,
     create,
 };
 
