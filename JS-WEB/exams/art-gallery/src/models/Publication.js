@@ -17,7 +17,18 @@ const publicationSchema = new mongoose.Schema({
     certificate: {
         type: String,
         required: true
-    }
+    },
+    author: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
+    },
+    userShared: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'User'
+
+        }
+    ]
 });
 
 const Publication = mongoose.model('Publication', publicationSchema);
