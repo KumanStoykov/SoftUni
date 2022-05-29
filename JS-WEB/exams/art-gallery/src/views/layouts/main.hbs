@@ -19,19 +19,19 @@
             <p>Error</p>
         </div>-->
         <nav>
-            <!-- Do not forget to change the path to the image -->
             <img src="/static/img/art-logo.png" alt="logo">
             <a href="/">ArtGallery</a>
 
             <ul class="menu">
                 <li><a href="/gallery/view">Gallery</a></li>
-                <!-- Logged users -->
+                {{#if user}}
                 <li><a href="/publication/create">Create Publication</a></li>
                 <li><a href="/auth/profile">Profile</a></li>
-                <li><a href="/logout">Logout</a></li>
-                <!-- Guest users -->
+                <li><a href="/auth/logout">Logout</a></li>
+                {{else}}
                 <li><a href="/auth/login">Login</a></li>
                 <li><a href="/auth/register">Register</a></li>
+                {{/if}}
             </ul>
         </nav>
         
