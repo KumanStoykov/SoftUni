@@ -18,9 +18,8 @@ router.post('/create', async (req, res) => {
 
             await publicationService.create(title, paintingTechnique, picture, certificate, author);
 
-            res.redirect('/');
+            res.redirect('/gallery/view');
         }
-
 
     } catch (err) {
         console.log(err);
@@ -93,13 +92,10 @@ router.get('/delete/:id', async (req, res) => {
     try{
         await publicationService.deletePublication(req.params.id);
 
-        res.redirect('/');
+        res.redirect('/gallery/view');
     } catch(err) {
         res.redirect('404');
     }
 });
-
-
-
 
 module.exports = router;
