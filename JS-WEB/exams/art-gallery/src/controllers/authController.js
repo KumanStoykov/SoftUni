@@ -13,18 +13,18 @@ router.post('/login', async (req, res) => {
 
     try {
         let token = await authService.login(username, password);
-    
-        if(!user) {
+
+        if (!token) {
             return res.redirect('/404');
-        }  
+        }
 
         res.cookie(TOKEN_COOKIE_NAME, token, {
             httpOnly: true
-        }); 
-        
+        });
+
         res.redirect('/');
 
-    } catch(err) {
+    } catch (err) {
         res.redirect('404')
     }
 
@@ -35,24 +35,24 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
-    
-    try{
+
+    try {
         let { username, password, repeatPassword, address } = req.body;
 
-        if(password != repeatPassword) {
+        if (password != repeatPassword) {
             throw new Error('Password don\,t match');
         }
 
         await authService.register(username, password, address);
         let token = await authService.login(username, password);
-        
+
         res.cookie(TOKEN_COOKIE_NAME, token, {
             httpOnly: true
         });
 
         res.redirect('/');
 
-    } catch(err) {
+    } catch (err) {
         console.log(err);
     }
 });
@@ -63,8 +63,13 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-router.get('/profile', (req, res) => {
-    res.render('auth/profile');
+router.get('/profile', async (req, res) => {
+    let user = await authService.getUser(req.user._id);
+
+    let publications = user.myPublications.map(x => x.title).join(', ');
+    let shared = user.myShared.map(x => x.title).join(', ');
+
+    res.render('auth/profile', { user, publications, shared });
 });
 
 module.exports = router; 

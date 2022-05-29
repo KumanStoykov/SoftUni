@@ -27,6 +27,10 @@ exports.login = async (username, password) => {
     }
 };
 
+exports.getUser = async (id) => {
+    return User.findById(id).populate('myShared').populate('myPublications').lean();
+}
+
 exports.crateToken = (user) => {
     let payload = {
         _id: user._id,
