@@ -10,7 +10,7 @@ router.use('/gallery', galleryController);
 router.use('/publication', publicationsController);
 router.use('/auth', authController);
 router.use('*', (req, res) => {
-    res.status(404).render('404');
+    res.status(404).render('404', { title: 'Not found'});
 });
 
 
