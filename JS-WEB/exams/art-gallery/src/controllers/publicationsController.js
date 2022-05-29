@@ -1,12 +1,14 @@
 const router = require('express').Router();
 const publicationService = require('../services/publicationService');
 
+const { isAuth, isOwner } = require('../middlewares/guardMiddleware');
 
-router.get('/create', (req, res) => {
+
+router.get('/create', isAuth, (req, res) => {
     res.render('create');
 });
 
-router.post('/create', async (req, res) => {
+router.post('/create', isAuth, async (req, res) => {
 
     try {
 
@@ -47,7 +49,7 @@ router.get('/details/:id', async (req, res) => {
 });
 
 
-router.get('/share/:id', async (req, res) => {
+router.get('/share/:id', isAuth, async (req, res) => {
     try {
         let publicationId = req.params.id;
         let userId = req.user?._id;
@@ -61,7 +63,7 @@ router.get('/share/:id', async (req, res) => {
     }
 });
 
-router.get('/edit/:id', async (req, res) => {
+router.get('/edit/:id', isAuth, isOwner, async (req, res) => {
     try {
         let publication = await publicationService.getOne(req.params.id);
 
@@ -72,7 +74,7 @@ router.get('/edit/:id', async (req, res) => {
     }
 });
 
-router.post('/edit/:id', async (req, res) => {
+router.post('/edit/:id', isAuth, isOwner, async (req, res) => {
     try {
         const id = req.params.id;
 
@@ -88,7 +90,7 @@ router.post('/edit/:id', async (req, res) => {
     }
 });
 
-router.get('/delete/:id', async (req, res) => {
+router.get('/delete/:id', isAuth, isOwner, async (req, res) => {
     try{
         await publicationService.deletePublication(req.params.id);
 

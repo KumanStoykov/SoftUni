@@ -4,7 +4,7 @@ const cookiesParser = require('cookie-parser');
 
 const router = require('./router');
 const initHandlebars = require('./handlebars');
-const authMiddleware = require('../middlewares/authMiddleware');
+const isLoggedMiddleware = require('../middlewares/isLoggedMiddleware');
 
 
 module.exports = (app) => {
@@ -17,7 +17,7 @@ module.exports = (app) => {
     
     app.use(cookiesParser());
 
-    app.use(authMiddleware.auth);
+    app.use(isLoggedMiddleware.isLogged);
         
     app.use(router);    
 }
