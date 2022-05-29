@@ -19,6 +19,12 @@ const userSchema = new mongoose.Schema({
             type: mongoose.Types.ObjectId,
             ref: 'Publication'
         }
+    ],
+    myShared: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Publication'
+        }
     ]
 });
 
