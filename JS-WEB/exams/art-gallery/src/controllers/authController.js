@@ -11,20 +11,24 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res) => {
     let { username, password } = req.body;
 
+    try {
+        let user = await authService.login(username, password);
+    
+        if(!user) {
+            return res.redirect('/404');
+        }
+    
+        let token = await authService.crateToken(user);
+    
+        res.cookie(TOKEN_COOKIE_NAME, token, {
+            httpOnly: true
+        });
+        res.redirect('/');
 
-    let user = await authService.login(username, password);
-
-    if(!user) {
-        return res.redirect('/404');
+    } catch(err) {
+        res.redirect('404')
     }
 
-    let token = await authService.crateToken(user);
-
-    res.cookie(TOKEN_COOKIE_NAME, token, {
-        httpOnly: true
-    });
-
-    res.redirect('/');
 });
 
 router.get('/register', (req, res) => {
