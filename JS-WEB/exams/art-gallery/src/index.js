@@ -1,21 +1,12 @@
 const express = require('express');
-const router = require('./router'); 
-
 
 const config = require('./config/config.json')[process.env.NODE_ENV];
-const initHandlebars = require('./config/handlebars');
 const initDatabase = require('./config/database');
-
+const expressConfig = require('./config/express');
 
 const app = express();
 
-app.use(express.urlencoded({ extended: true }));
-
-initHandlebars(app);
-
-app.use('/static', express.static(__dirname + '/static'));
-
-app.use(router);
+expressConfig(app);
 
 
 initDatabase(config.DB_CONNECTION_STRING)
