@@ -10,7 +10,7 @@ exports.isLogged = (req, res, next) => {
 
     jwt.verify(token, SECRET, function(err, decodedToken) {
         if(err) {
-            return res.status(401).redirect('/login');
+            return res.redirect('/login');
         }
         req.user = decodedToken;
 

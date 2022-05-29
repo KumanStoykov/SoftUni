@@ -5,7 +5,7 @@ const publicationService = require('../services/publicationService');
 
 const renderGallery = async (req, res) => {
     let publications = await publicationService.getAll();
-    res.render('gallery', { publications });  
+    res.render('gallery', { publications, title: 'Gallery' });  
 };
 
 

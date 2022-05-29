@@ -7,7 +7,7 @@ const home = async (req, res) => {
 
     let publications = await publicationService.getAll();
 
-    res.render('home', { publications });
+    res.render('home', { publications, title: 'Home page' });
 };
 
 router.get('/', home);

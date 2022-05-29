@@ -5,7 +5,7 @@ const { isAuth, isOwner } = require('../middlewares/guardMiddleware');
 
 
 router.get('/create', isAuth, (req, res) => {
-    res.render('create');
+    res.render('create', { title: 'Create page' });
 });
 
 router.post('/create', isAuth, async (req, res) => {
@@ -41,7 +41,7 @@ router.get('/details/:id', async (req, res) => {
             publication.isShared = publication.userShared.some(x => x._id == user._id);
         }
 
-        res.render('details', { ...publication });
+        res.render('details', { ...publication, title: 'Details page' });
     } catch (err) {
         console.log(err);
         res.redirect('404');
@@ -67,7 +67,7 @@ router.get('/edit/:id', isAuth, isOwner, async (req, res) => {
     try {
         let publication = await publicationService.getOne(req.params.id);
 
-        res.render('edit', { ...publication });
+        res.render('edit', { ...publication, title: 'Edit page' });
 
     } catch (err) {
         res.redirect('404');
