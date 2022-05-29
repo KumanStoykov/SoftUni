@@ -2,31 +2,104 @@ const router = require('express').Router();
 const publicationService = require('../services/publicationService');
 
 
-const renderCreate = (req, res) => {
+router.get('/create', (req, res) => {
     res.render('create');
-};
+});
 
-const createPublication = async (req, res) => {
-    let { title, paintingTechnique, picture, certificate } = req.body;
+router.post('/create', async (req, res) => {
 
     try {
-        publicationService.create(title, paintingTechnique, picture, certificate);
 
-        res.redirect('/');
+        let { title, paintingTechnique, picture, certificate } = req.body;
+
+        const author = req.user?._id;
+
+        if (author) {
+
+            await publicationService.create(title, paintingTechnique, picture, certificate, author);
+
+            res.redirect('/');
+        }
+
+
+    } catch (err) {
+        console.log(err);
+        res.redirect('404');
+
+    }
+});
+
+router.get('/details/:id', async (req, res) => {
+
+    try {
+        const user = req.user;
+        let publication = await publicationService.getOne(req.params.id);
+
+        if (user) {
+            publication.isOwner = user._id == publication.author._id;
+            publication.isShared = publication.userShared.some(x => x._id == user._id);
+        }
+
+        res.render('details', { ...publication });
+    } catch (err) {
+        console.log(err);
+        res.redirect('404');
+    }
+});
+
+
+router.get('/share/:id', async (req, res) => {
+    try {
+        let publicationId = req.params.id;
+        let userId = req.user?._id;
+
+        await publicationService.sharedPublication(publicationId, userId);
+
+        res.redirect('/')
 
     } catch (err) {
         console.log(err);
     }
-};
+});
 
-const renderDetails = async (req, res) => {
-    let publication = await publicationService.getOne(req.params.id);
+router.get('/edit/:id', async (req, res) => {
+    try {
+        let publication = await publicationService.getOne(req.params.id);
 
-    res.render('details', { ...publication });
-};
+        res.render('edit', { ...publication });
 
-router.get('/create', renderCreate);
-router.post('/create', createPublication);
-router.get('/details/:id', renderDetails);
+    } catch (err) {
+        res.redirect('404');
+    }
+});
+
+router.post('/edit/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        let { title, paintingTechnique, picture, certificate } = req.body;
+
+
+        await publicationService.edit(id, { title, paintingTechnique, picture, certificate });
+
+        res.redirect(`/publication/details/${id}`);
+
+    } catch (err) {
+        res.redirect('404');
+    }
+});
+
+router.get('/delete/:id', async (req, res) => {
+    try{
+        await publicationService.deletePublication(req.params.id);
+
+        res.redirect('/');
+    } catch(err) {
+        res.redirect('404');
+    }
+});
+
+
+
 
 module.exports = router;
