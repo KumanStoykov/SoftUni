@@ -15,9 +15,13 @@
 
         <!-- In case of error, you should display div with class "error-box" -->
         <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
-        {{!-- <div class="error-box">
-            <p>Error</p>
-        </div> --}}
+        {{#if errors}}
+        <div class="error-box">
+            {{#each errors}}
+            <p>{{this}}</p>
+            {{/each}}
+        </div>
+        {{/if}}
         <nav>
             <img src="/static/img/art-logo.png" alt="logo">
             <a href="/">ArtGallery</a>
