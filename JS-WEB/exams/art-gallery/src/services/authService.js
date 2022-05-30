@@ -2,7 +2,7 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwtSing = require('../utils/jwtSing');
 const bcryptUtility = require('../utils/bcryptUtility');
-const { SECRET, TOKEN_COOKIE_NAME } = require('../constants');
+const { SECRET } = require('../constants');
 
 exports.register = async (username, password, address) => {
 
@@ -13,18 +13,20 @@ exports.register = async (username, password, address) => {
 exports.login = async (username, password) => {
 
     let user = await User.findOne({ username }).populate('myPublications');
+    console.log(user)
+    
+    if (!user) {
+        throw new Error('Cannot find username or password!');
+    } 
+
     let comparePassword = await bcrypt.compare(password, user?.password);
-
-
-    if (comparePassword) {
-
-        let token = await this.crateToken(user);
-            
-
-        return token;
-    } else {
-        throw new Error({ message: 'Cannot find username or password' });
+    
+    if (!comparePassword){
+        throw new Error('Username or password don\'t match!');
     }
+    let token = await this.crateToken(user);      
+    
+    return token;
 };
 
 exports.getUser = async (id) => {

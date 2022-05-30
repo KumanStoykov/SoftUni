@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const { body, validationResult } = require('express-validator');
+
 const publicationService = require('../services/publicationService');
 
 const { isAuth, isOwner } = require('../middlewares/guardMiddleware');
@@ -8,27 +10,36 @@ router.get('/create', isAuth, (req, res) => {
     res.render('create', { title: 'Create page' });
 });
 
-router.post('/create', isAuth, async (req, res) => {
+router.post('/create', isAuth,
+    body('title').isLength({ min: 6 }).withMessage('The Title should be a minimum of 6 characters long.'),
+    body('paintingTechnique').isLength({ max: 15 }).withMessage('The Painting technique should be a maximum of 15 characters long.'),
+    body('picture').isURL().withMessage('The Art picture should start with http:// or https://.'),
+    body('certificate').isIn(['Yes', 'No']).withMessage('The Certificate of authenticity there must be value "Yes" or "No".'),
+    async (req, res) => {
 
-    try {
+        try {
 
-        let { title, paintingTechnique, picture, certificate } = req.body;
+            let { title, paintingTechnique, picture, certificate } = req.body;
 
-        const author = req.user?._id;
+            let errors = validationResult(req).array().map(x => x.msg);
 
-        if (author) {
+            if (errors.length > 0) {
+                throw new Error(errors.join('\n'));
+            }
 
-            await publicationService.create(title, paintingTechnique, picture, certificate, author);
+            const author = req.user?._id;
 
-            res.redirect('/gallery/view');
+            if (author) {
+                await publicationService.create(title, paintingTechnique, picture, certificate, author);
+
+                res.redirect('/gallery/view');
+            }
+
+        } catch (err) {
+            res.render('create', { title: 'Create page', errors: err.message.split(' \n'), data: req.body });
+
         }
-
-    } catch (err) {
-        console.log(err);
-        res.redirect('404');
-
-    }
-});
+    });
 
 router.get('/details/:id', async (req, res) => {
 
@@ -43,7 +54,6 @@ router.get('/details/:id', async (req, res) => {
 
         res.render('details', { ...publication, title: 'Details page' });
     } catch (err) {
-        console.log(err);
         res.redirect('404');
     }
 });
@@ -74,28 +84,40 @@ router.get('/edit/:id', isAuth, isOwner, async (req, res) => {
     }
 });
 
-router.post('/edit/:id', isAuth, isOwner, async (req, res) => {
-    try {
-        const id = req.params.id;
+router.post('/edit/:id', isAuth, isOwner,
+    body('title').isLength({ min: 6 }).withMessage('The Title should be a minimum of 6 characters long.'),
+    body('paintingTechnique').isLength({ max: 15 }).withMessage('The Painting technique should be a maximum of 15 characters long.'),
+    body('picture').isURL().withMessage('The Art picture should start with http:// or https://.'),
+    body('certificate').isIn(['Yes', 'No']).withMessage('The Certificate of authenticity there must be value "Yes" or "No".'),
+    async (req, res) => {
 
-        let { title, paintingTechnique, picture, certificate } = req.body;
+        try {
+            const id = req.params.id;
+
+            let { title, paintingTechnique, picture, certificate } = req.body;
+
+            let errors = validationResult(req).array().map(x => x.msg);
+
+            if (errors.length > 0) {
+                throw new Error(errors.join('\n'));
+            }
 
 
-        await publicationService.edit(id, { title, paintingTechnique, picture, certificate });
+            await publicationService.edit(id, { title, paintingTechnique, picture, certificate });
 
-        res.redirect(`/publication/details/${id}`);
+            res.redirect(`/publication/details/${id}`);
 
-    } catch (err) {
-        res.redirect('404');
-    }
-});
+        } catch (err) {
+            res.render('edit', { title: 'Edit page', errors: err.message.split(' \n'), data: req.body });
+        }
+    });
 
 router.get('/delete/:id', isAuth, isOwner, async (req, res) => {
-    try{
+    try {
         await publicationService.deletePublication(req.params.id);
 
         res.redirect('/gallery/view');
-    } catch(err) {
+    } catch (err) {
         res.redirect('404');
     }
 });
