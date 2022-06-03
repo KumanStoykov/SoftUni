@@ -1,0 +1,18 @@
+{
+  "name": "real-estate-agency",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.5",
+    "nodemon": "^2.0.16"
+  }
+}
