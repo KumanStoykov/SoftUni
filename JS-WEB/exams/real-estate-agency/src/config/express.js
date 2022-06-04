@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 
 const initHandlebars = require('./handlebars');
 const router = require('./router');
+const isLoggedMiddleware = require('../middlewares/isLoggedMiddleware');
 
 module.exports = (app) => {
     initHandlebars(app);
@@ -12,6 +13,8 @@ module.exports = (app) => {
     app.use(express.urlencoded({ extended: true }));
 
     app.use(cookieParser());
+
+    app.use(isLoggedMiddleware.isLogged);
 
     app.use(router);
 }
