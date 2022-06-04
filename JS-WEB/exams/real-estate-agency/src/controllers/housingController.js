@@ -12,4 +12,9 @@ router.get('/edit/:id', (req, res) => {
     res.render('offers/edit', { title: 'Edit Offer'}); 
 });
 
+router.get('/search', (req, res) => {
+    res.render('offers/search', { title: 'Search'});
+});
+
+
 module.exports =  router;
