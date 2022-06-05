@@ -4,17 +4,35 @@ exports.getLastThree = async () => await Housing.find({}).sort({ _id: -1 }).limi
 
 exports.getAll = async () => await Housing.find({}).lean();
 
-exports.crate = async (name, type, year, city, image, description, availablePieces, owner) => {
-    const offer = {
-        name,
-        type,
-        year,
-        city,
-        image,
-        description,
-        availablePieces,
-        owner
-    }
+exports.getOne = async (id) => await Housing.findById(id).populate('rentedHome').populate('owner').lean();
+
+exports.getAllRented = async (id) => {
+    const allRented = await Housing.findById(id).populate('rentedHome').select('rentedHome').lean();
+
+    return allRented.rentedHome;
+
+};
+
+exports.create = async (offer) => {
+    
     const created = await Housing.create(offer);
     return created;
 };
+
+exports.update = (id, data) => {
+    const hosing = Housing.findByIdAndUpdate(id, data);
+    return hosing;
+}
+
+exports.rentedHome = async (userId, housingId) => {
+
+    const currentHousing = await Housing.findById(housingId);
+
+    currentHousing.rentedHome.push(userId);
+    currentHousing.availablePieces -= 1;
+
+    return await currentHousing.save();      
+    
+};
+
+exports.deleteHosing = (id) => Housing.findByIdAndDelete(id);
