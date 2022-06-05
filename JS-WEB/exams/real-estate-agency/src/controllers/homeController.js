@@ -1,11 +1,28 @@
 const router = require('express').Router();
+const housingService = require('../service/housingService');
 
-router.get('/', (req, res) => {
-    res.render('home', { title: 'Home'});
+router.get('/', async (req, res) => {
+
+    try{
+        const lastThree = await housingService.getLastThree();
+
+        res.render('home', { title: 'Home', lastThree});
+    } catch(err) {
+        console.log(err);
+    }
+
 });
 
-router.get('/aprt-for-recent', (req, res) => {
-    res.render('aprt-for-recent', { title: 'Apartments for recents'});
+router.get('/aprt-for-recent', async (req, res) => {
+    try{
+        const allHousing = await housingService.getAll();
+
+        res.render('aprt-for-recent', { title: 'Apartments for recents', allHousing});
+
+    } catch(err) {
+        console.log(err);
+    }
+
 });
 
 module.exports = router;
