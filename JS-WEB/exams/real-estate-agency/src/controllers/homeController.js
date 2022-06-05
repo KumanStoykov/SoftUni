@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
     try{
         const lastThree = await housingService.getLastThree();
 
-        res.render('home', { title: 'Home', lastThree});
+        res.render('home', { title: 'Home', lastThree: lastThree.reverse()});
     } catch(err) {
         console.log(err);
     }
