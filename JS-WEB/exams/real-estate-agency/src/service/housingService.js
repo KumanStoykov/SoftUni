@@ -36,3 +36,10 @@ exports.rentedHome = async (userId, housingId) => {
 };
 
 exports.deleteHosing = (id) => Housing.findByIdAndDelete(id);
+
+exports.search = async (input) => {
+    const regEx = new RegExp(input, 'i')
+    const result = await Housing.find({ type: regEx }).lean();
+
+    return result;
+}

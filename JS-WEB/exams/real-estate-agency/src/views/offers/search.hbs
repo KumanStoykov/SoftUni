@@ -1,23 +1,17 @@
 <main>
-    <form class="search" action="" method="">
-        <input type="search" name="" placeholder="Search here...">
-        <button type="submit">Search</button>
+    <form class="search" action="/offer/search" method="GET">
+        <input type="search" name="search" placeholder="Search here..." value="{{search}}">
+        <button type="submit" value="search">Search</button>
     </form>
     <section id="find-section">
-
-        <!-- If there are any matching matches from the search, show each of them -->
-
-        <div class="card">
-            <h3>Real House Luxury Villa</h3>
-            <p>Spacious and grand villa, 3 bedroom, 2 bath </p>
-            <div class="cta-container"><a href="" class="det-link">Details</a></div>
-            <div class="card_circle"><img src="./public/images/house2.jpg"></div>
-
-        </div>
-
-        <!-- If there are no search matches, show: -->
-        <!--<div class="no-data-listing">
-            <p class="no-offer">No match was found for the submitted type...</p>
-        </div>-->
+            {{#if start}}
+            {{#each result}}
+                {{>housingCard}}
+            {{else}}
+                <div class="no-data-listing">
+                    <p class="no-offer">No match was found for the submitted type...</p>
+                </div>
+            {{/each}}
+            {{/if}}
     </section>
 </main>
