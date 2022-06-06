@@ -10,20 +10,19 @@
 <body>
 
     <div id="box">
-
-        <!-- In case of error, you should display div with class "errorContainer" -->
-        <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
-        <!--
+        {{#if errors}}
         <div>
             <div class="errorContainer">
-                <p>Error</p>
+                {{#each errors}}
+                <p>{{this}}</p>
+                {{/each}}
             </div>
-        </div>-->
+        </div>
+        {{/if}}
 
         <nav>
             <a href="/">Home</a>
             <ul>
-                <!-- Guest users and Logged users -->
                 <li><a href="/aprt-for-recent">Housing for rent</a></li>
                 {{#if user}}
                 <li><a href="/offer/create">Create offer</a></li>

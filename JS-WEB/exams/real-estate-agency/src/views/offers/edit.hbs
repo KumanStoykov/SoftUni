@@ -8,36 +8,36 @@
                 Edit Home
             </h2>
 
-            <form class="form" action="/offer/edit/{{_id}}" method="POST">
+            <form class="form" action="/offer/edit/{{data._id}}" method="POST">
                 <div class="input">
-                    <input type="text" class="input-field" id="home-name" name="name" value="{{name}}" />
+                    <input type="text" class="input-field" id="home-name" name="name" value="{{data.name}}" />
                     <label class="home-name">Name:</label>
                 </div>
                 <div class="input">
-                    <input type="text" class="input-field" id="type" name="type" value="{{type}}" />
+                    <input type="text" class="input-field" id="type" name="type" value="{{data.type}}" />
                     <label class="type">Property Type:</label>
                 </div>
                 <div class="input">
-                    <input type="number" class="input-field" id="year" name="year" value="{{year}}" />
+                    <input type="number" class="input-field" id="year" name="year" value="{{data.year}}" />
                     <label class="year">Year Built:</label>
                 </div>
                 <div class="input">
-                    <input type="text" class="input-field" id="city" name="city" value="{{city}}" />
+                    <input type="text" class="input-field" id="city" name="city" value="{{data.city}}" />
                     <label class="city">City</label>
                 </div>
 
                 <div class="input">
-                    <input type="text" class="input-field" id="homeImage" name="image" value="{{image}}" />
+                    <input type="text" class="input-field" id="homeImage" name="image" value="{{data.image}}" />
                     <label class="homeImage">Home Image:</label>
                 </div>
 
                 <div class="input">
-                    <input type="text" class="input-field" id="description" name="description" value="{{description}}" />
+                    <input type="text" class="input-field" id="description" name="description" value="{{data.description}}" />
                     <label class="description">Property Description:</label>
                 </div>
 
                 <div class="input">
-                    <input type="number" class="input-field" id="availablePieces" name="availablePieces" value="{{availablePieces}}" />
+                    <input type="number" class="input-field" id="availablePieces" name="availablePieces" value="{{data.availablePieces}}" />
                     <label class="availablePieces">Available pieces:</label>
                 </div>
 

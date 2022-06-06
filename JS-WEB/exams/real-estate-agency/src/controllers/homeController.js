@@ -1,4 +1,6 @@
 const router = require('express').Router();
+
+
 const housingService = require('../service/housingService');
 
 router.get('/', async (req, res) => {
