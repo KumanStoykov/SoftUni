@@ -1,36 +1,58 @@
 const router = require('express').Router();
-const housingService = require('../service/housingService');
+const { body, validationResult } = require('express-validator');
 
-router.get('/create', (req, res) => {
+
+const housingService = require('../service/housingService');
+const { isAuth, isOwner } = require('../middlewares/authMiddleware');
+
+
+router.get('/create', isAuth(), (req, res) => {
     res.render('offers/create', { title: 'Create Offer' });
 });
 
-router.post('/create', async (req, res) => {
+router.post('/create',
+    isAuth(),
+    body('name').trim().isLength({ min: 6 }).withMessage('The Name should be at least 6 characters!'),
+    body('year').trim().isFloat({ min: 1850, max: 2021 }).withMessage('The Year should be between 1850 and 2021!'),
+    body('city').trim().isLength({ min: 4 }).withMessage('The City should be at least 4 characters long!'),
+    body('image').trim().matches(/^http:\/\/|https:\/\//).withMessage('The Home Image should starts with http:// or https://.'),
+    body('description').trim().isLength({ max: 60 }).withMessage('The Property Description should be a maximum of 60 characters long!'),
+    body('availablePieces').trim().isFloat({ min: 0, max: 10 }).withMessage('The Available Pieces should be positive number (from 0 to 10)!'),
 
-    try {
-        const owner = req.user._id;
-        const { name, type, year, city, image, description, availablePieces } = req.body;
+    async (req, res) => {
 
-        const offer = {
-            name,
-            type,
-            year,
-            city,
-            image,
-            description,
-            availablePieces,
-            owner
-        };
+        try {
+            const errors = validationResult(req).array().map(x => x.msg);
+
+            if (errors.length > 0) {
+                throw new Error(errors.join(' \n'));
+            }
+
+            const owner = req.user._id;
+            const { name, type, year, city, image, description, availablePieces } = req.body;
+
+            const offer = {
+                name,
+                type,
+                year,
+                city,
+                image,
+                description,
+                availablePieces,
+                owner
+            };
 
 
-        await housingService.create(offer);
+            await housingService.create(offer);
 
-        res.redirect('/');
+            res.redirect('/');
 
-    } catch (err) {
-        console.log(err);
-    }
-});
+        } catch (err) {
+            
+            res.render('offers/create', { title: 'Create Offer', errors: err.message.split(' \n'), data: req.body });
+
+        }
+    });
 
 router.get('/details/:id', async (req, res) => {
 
@@ -49,7 +71,6 @@ router.get('/details/:id', async (req, res) => {
             hosing.isOwner = user._id == hosing.owner._id;
             hosing.hasRented = allRented.find(x => x._id == user._id);
             hosing.noHousing = hosing.availablePieces == 0 || allRented.find(x => x._id == user._id);
-            console.log(hosing.noHousing)
         }
 
         res.render('offers/details', { title: 'Details Offer', ...hosing });
@@ -59,7 +80,7 @@ router.get('/details/:id', async (req, res) => {
     }
 });
 
-router.get('/rentHome/:id', async (req, res) => {
+router.get('/rentHome/:id', isAuth(), async (req, res) => {
 
     try {
         const userId = req.user._id;
@@ -75,15 +96,30 @@ router.get('/rentHome/:id', async (req, res) => {
 
 });
 
-router.get('/edit/:id', async (req, res) => {
+router.get('/edit/:id', isAuth(), isOwner(), async (req, res) => {
     const currentHousing = await housingService.getOne(req.params.id);
 
-    res.render('offers/edit', { title: 'Edit Offer', ...currentHousing });
+    res.render('offers/edit', { title: 'Edit Offer', data: currentHousing });
 });
 
-router.post('/edit/:id', async (req, res) => {
+router.post('/edit/:id', 
+    isAuth(), 
+    isOwner(), 
+    body('name').trim().isLength({ min: 6 }).withMessage('The Name should be at least 6 characters!'),
+    body('year').trim().isFloat({ min: 1850, max: 2021 }).withMessage('The Year should be between 1850 and 2021!'),
+    body('city').trim().isLength({ min: 4 }).withMessage('The City should be at least 4 characters long!'),
+    body('image').trim().matches(/^http:\/\/|https:\/\//).withMessage('The Home Image should starts with http:// or https://.'),
+    body('description').trim().isLength({ max: 60 }).withMessage('The Property Description should be a maximum of 60 characters long!'),
+    body('availablePieces').trim().isFloat({ min: 0, max: 10 }).withMessage('The Available Pieces should be positive number (from 0 to 10)!'),
+    async (req, res) => {
 
     try {
+        const errors = validationResult(req).array().map(x => x.msg);
+
+        if(errors.length > 0) {
+            throw new Error(errors.join(' \n'))
+        }
+
         const hosingId = req.params.id;
         const owner = req.user._id;
 
@@ -105,23 +141,39 @@ router.post('/edit/:id', async (req, res) => {
         res.redirect(`/offer/details/${hosingId}`);
 
     } catch (err) {
-        console.log(err);
+        res.render('offers/edit', { title: 'Edit Offer', errors: err.message.split(' \n'), data: req.body });
+        
     }
 
 });
 
-router.get('/delete/:id', async (req, res) => {
-    try{
+router.get('/delete/:id', isAuth(), isOwner(), async (req, res) => {
+    try {
         await housingService.deleteHosing(req.params.id);
         res.redirect('/aprt-for-recent');
+
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+router.get('/search', async (req, res) => {
+    
+    try{
+        const input = req.query.search;
+        if(input) {
+            const result = await housingService.search(input.toLowerCase());
+    
+            res.render('offers/search', { title: 'Search', start: true, result });
+
+        } else {
+    
+            res.render('offers/search', { title: 'Search', start: false });
+        }
 
     } catch(err) {
         console.log(err);
     }
-});
-
-router.get('/search', (req, res) => {
-    res.render('offers/search', { title: 'Search' });
 });
 
 
