@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 
         res.render('home', { title: 'Home', lastThree: lastThree.reverse()});
     } catch(err) {
-        console.log(err);
+        res.render('404', {title: 'Error'});
     }
 
 });
@@ -22,7 +22,7 @@ router.get('/aprt-for-recent', async (req, res) => {
         res.render('aprt-for-recent', { title: 'Apartments for recents', allHousing});
 
     } catch(err) {
-        console.log(err);
+        res.render('404', {title: 'Error'});
     }
 
 });

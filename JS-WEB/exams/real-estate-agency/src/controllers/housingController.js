@@ -48,7 +48,7 @@ router.post('/create',
             res.redirect('/');
 
         } catch (err) {
-            
+
             res.render('offers/create', { title: 'Create Offer', errors: err.message.split(' \n'), data: req.body });
 
         }
@@ -76,7 +76,7 @@ router.get('/details/:id', async (req, res) => {
         res.render('offers/details', { title: 'Details Offer', ...hosing });
 
     } catch (err) {
-        console.log(err);
+        res.render('404', { title: 'Error' });
     }
 });
 
@@ -91,20 +91,26 @@ router.get('/rentHome/:id', isAuth(), async (req, res) => {
         res.redirect(`/offer/details/${housingId}`);
 
     } catch (err) {
-        console.log(err);
+        res.render('404', { title: 'Error' });
     }
 
 });
 
 router.get('/edit/:id', isAuth(), isOwner(), async (req, res) => {
-    const currentHousing = await housingService.getOne(req.params.id);
+    try {
 
-    res.render('offers/edit', { title: 'Edit Offer', data: currentHousing });
+        const currentHousing = await housingService.getOne(req.params.id);
+
+        res.render('offers/edit', { title: 'Edit Offer', data: currentHousing });
+
+    } catch (err) {
+        res.render('404', { title: 'Error' });
+    }
 });
 
-router.post('/edit/:id', 
-    isAuth(), 
-    isOwner(), 
+router.post('/edit/:id',
+    isAuth(),
+    isOwner(),
     body('name').trim().isLength({ min: 6 }).withMessage('The Name should be at least 6 characters!'),
     body('year').trim().isFloat({ min: 1850, max: 2021 }).withMessage('The Year should be between 1850 and 2021!'),
     body('city').trim().isLength({ min: 4 }).withMessage('The City should be at least 4 characters long!'),
@@ -113,39 +119,38 @@ router.post('/edit/:id',
     body('availablePieces').trim().isFloat({ min: 0, max: 10 }).withMessage('The Available Pieces should be positive number (from 0 to 10)!'),
     async (req, res) => {
 
-    try {
-        const errors = validationResult(req).array().map(x => x.msg);
+        try {
+            const errors = validationResult(req).array().map(x => x.msg);
 
-        if(errors.length > 0) {
-            throw new Error(errors.join(' \n'))
+            if (errors.length > 0) {
+                throw new Error(errors.join(' \n'))
+            }
+
+            const hosingId = req.params.id;
+            const owner = req.user._id;
+
+            const { name, type, year, city, image, description, availablePieces } = req.body;
+
+            const hosing = {
+                name,
+                type,
+                year,
+                city,
+                image,
+                description,
+                availablePieces,
+                owner
+            }
+
+            await housingService.update(hosingId, hosing);
+
+            res.redirect(`/offer/details/${hosingId}`);
+
+        } catch (err) {
+            res.render('offers/edit', { title: 'Edit Offer', errors: err.message.split(' \n'), data: req.body });
         }
 
-        const hosingId = req.params.id;
-        const owner = req.user._id;
-
-        const { name, type, year, city, image, description, availablePieces } = req.body;
-
-        const hosing = {
-            name,
-            type,
-            year,
-            city,
-            image,
-            description,
-            availablePieces,
-            owner
-        }
-
-        await housingService.update(hosingId, hosing);
-
-        res.redirect(`/offer/details/${hosingId}`);
-
-    } catch (err) {
-        res.render('offers/edit', { title: 'Edit Offer', errors: err.message.split(' \n'), data: req.body });
-        
-    }
-
-});
+    });
 
 router.get('/delete/:id', isAuth(), isOwner(), async (req, res) => {
     try {
@@ -153,26 +158,26 @@ router.get('/delete/:id', isAuth(), isOwner(), async (req, res) => {
         res.redirect('/aprt-for-recent');
 
     } catch (err) {
-        console.log(err);
+        res.render('404', {title: 'Error'});
     }
 });
 
 router.get('/search', async (req, res) => {
-    
-    try{
+
+    try {
         const input = req.query.search;
-        if(input) {
+        if (input) {
             const result = await housingService.search(input.toLowerCase());
-    
+
             res.render('offers/search', { title: 'Search', start: true, result });
 
         } else {
-    
+
             res.render('offers/search', { title: 'Search', start: false });
         }
 
-    } catch(err) {
-        console.log(err);
+    } catch (err) {
+        res.render('404', {title: 'Error'});
     }
 });
 
