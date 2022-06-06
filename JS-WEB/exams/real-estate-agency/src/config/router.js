@@ -8,7 +8,7 @@ router.use(homeController);
 router.use('/offer', housingController);
 router.use('/auth', authController);
 router.use('*', (req, res) => {
-    res.status(404).render('404');
+    res.status(404).render('404', { title: 'Not Found' });
 })
 
 module.exports = router;
