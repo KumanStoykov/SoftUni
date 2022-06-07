@@ -166,8 +166,8 @@ router.get('/search', async (req, res) => {
 
     try {
         const input = req.query.search;
-        if (input) {
-            const result = await housingService.search(input.toLowerCase());
+        if (input !== undefined) {
+            const result = await housingService.search(input);
 
             res.render('offers/search', { title: 'Search', start: true, result });
 
