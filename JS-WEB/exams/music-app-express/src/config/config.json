@@ -1,0 +1,10 @@
+{
+    "development": {
+        "PORT": 3000,
+        "CONNECTION_STRING": "mongodb://localhost:27017/albums"
+    },
+    "production": {
+        "PORT": "",
+        "CONNECTION_STRING": ""
+    }
+}

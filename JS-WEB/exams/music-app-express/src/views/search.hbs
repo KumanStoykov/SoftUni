@@ -1,0 +1,22 @@
+<section id="searchPage">
+    <h1>Search by Name</h1>
+
+    <form class="search">
+        <input id="search-input" type="text" name="search" placeholder="Enter desired albums's name">
+        <button class="button-list" value="search">Search</button>
+    </form>
+
+    {{#if isStart}}
+    <h2>Results:</h2>
+    
+    <div class="search-result">
+
+        {{#each albums}}
+            {{>catalogCard}}
+        {{else}}
+        <p class="no-result">No result.</p>
+        {{/each}}
+    
+    </div>
+    {{/if}}
+</section>

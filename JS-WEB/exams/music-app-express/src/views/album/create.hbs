@@ -1,0 +1,32 @@
+<section class="createPage">
+    <form method="POST">
+        <fieldset>
+            <legend>Add Album</legend>
+
+            <div class="container">
+                <label for="name" class="vhide">Album name</label>
+                <input id="name" name="name" class="name" type="text" placeholder="Album name" value="{{data.name}}">
+
+                <label for="imgUrl" class="vhide">Image Url</label>
+                <input id="imgUrl" name="image" class="imgUrl" type="text" placeholder="Image Url" value="{{data.image}}">
+
+                <label for="price" class="vhide">Price</label>
+                <input id="price" name="price" class="price" type="number" placeholder="Price" value="{{data.price}}">
+
+                <label for="releaseDate" class="vhide">Release date</label>
+                <input id="releaseDate" name="releaseDate" class="releaseDate" type="text" placeholder="Release date" value="{{data.releaseDate}}">
+
+                <label for="artist" class="vhide">Artist</label>
+                <input id="artist" name="artist" class="artist" type="text" placeholder="Artist" value="{{data.artist}}">
+
+                <label for="genre" class="vhide">Genre</label>
+                <input id="genre" name="genre" class="genre" type="text" placeholder="Genre" value="{{data.genre}}">
+
+                <label for="description" class="vhide">Description</label>
+                <textarea name="description" class="description" placeholder="Description" value="{{data.description}}"></textarea>
+
+                <button class="add-album" type="submit">Add New Album</button>
+            </div>
+        </fieldset>
+    </form>
+</section>

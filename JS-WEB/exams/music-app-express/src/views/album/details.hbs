@@ -1,0 +1,25 @@
+<section id="detailsPage">
+    <div class="wrapper">
+        <div class="albumCover">
+            <img src="{{image}}">
+        </div>
+        <div class="albumInfo">
+            <div class="albumText">
+
+                <h1>Name: {{name}}</h1>
+                <h3>Artist: {{artist}}</h3>
+                <h4>Genre: {{genre}}</h4>
+                <h4>Price: ${{price}}</h4>
+                <h4>Date: {{releaseDate}}</h4>
+                <p>Description: {{description}}</p>
+            </div>
+
+            {{#if isOwner}}
+            <div class="actionBtn">
+                <a href="/album/edit/{{_id}}" class="edit">Edit</a>
+                <a href="/album/delete/{{_id}}" class="remove">Delete</a>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</section>
