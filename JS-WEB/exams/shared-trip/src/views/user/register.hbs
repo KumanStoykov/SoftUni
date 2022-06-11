@@ -2,7 +2,7 @@
     <div class="container register-page">
         <h1>Register</h1>
         <div class="register">
-            <form action="" method="">
+            <form  method="POST">
                 <div class="form-group">
                     <label for="email">Email address</label>
                     <input
@@ -10,7 +10,7 @@
                         class="form-control"
                         id="email"
                         placeholder="Enter email"
-                        name=""
+                        name="email"
                         value=""
                     />
                 </div>
@@ -21,7 +21,7 @@
                         class="form-control"
                         id="password"
                         placeholder="Password"
-                        name=""
+                        name="password"
                         value=""
                     />
                 </div>
@@ -32,15 +32,15 @@
                         class="form-control"
                         id="rePassword"
                         placeholder="Re-Password"
-                        name=""
+                        name="repeatPassword"
                         value=""
                     />
                 </div>
                 <label>Gender</label>
                 <div class="gender">
-                    <input type="radio" id="female" name="" value="" />
+                    <input type="radio" id="female" name="gender" value="female" />
                     <label for="female">Female</label>
-                    <input type="radio" id="male" name="" value="" checked />
+                    <input type="radio" id="male" name="gender" value="male"  checked/>
                     <label for="male">Male</label>
                 </div>
                 <div class="form-group">
