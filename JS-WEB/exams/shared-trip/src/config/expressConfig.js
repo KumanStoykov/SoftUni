@@ -2,7 +2,9 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 
 const initHandlebars = require('./initHandlebars');
+const isLoggedMiddleware = require('../middlewares/isLoggedMiddlewares');
 const router = require('./router');
+
 
 module.exports = (app) => {
     
@@ -14,6 +16,7 @@ module.exports = (app) => {
 
     app.use(cookieParser());
 
+    app.use(isLoggedMiddleware);
 
     app.use(router);
 }
