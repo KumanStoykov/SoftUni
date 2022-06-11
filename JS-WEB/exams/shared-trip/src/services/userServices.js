@@ -20,20 +20,22 @@ exports.register = async (email, password, gender) => {
 
 exports.login = async (email, password) => {
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).populate('trips');
 
-    if (!user){
-        throw new Error('Cannot find email or password!'); 
+    if (!user) {
+        throw new Error('Cannot find email or password!');
     }
 
     const comparePassword = await bcrypt.compare(password, user.password);
 
-    if(!comparePassword) {
+    if (!comparePassword) {
         throw new Error("Email or password don\'t match!")
     }
 
-    
+
     const token = await createToken(user);
-    
+
     return token;
 }
+
+exports.getUser = (id) => User.findById(id).populate('trips').lean();
