@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     trips: [
         {
             type: mongoose.Types.ObjectId,
-            ref: 'User'
+            ref: 'Trip'
         }
     ]
 });
