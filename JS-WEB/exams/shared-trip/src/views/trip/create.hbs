@@ -2,7 +2,7 @@
     <div class="container offer-trip">
         <h1>Offer trip</h1>
         <div>
-            <form action="" method="">
+            <form  method="POST">
                 <div class="offer-label">
                     <label for="startPoint">
                         <i class="fas fa-map-marker-alt"></i> Starting Point
@@ -17,16 +17,16 @@
                         class="form-control-2"
                         id="startPoint"
                         placeholder="Studentski grad"
-                        name=""
-                        value=""
+                        name="startPoint"
+                        value="{{data.startPoint}}"
                     />
                     <input
                         type="text"
                         class="form-control-2"
                         id="endPoint"
                         placeholder="Pamporovo"
-                        name=""
-                        value=""
+                        name="endPoint"
+                        value="{{data.endPoint}}"
                     />
                 </div>
                 <div class="offer-label">
@@ -42,7 +42,7 @@
                         id="date"
                         placeholder="18 May 2021"
                         name="date"
-                        value=""
+                        value="{{data.date}}"
                     />
                     <input
                         type="time"
@@ -50,7 +50,7 @@
                         id="time"
                         placeholder="19:00 PM"
                         name="time"
-                        value=""
+                        value="{{data.time}}"
                     />
                 </div>
                 <div class="offer-label">
@@ -63,16 +63,16 @@
                         class="form-control-2"
                         id="carImage"
                         placeholder="https://..."
-                        name=""
-                        value=""
+                        name="image"
+                        value="{{data.image}}"
                     />
                     <input
                         type="text"
                         class="form-control-2"
                         id="carBrand"
                         placeholder="Audi"
-                        name=""
-                        value=""
+                        name="carBrand"
+                        value="{{data.carBrand}}"
                     />
                 </div>
                 <div class="offer-label">
@@ -85,16 +85,16 @@
                         class="form-control-2"
                         id="seats"
                         placeholder="4"
-                        name=""
-                        value=""
+                        name="seats"
+                        value="{{data.seats}}"
                     />
                     <input
                         type="text"
                         class="form-control-2"
                         id="price"
                         placeholder="25"
-                        name=""
-                        value=""
+                        name="price"
+                        value="{{data.price}}"
                     />
                 </div>
                 <div class="form-group">
@@ -103,8 +103,8 @@
                         class="form-control"
                         id="description"
                         placeholder="Information about the trip"
-                        name=""
-                    ></textarea>
+                        name="description"
+                    >{{data.description}}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

@@ -2,7 +2,7 @@
     <div class="container edit">
         <h1>Edit trip</h1>
         <div>
-            <form action="" method="">
+            <form method="POST">
                 <div class="edit-label">
                     <label for="startPoint">
                         <i class="fas fa-map-marker-alt"></i> Starting
@@ -17,15 +17,15 @@
                         type="text"
                         class="form-control-2"
                         id="startPoint"
-                        name=""
-                        value=""
+                        name="startPoint"
+                        value="{{data.startPoint}}"
                     />
                     <input
                         type="text"
                         class="form-control-2"
                         id="endPoint"
-                        name=""
-                        value=""
+                        name="endPoint"
+                        value="{{data.endPoint}}"
                     />
                 </div>
                 <div class="edit-label">
@@ -39,15 +39,15 @@
                         type="date"
                         class="form-control-2"
                         id="date"
-                        name=""
-                        value=""
+                        name="date"
+                        value="{{data.date}}"
                     />
                     <input
                         type="time"
                         class="form-control-2"
                         id="time"
-                        name=""
-                        value=""
+                        name="time"
+                        value="{{data.time}}"
                     />
                 </div>
                 <div class="edit-label">
@@ -59,15 +59,15 @@
                         type="text"
                         class="form-control-2"
                         id="carImage"
-                        name=""
-                        value=""
+                        name="image"
+                        value="{{data.image}}"
                     />
                     <input
                         type="text"
                         class="form-control-2"
                         id="carBrand"
-                        name=""
-                        value=""
+                        name="carBrand"
+                        value="{{data.carBrand}}"
                     />
                 </div>
                 <div class="edit-label">
@@ -79,15 +79,15 @@
                         type="text"
                         class="form-control-2"
                         id="seats"
-                        name=""
-                        value=""
+                        name="seats"
+                        value="{{data.seats}}"
                     />
                     <input
                         type="text"
                         class="form-control-2"
                         id="price"
-                        name=""
-                        value=""
+                        name="price"
+                        value="{{data.price}}"
                     />
                 </div>
                 <div class="form-group">
@@ -95,8 +95,8 @@
                     <textarea
                         class="form-control"
                         id="description"
-                        name=""
-                    ></textarea>
+                        name="description"
+                    >{{data.description}}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
