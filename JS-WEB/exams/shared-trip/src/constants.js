@@ -1,0 +1,3 @@
+exports.SALT_ROUND = 9;
+exports.SECRET = 'KJNPI97697LKJKL976KJHJBSJCBJBSC';
+exports.COOKIE_TOKEN_NAME = 'session'
