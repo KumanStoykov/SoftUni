@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>404 Page</title>
+    <title>{{title}}</title>
 
     <!-- Do not forget to change the path to the css file -->
-    <link href="./static/css/style.css" type="text/css" rel="stylesheet">
+    <link href="/css/style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 
         <nav>
             <!-- Do not forget to change the path to the image -->
-            <img src="./static/img/logo.png" alt="logo">
+            <img src="/img/logo.png" alt="logo">
 
             <ul class="menu">
                 <li><a href="#">Home</a></li>
@@ -39,19 +39,10 @@
 
         </nav>
 
-
         <main>
+            
+            {{{body}}}
 
-            <div class="full-screen">
-                <div class='con-not-found'>
-                    <span class="error-num">4</span>
-                    <div class='eye'></div>
-                    <span class="error-num">4</span>
-
-                    <p class="sub-text">Something went wrong. We're <span class="italic">looking</span> to see what happened.</p>
-                    <p>Go Back to <a href="#">Home</a></p>
-                </div>
-            </div>
         </main>
 
         <footer>
