@@ -1,0 +1,10 @@
+{
+    "development":{
+        "PORT": 3000,
+        "DB_STRING_CONNECTION": "mongodb://localhost:27017/photograph"
+    },
+    "production":{
+        "PORT": "",
+        "DB_STRING_CONNECTION": ""
+    }
+}
