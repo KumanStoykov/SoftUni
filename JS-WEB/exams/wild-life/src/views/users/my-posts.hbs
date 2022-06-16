@@ -1,0 +1,19 @@
+<section id="my-posts">
+    <h1>My post.</h1>
+
+    <div class="my-container">
+        <!-- If there are own posts for wildlife in the database display each of them -->
+        {{#each posts}}
+        {{>myCard}}
+        {{else}}
+        <!-- If there are still no own posts for wildlife in the database display: -->
+        <div class="no-posts">
+            <div class="no-posts-img">
+               
+                <img src="/img/bear.jpg" alt="image_nature_3">
+            </div>
+            <p class="no-offer">There are no own posts yet...</p>
+        </div>
+        {{/each}}
+    </div>
+</section>

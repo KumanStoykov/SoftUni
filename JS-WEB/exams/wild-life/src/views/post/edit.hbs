@@ -1,21 +1,21 @@
-<section id="create-page">
-    <div class="createSection">
+<section id="edit-page">
+    <div class="editSection">
         <div class="info">
-            <h2>Create your post, share information about wildlife.</h2>
+            <h2>Edit your own post!</h2>
         </div>
 
-        <form action="#" method="" class="createForm">
-            <h2>Create Post</h2>
+        <form  method="POST" class="editForm">
+            <h2>Edit Post</h2>
             <ul class="noBullet">
-                <li>
+               <li>
                     <label for="title">Title:</label>
                     <input
                         type="text"
                         class="inputFields"
                         id="title"
                         placeholder="Two golden snub-nosed monkeys"
-                        name=""
-                        value=""
+                        name="title"
+                        value="{{data.title}}"
                     />
                 </li>
                 <li>
@@ -25,8 +25,8 @@
                         class="inputFields"
                         id="keyword"
                         placeholder="Animal"
-                        name=""
-                        value=""
+                        name="keyword"
+                        value="{{data.keyword}}"
                     />
                 </li>
                 <li>
@@ -36,8 +36,8 @@
                         class="inputFields"
                         id="location"
                         placeholder="North America"
-                        name=""
-                        value=""
+                        name="location"
+                        value="{{data.location}}"
                     />
                 </li>
                 <li>
@@ -47,8 +47,8 @@
                         class="inputFields"
                         id="date"
                         placeholder="18.02.2021"
-                        name=""
-                        value=""
+                        name="dateOfCreation"
+                        value="{{data.dateOfCreation}}"
                     />
                 </li>
                 <li>
@@ -58,21 +58,21 @@
                         class="inputFields"
                         id="image"
                         placeholder="http:/..."
-                        name=""
-                        value=""
+                        name="image"
+                        value="{{data.image}}"
                     />
                 </li>
                 <li>
-                    <label for="description">Description:</label>
+                    <label for="description">Description: </label>
                     <textarea
                         id="description"
                         class="inputFields"
-                        name=""
+                        name="description"
                         placeholder="Monkey is..."
-                    ></textarea>
+                    >{{data.description}}</textarea>
                 </li>
                 <li id="center-btn">
-                    <button id="create-btn">Create</button>
+                    <button id="edit-btn">Edit</button>
                 </li>
             </ul>
         </form>

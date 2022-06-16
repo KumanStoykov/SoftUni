@@ -15,26 +15,29 @@
 
         <!-- In case of error, you should display div with class "error-container" -->
         <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
-        <!--
+        {{#if errors}}
         <div class="error-container">
-            <p>Error</p>
-        </div>-->
-
+            {{#each errors}}
+            <p>{{this}}</p>
+            {{/each}}
+        </div>
+        {{/if}}
 
         <nav>
             <!-- Do not forget to change the path to the image -->
             <img src="/img/logo.png" alt="logo">
 
             <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">All Posts</a></li>
-                <!-- Logged users -->
-                <li><a href="#">Create Post</a></li>
-                <li><a href="#">Posts of {{email-of-user}}</a></li>
-                <li><a href="#">Logout</a></li>
-                <!-- Guest users -->
-                <li><a href="#">Register</a></li>
-                <li><a href="#">Login</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/all-posts">All Posts</a></li>
+                {{#if user}}
+                    <li><a href="/post/create">Create Post</a></li>
+                    <li><a href="/user/my-posts">Posts of {{user.email}}</a></li>
+                    <li><a href="/user/logout">Logout</a></li>
+                {{else}}
+                    <li><a href="/user/register">Register</a></li>
+                    <li><a href="/user/login">Login</a></li>
+                {{/if}}
             </ul>
 
         </nav>
