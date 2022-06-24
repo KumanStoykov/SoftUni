@@ -14,13 +14,13 @@ exports.getAllRented = async (id) => {
 };
 
 exports.create = async (offer) => {
-    
+
     const created = await Housing.create(offer);
     return created;
 };
 
 exports.update = (id, data) => {
-    const hosing = Housing.findByIdAndUpdate(id, data);
+    const hosing = Housing.findByIdAndUpdate(id, data, { runValidators: true });
     return hosing;
 }
 
@@ -31,8 +31,7 @@ exports.rentedHome = async (userId, housingId) => {
     currentHousing.rentedHome.push(userId);
     currentHousing.availablePieces -= 1;
 
-    return await currentHousing.save();      
-    
+    return await currentHousing.save();
 };
 
 exports.deleteHosing = (id) => Housing.findByIdAndDelete(id);
