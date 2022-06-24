@@ -33,7 +33,7 @@ router.post('/login',
             res.cookie(TOKEN_COOKIE_NAME, token, {
                 httpOnly: true
             });
-            res.redirect('/');
+            res.redirect('/'); 
 
         } catch (err) {
             res.render('auth/login', { title: 'Login', errors: err.message.split(' \n'), data: req.body });

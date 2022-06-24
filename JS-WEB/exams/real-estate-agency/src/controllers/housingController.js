@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { body, validationResult } = require('express-validator');
 
 
+
 const housingService = require('../service/housingService');
 const { isAuth, isOwner } = require('../middlewares/authMiddleware');
 
@@ -91,6 +92,7 @@ router.get('/rentHome/:id', isAuth(), async (req, res) => {
         res.redirect(`/offer/details/${housingId}`);
 
     } catch (err) {
+        console.log(err.message)
         res.render('404', { title: 'Error' });
     }
 
