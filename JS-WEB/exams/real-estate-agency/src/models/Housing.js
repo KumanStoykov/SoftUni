@@ -7,7 +7,10 @@ const housingSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        //TODO: Required 'Apartment', 'Villa', 'House'
+        enum: {
+           values: ['Apartment', 'Villa', 'House'],
+           message: 'Required Apartment, Villa, House'
+        },
         required: true
     },
     year: {
