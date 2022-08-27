@@ -1,0 +1,118 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-background: #f5f5f5;
+    --clr-red: #cb2027;
+    --clr-font-dark: #000521;
+    --clr-card-background: #ffffff;
+}
+
+body {
+    font-family: 'Courgette', cursive;
+    background-color: var(--clr-background);
+}
+
+.container {
+    max-width: 80rem;
+    padding: 0 1rem;
+    margin: 0 auto;
+}
+
+.title-wrap {
+    width: 30rem;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.sub-title {
+    color: var(--clr-red);
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 15rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--clr-card-background);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.75rem;
+    margin: 0.75rem 0;
+}
+
+.wrap-info {
+    padding: 1rem;
+}
+
+.underscore {
+    width: 100%;
+    height: 2px;
+    background-color: var(--clr-red);
+}
+
+.card-desc {
+    margin-bottom: 2.5rem;
+}
+
+.continue-btn {
+    border: none;
+    background-color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.fa-angle-right {
+    background-color: var(--clr-red);
+    color: var(--clr-card-background);
+    font-size: 0.9rem;
+    padding: 3px 4px;
+    border-radius: 100%;
+    margin-left: 0.3rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    .title-wrap {
+        width: 15rem;
+        margin: 3rem auto;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    .sub-title {       
+        font-size: 1rem;      
+        margin-left: 7.5rem;
+    }  
+    
+}
