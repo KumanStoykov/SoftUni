@@ -1,0 +1,117 @@
+/* TODO: Add responsive styles here... */
+
+@media screen and (max-width: 1000px) {
+    /* About us */
+
+    .services .wrap-box {
+        flex: 0 0 100%;
+        min-width: 100%;
+    }
+    /* Contacts */
+
+    .contact .contact-btn {
+        margin: 2rem 0 5rem 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /* Navigation */
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar .navbar-brand {
+        margin-right: unset;
+    }
+
+    /* Hero section */
+    .hero > img {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+        margin-top: 4rem;
+        text-align: center;
+    }
+    .hero p {
+        text-align: center;
+    }
+
+    .hero .hero-btns {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10rem;
+    }
+    .hero .hero-btns a:nth-child(1) {
+        padding: 10px 35px;
+    }
+    /* About us */
+    .services {
+        text-align: center;
+        margin-bottom: 5rem;
+    }
+
+    .services .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 100%;
+    }
+    .services .hero-btns {
+        margin-bottom: 5rem;
+    }
+    .services .hero-btns a:nth-child(1) {
+        padding: 12px 45px;
+    }
+
+    .services .service-box {
+        text-align: start;
+        padding: 30px;
+        min-width: 100%;
+        margin: 2rem 10px;
+    }
+
+    /* About */
+    .about .row {
+        text-align: center;
+    }
+
+    .about .row h5 {
+        margin-top: 4rem;
+    }
+    .about .row p {
+        font-weight: bold;
+    }
+
+    /* Contacts */
+    .contact .row {
+        text-align: center;
+    }
+    .contact .contact-btn {
+        display: none;
+    }
+
+    /* Footer */
+    footer .contact-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    footer h6 {
+        padding-bottom: unset;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    /* About us */
+
+    .services .service-box {
+        margin: 2rem 10px;
+    }
+}
