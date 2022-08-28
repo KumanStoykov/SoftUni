@@ -1,0 +1,404 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-with: #ffffff;
+    --clr-font-dark: #232932;
+    --clr-aqua-light: #b2f1dd;
+    --clr-green-light: #00d08e;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    margin: 0 auto;
+    padding: 0 5rem;
+}
+
+/* -------------------
+   Utils 
+   ------------------
+*/
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+button {
+    cursor: pointer;
+}
+img {
+    width: 100%;
+    display: block;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+/* -------------------
+  Layout 
+   ------------------
+*/
+
+/* Nav-bar */
+
+
+.nav-bar {
+    min-width: calc(100vw - 20vw);
+}
+/* .list-wrap {
+    padding-bottom: 10rem;
+} */
+
+.nav-list {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.nav-item-cart {
+    text-shadow: 0px 3px 3px black;
+}
+
+.icon-text {
+    color: var(--clr-with);
+    margin-left: 0.2rem;
+    font-size: 1.5rem;
+}
+
+.nav-list i {
+    color: var(--clr-with);
+    font-size: 1.5rem;
+}
+
+/* Hero */
+
+.hero {
+    width: 100%;
+    height: 40rem;
+    background: linear-gradient(
+            to top,
+            rgb(0, 0, 0, 0.3) 10%,
+            rgb(0, 0, 0, 0.7)
+        ),
+        url('./image/computer-main.jpg') center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    color: var(--clr-with);
+}
+
+.hero-content-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero .title {
+    text-align: center;
+    font-size: 4rem;
+    margin: 1rem 0;
+    text-shadow: 0px 3px 3px black;
+}
+
+.hero .title-desc {
+    width: 60%;
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-shadow: 0px 3px 3px black;
+}
+
+.hero-btn-buy {
+    margin-bottom: 2rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--clr-green-light);
+    color: var(--clr-with);
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    transition: background-color 300ms ease-in-out;
+}
+
+.hero-btn-buy:hover {
+    padding: 0.5rem 1.4rem;
+    margin-bottom: 1.9rem;
+    background-color: inherit;
+    border: 2px solid var(--clr-with);
+}
+
+.hero-btn-see-it {
+    text-align: center;
+    background: inherit;
+    border: none;
+    color: var(--clr-with);
+    font-size: 1rem;
+    text-shadow: 0px 3px 3px black;
+}
+.fa-circle-arrow-right {
+    margin-left: 0.5rem;
+}
+
+/* Main section Hustle-what */
+
+.hustle-what {
+    display: flex;
+}
+
+.img-hustle-what {
+    flex: 0 0 50%;
+}
+
+.hustle-what-info {
+    font-size: 1.75rem;
+    padding: 0 4rem;
+}
+
+.hustle-title {
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+.text-info {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+}
+
+.list-hustle {
+    padding: 0;
+}
+
+.list-item-hustle {
+    display: flex;
+    align-items: center;
+    line-height: 3.75rem;
+}
+
+.list-item-hustle::before {
+    content: '✔';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    margin-right: 1.5rem;
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+    border-radius: 100%;
+    color: var(--clr-with);
+    background-color: var(--clr-green-light);
+}
+
+/* Main section Hustle case */
+.hustle-case {
+    display: flex;
+    align-items: center;
+}
+
+.hustle-for {
+    flex: 0 0 50%;
+}
+
+.title-hustle-for {
+    text-align: center;
+    margin-bottom: 5rem;
+    font-size: 2.75rem;
+}
+
+.line-wrap {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.name-for-options {
+    margin-top: 0;
+    margin-bottom: 3rem;
+    color: var(--clr-green-light);
+    font-weight: bold;
+}
+
+.hustle-case .for-options img {
+    width: 5rem;
+}
+.img-hustle-case {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Footer Question */
+
+.footer {
+    background-color: var(--clr-aqua-light);
+    padding: 1rem;
+}
+
+.footer-title {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.questions-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.questions {
+    width: 15rem;
+    text-align: center;
+}
+
+.questions-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.questions-desc {
+    margin-top: 0.3rem;
+}
+
+.email-us {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.email-us-bold {
+    font-weight: bold;
+}
+
+/* Responsive */
+@media screen and (max-width: 1700px) {
+    /* Main section Hustle what */
+    .hustle-what-info {
+        font-size: 1.25rem;
+        padding: 0 2rem;
+    }
+
+    .hustle-title {
+        font-size: 2rem;
+    }
+
+    .text-info {
+        font-size: 1.25rem;
+        margin-top: 0.3rem;
+    }
+
+    .list-item-hustle {
+        line-height: 2.5rem;
+    }
+    .list-item-hustle::before {
+        font-size: 1rem;
+        margin-right: 1.5rem;
+        width: 20px;
+        height: 20px;
+    }
+    /* Main section Hustle case */
+    .title-hustle-for {
+        margin-bottom: 2.75rem;
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    /* Main section Hustle what */
+    .hustle-what-info {
+        font-size: 1.25rem;
+    }
+
+    .hustle-title {
+        font-size: 1.5rem;
+    }
+
+    .text-info {
+        font-size: 1rem;
+    }
+    .list-hustle {
+        margin-bottom: 0;
+    }
+    .list-item-hustle {
+        line-height: 2rem;
+    }
+
+    .list-item-hustle::before {
+        font-size: 1rem;
+        margin-right: 1.5rem;
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Main section Hustle case */
+    .title-hustle-for {
+        margin: 1.5rem 0;
+        font-size: 2rem;
+    }
+    .hustle-case .for-options img {
+        width: 3rem;
+        margin: auto;
+    }
+
+    .name-for-options {
+        margin-bottom: 1rem;
+    }
+}
+@media screen and (max-width: 1000px) {
+    /* Main section Hustle what */
+    .hustle-what {
+        flex-direction: column-reverse;
+    }
+    .list-hustle {
+        margin-bottom: 1em;
+    }
+    /* Main section Hustle case */
+    .hustle-case {
+        flex-direction: column;
+    }
+    .title-hustle-for {
+        margin-bottom: 3rem;
+        font-size: 1.75rem;
+    }
+    .name-for-options {
+        margin-top: 0;
+        margin-bottom: 3rem;
+        color: var(--clr-green-light);
+        font-weight: bold;
+        font-size: 0.75rem;
+        text-align: center;
+    }
+
+    .hustle-case .for-options img {
+        width: 3rem;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0 0rem;
+    }
+    /* Hero */
+    .hero .title {
+        font-size: 3rem;
+    }
+    /* Footer */
+    .questions-group {
+        display: flex;
+        flex-direction: column;
+    }
+    .questions {
+        width: 50%;
+    }
+}
