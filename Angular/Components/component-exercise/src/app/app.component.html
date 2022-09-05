@@ -1,0 +1,36 @@
+<!-- Interpolation only for text -->
+<div>{{title}}</div>
+
+<input #inputElement type="text">
+
+<button (click)="changeTitleHandler(inputElement)">Click me</button>
+
+<!-- Binding value -->
+<!-- <input [value]="title"> -->
+
+<!-- Added handler -->
+<!-- <button (click)="buttonClickHandler()">Click</button> -->
+
+<!-- <ul>
+    <li *ngFor="let user of users">
+        <span>{{user.name}}</span>
+        <span> {{user.age}}</span>
+    </li>
+</ul> -->
+
+<!-- Added attribute -->
+
+<!-- <input [attr.data-test]="title"> -->
+
+<!-- Added specific class with boolean -->
+
+<!-- <div [class.special]="isSpecial">
+    The class binding is special
+</div> -->
+
+<!-- Directive attribute-->
+<!-- <div *ngIf="showText" [ngClass]="{'classes': true or false}">VISIBLE</div> -->
+
+<div *ngIf="showText" [class]="classes">VISIBLE</div>
+
+<!-- <button (click)="toggleText($event)"> {{ showText ? 'HIDE TEXT' : 'SHOW TEXT'}}</button> -->
