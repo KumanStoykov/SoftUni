@@ -1,9 +1,8 @@
 <!-- Interpolation only for text -->
-<div>{{title}}</div>
 
-<input #inputElement type="text">
+<!-- <input #inputElement type="text"> -->
 
-<button (click)="changeTitleHandler(inputElement)">Click me</button>
+<!-- <button (click)="changeTitleHandler(inputElement)">Click me</button> -->
 
 <!-- Binding value -->
 <!-- <input [value]="title"> -->
@@ -31,6 +30,19 @@
 <!-- Directive attribute-->
 <!-- <div *ngIf="showText" [ngClass]="{'classes': true or false}">VISIBLE</div> -->
 
-<div *ngIf="showText" [class]="classes">VISIBLE</div>
+<!-- <div *ngIf="showText" [class]="classes">VISIBLE</div> -->
 
 <!-- <button (click)="toggleText($event)"> {{ showText ? 'HIDE TEXT' : 'SHOW TEXT'}}</button> -->
+
+<div>
+    HEADER
+</div>
+
+<main id="content">
+    <app-user-list *ngIf="users" [userArray]="users" (addUser)="addNewUserHandler($event)"></app-user-list>
+    <div *ngIf="!users">Loading...</div>
+</main>
+
+<div>
+    FOOTER
+</div>
