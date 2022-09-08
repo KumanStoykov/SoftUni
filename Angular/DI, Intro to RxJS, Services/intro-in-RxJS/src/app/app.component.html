@@ -3,8 +3,8 @@
 </div>
 
 <main id="content">
-  <app-user-list *ngIf="users" [userArray]="users" (addUser)="addNewUserHandler($event)"></app-user-list>
-  <div *ngIf="!users">Loading...</div>
+  <app-user-list *ngIf="userService.users" [userArray]="userService.users" (addUser)="userService.addNewUserHandler($event)"></app-user-list>
+  <div *ngIf="!userService.users">Loading...</div>
 </main>
 
 <div>

@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { myStringInjectionToken } from './app.module';
 import { IUser } from './interfaces/user';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
+
 export class UserService {
 
 
@@ -22,7 +22,9 @@ export class UserService {
     },
   ];
 
-  constructor() { }
+  constructor(@Inject(myStringInjectionToken) myString: string) {
+    console.log(myString);
+  }
 
   addNewUserHandler(newUser: IUser): void {
     if (newUser.name !== '' && newUser.age > 0) {
