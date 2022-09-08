@@ -1,0 +1,12 @@
+<div>
+  HEADER
+</div>
+
+<main id="content">
+  <app-user-list *ngIf="users" [userArray]="users" (addUser)="addNewUserHandler($event)"></app-user-list>
+  <div *ngIf="!users">Loading...</div>
+</main>
+
+<div>
+  FOOTER
+</div>
