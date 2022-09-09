@@ -6,33 +6,8 @@ import { IUser } from '../interfaces/user';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent {
 
   @Input() userArray: IUser[] = [];
-  @Output() addUser = new EventEmitter<IUser>();
-
-  constructor() {
-    console.log(this.userArray);
-  };
-
-  ngOnInit(): void {
-    console.log(this.userArray);
-  };
-
-  ngOnChanges(simpleChanges: SimpleChanges): void {
-    console.log(simpleChanges);
-  };
-
-  addNewUser(userNameInput: HTMLInputElement, userAgeInput: HTMLInputElement): void {
-    const { value: name } = userNameInput;
-    const { valueAsNumber: age } = userAgeInput;
-
-    this.addUser.emit({ name, age });
-
-    if (name !== '' && age > 0) {
-      userNameInput.value = '';
-      userAgeInput.value = '';
-    }
-  }
 
 }
