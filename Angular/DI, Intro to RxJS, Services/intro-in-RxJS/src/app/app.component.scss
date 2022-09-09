@@ -1,0 +1,24 @@
+.header {
+  text-align: center;
+  font-size: 3rem;
+  background-color: #42A5F5;
+  color: #fff;
+}
+.content{
+  max-width: 20rem;
+  margin: 5rem auto;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.footer {
+  position: sticky;
+  top: 100%;
+  text-align: center;
+  font-size: 3rem;
+  background-color: #42A5F5;
+  color: #fff;
+}
