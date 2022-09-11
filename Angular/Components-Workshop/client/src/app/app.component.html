@@ -1,0 +1,9 @@
+<app-header></app-header>
+<div class="container">
+    <main>
+        <app-theme-list *ngIf="themes" [themesArr]="themes!"></app-theme-list>
+        <p class="loading" *ngIf="!themes">Loading...</p>
+    </main>
+</div>
+
+<app-footer></app-footer>

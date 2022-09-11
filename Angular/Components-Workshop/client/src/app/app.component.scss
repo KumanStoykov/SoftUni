@@ -1,0 +1,21 @@
+main {
+    width: 50%;
+
+    .theme-title {
+        padding: 0;
+    }
+}
+
+.container {
+    max-width: 1366px;
+    margin: auto;
+    padding-bottom: 1.5em;
+    display: flex;
+    align-items: flex-start;
+
+    .loading {
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+}
+
