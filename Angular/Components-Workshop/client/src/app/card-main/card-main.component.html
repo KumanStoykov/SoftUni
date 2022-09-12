@@ -8,12 +8,12 @@
                 <div>
                     <p>Date: <time>{{theme.created_at}}</time></p>
                     <div class="nick-name">
-                        <p>Username: <span>David</span></p>
+                        <p>Username: <span>{{theme.userId.username}}</span></p>
                     </div>
                 </div>
                 <div class="subscribers">
                     <!-- <button class="subscribe">Subscribe</button> -->
-                    <p>Subscribers: <span>456</span></p>
+                    <p>Subscribers: <span>{{theme.subscribers.length}}</span></p>
                 </div>
             </div>
         </div>
