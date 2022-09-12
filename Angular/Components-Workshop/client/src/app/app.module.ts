@@ -10,6 +10,7 @@ import { CardAsideComponent } from './card-aside/card-aside.component';
 import { ThemeListComponent } from './theme-list/theme-list.component';
 import { ForumService } from './forum.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AsideListComponent } from './aside-list/aside-list.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     CardMainComponent,
     CardAsideComponent,
     ThemeListComponent,
+    AsideListComponent,
   ],
   imports: [
     BrowserModule,

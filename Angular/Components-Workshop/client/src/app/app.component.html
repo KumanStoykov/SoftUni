@@ -4,6 +4,10 @@
         <app-theme-list *ngIf="themes" [themesArr]="themes!"></app-theme-list>
         <p class="loading" *ngIf="!themes">Loading...</p>
     </main>
+    <aside>
+    <h2 class="title">Recent posts</h2>
+        <app-aside-list [latestThemeArr]="latest!"></app-aside-list>
+    </aside>
 </div>
 
 <app-footer></app-footer>
