@@ -1,0 +1,32 @@
+#wrapper {
+    margin: auto;
+    width: 700px;
+    height: 830px;
+    border: 1px solid #000000;
+    padding: 10px 20px;
+    background-color: rgb(166, 225, 236);
+}
+
+p {
+    font-size: 18px;
+}
+
+ul li {
+    list-style: none;
+    width: 596px;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #000000;
+
+}
+span {
+    color: rgb(63, 81, 181);
+}
+
+img {
+    width: 200px;
+    margin-right: 10px;
+    vertical-align: middle;
+}

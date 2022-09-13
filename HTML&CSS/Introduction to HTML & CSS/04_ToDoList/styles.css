@@ -1,0 +1,21 @@
+.my-list {
+    background-color: rgb(247, 243, 129);
+    width: 500px;
+    margin: auto;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.my-list h1 {
+    text-align: center;
+}
+
+.my-list p {
+    text-align: center;
+}
+
+ol li {
+    line-height: 1.5rem;
+}
+
+

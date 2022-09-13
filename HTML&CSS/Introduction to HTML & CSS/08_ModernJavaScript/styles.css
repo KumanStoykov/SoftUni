@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    margin: 0;
+}
+
+#wrapper {
+    background-color: #5bc0de;
+    max-width: 800px;
+    padding: 1rem;
+}
