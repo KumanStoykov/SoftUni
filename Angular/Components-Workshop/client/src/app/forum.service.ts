@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ITheme } from './interfaces/theme';
+import { ITheme, IPost } from './shared/interfaces';
 
-@Injectable({
-    providedIn: 'root'
-})
+import { environment } from '../environments/environment';
+const API_URL = environment.apiURL;
+
+@Injectable()
 
 export class ForumService {
 
     constructor(private http: HttpClient) { }
 
     loadThemes() {
-        return this.http.get<ITheme[]>(`http://localhost:3000/api/themes`);
+        return this.http.get<ITheme[]>(`${API_URL}/themes`);
     }
-    loadLatestTheme() {
-        return this.http.get<ITheme[]>(`http://localhost:3000/api/posts?limit=5`);
+    loadLatestTheme(limit: number) {
+        const query = limit ? `?limit=${limit}` : '';
+        return this.http.get<IPost[]>(`${API_URL }/posts${query}`);
     }
 }

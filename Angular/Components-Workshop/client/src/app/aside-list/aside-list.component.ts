@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ITheme } from '../interfaces/theme';
+import { IPost } from '../shared/interfaces';
 
 @Component({
   selector: 'app-aside-list',
@@ -10,7 +10,7 @@ export class AsideListComponent implements OnInit {
 
   constructor() { }
 
-  @Input() latestThemeArr: ITheme[] = [];
+  @Input() latestThemeArr: IPost[] = [];
 
   ngOnInit(): void { }
 

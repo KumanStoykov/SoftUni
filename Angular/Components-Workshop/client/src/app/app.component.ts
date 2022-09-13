@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ForumService } from './forum.service';
-import { ITheme } from './interfaces/theme';
+import { ITheme, IPost } from './shared/interfaces';
 
 @Component({
     selector: 'app-root',
@@ -9,7 +9,7 @@ import { ITheme } from './interfaces/theme';
 })
 export class AppComponent implements OnInit {
     themes: ITheme[] | undefined;
-    latest: ITheme[] | undefined;
+    latest: IPost[] | undefined;
 
     constructor(public forumService: ForumService) { }
 
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
             complete: () => console.log('All themes complete load!!')
         });
 
-        this.forumService.loadLatestTheme().subscribe({
+        this.forumService.loadLatestTheme(5).subscribe({
             next: (latest) => this.latest = latest,
             error: (error) => console.error(error),
             complete: () => console.log('All themes complete load!!')

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ITheme } from '../interfaces/theme';
+import { ITheme } from '../shared/interfaces';
 
 @Component({
   selector: 'app-card-main',

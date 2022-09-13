@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ITheme } from '../interfaces/theme';
+import { IPost } from '../shared/interfaces';
 
 @Component({
   selector: 'app-card-aside',
@@ -8,7 +8,7 @@ import { ITheme } from '../interfaces/theme';
 })
 export class CardAsideComponent implements OnInit {
 
-    @Input() theme!: ITheme;
+    @Input() post!: IPost;
 
   constructor() { }
 
