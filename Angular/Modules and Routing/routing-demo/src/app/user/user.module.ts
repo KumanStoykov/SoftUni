@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
 import { UserListComponent } from './user-list/user-list.component';
 import { UserListItemComponent } from './user-list-item/user-list-item.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { UserRoutingModule } from './user-routing.module';
+import { UserService } from './user.service';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -11,14 +14,18 @@ import { UserListItemComponent } from './user-list-item/user-list-item.component
   declarations: [
     UserListComponent,
     UserListItemComponent,
+    UserDetailComponent,
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    UserRoutingModule,
+    SharedModule
+  ],
+  providers: [
+    UserService
   ],
   exports: [
     UserListComponent,
-    HttpClientModule,
   ]
 })
 export class UserModule { }
