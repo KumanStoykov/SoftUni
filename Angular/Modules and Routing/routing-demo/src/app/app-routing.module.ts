@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
-import { UserListComponent } from './user/user-list/user-list.component';
+import { NotFoundComponent } from './core/not-found/not-found.component';
+
 
 const routes: Routes = [
   {
@@ -10,12 +11,12 @@ const routes: Routes = [
     redirectTo: '/user-list'
   },
   {
-    path: 'user-list',
-    component: UserListComponent
-  },
-  {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 

@@ -1,12 +1,25 @@
 <header class="header">
     <nav class="nav">
         <p class="time">
-          <app-time></app-time>
+            <app-time></app-time>
         </p>
         <ul class="item-wrap">
-            <li><a routerLink="/about">About</a></li>
-            <li><a routerLink="/user-list">User list</a></li>
-            <li><a routerLink="/login>Login"></a></li>
+            <li>
+                <a
+                    routerLink="/"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    >Redirect</a
+                >
+            </li>
+            <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+            <li>
+                <a routerLink="/user-list" routerLinkActive="active"
+                    >User list</a
+                >
+            </li>
+            <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+            <li><a routerLink="/test" routerLinkActive="active">Test</a></li>
         </ul>
-  </nav>
+    </nav>
 </header>
