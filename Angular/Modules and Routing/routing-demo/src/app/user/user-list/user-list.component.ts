@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/shared/interfaces/user';
-import { UserService } from 'src/app/user.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-list',
@@ -24,8 +24,9 @@ export class UserListComponent implements OnInit {
     this.userService.loadUsers(search).subscribe((users) => this.users = users);
   }
 
-  reloadButtonHandler() {
+  reloadButtonHandler(searchInput: HTMLInputElement) {
     this.loadUsers();
+    searchInput.value = '';
   }
 
   searchButtonHandler(searchInput: HTMLInputElement) {

@@ -6,7 +6,7 @@
     </div>
     <div *ngIf="users">
         <div class="wrap-btn">
-            <button (click)="reloadButtonHandler()">Reload</button>
+            <button (click)="reloadButtonHandler(searchInput)">Reload</button>
             <button (click)="searchButtonHandler(searchInput)">Search</button>
         </div>
         <div>
@@ -16,5 +16,5 @@
             ></app-user-list-item>
         </div>
     </div>
-    <div *ngIf="!users">Loading...</div>
+    <app-loader *ngIf="!users"></app-loader>
 </div>
