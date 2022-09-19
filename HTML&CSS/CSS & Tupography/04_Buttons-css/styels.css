@@ -1,0 +1,37 @@
+.button {
+    color: rgb(51, 51, 51);
+    background-color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 24px;
+    border: 2px solid black;
+    font-size: 16px;
+    padding: 8px 20px;
+}
+
+.fill {
+    background-color: rgb(51, 51, 51);
+    color: rgb(251, 251, 251);
+}
+
+.hover:hover {
+    background-color: rgb(0, 102, 0);
+    border-color: rgb(0, 102, 0);
+}
+
+button:nth-of-type(2):hover {
+    background-color: inherit;
+    color: rgb(0, 102, 0);
+    border-color: rgb(0, 102, 0);
+}
+
+.fa-arrow-down {
+    margin-right: 5px;
+}
+
+
+
+
+
+
