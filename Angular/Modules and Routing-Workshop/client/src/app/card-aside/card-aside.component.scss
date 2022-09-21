@@ -1,0 +1,26 @@
+.aside-theme {
+    margin: 1rem;
+    padding: 0.5rem 0;
+    border-top: dashed 1px #999;
+
+    h3 {
+        border-bottom: none;
+        border-radius: 0.3rem;
+        font-size: 1.2rem;
+        background-color: #4ebced;
+        padding-left: 0.5rem;
+        padding-top: 9px;
+    }
+
+    p {
+        text-align: right;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    span {
+        font-weight: bold;
+    }
+}

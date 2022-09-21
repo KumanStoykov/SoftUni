@@ -1,0 +1,32 @@
+main {
+    width: 50%;
+
+    .theme-title {
+        padding: 0;
+    }
+}
+
+aside {
+    width: 29%;
+    font-size: 0.8em;
+    border-radius: 0.3em;
+
+    h2 {
+        text-align: center;
+        padding: 0;
+    }
+}
+
+.container {
+    max-width: 1366px;
+    margin: auto;
+    padding-bottom: 1.5em;
+    display: flex;
+    justify-content: space-around;
+
+    .loading {
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+}
+
