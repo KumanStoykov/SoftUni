@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+
+body, html {
+    width: 1200px;
+    margin: auto;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: Helvetica, sans-serif;
+}
+
+h1, 
+h2,
+h3,
+h4,
+h5, 
+h6 {    
+    line-height: 1.2;
+    font-weight: bold;
+    font-family: Georgia, serif;
+}
+
+
+.first {
+    list-style: square;
+}
+
+.secund {
+    list-style: inside;
+}
+.third {
+    list-style: circle;
+}
+
+table  {
+    width: 100%;   
+    border-collapse: collapse;
+}
+
+table tr:nth-child(odd) {
+    background: #F1F1F1;
+}
+
+th {
+    background-color: lightgray;
+    text-align: start;
+}
+
+th, 
+td {
+    width: 144px;
+    height: 32px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+}
+
+tr:hover {
+    background: lightblue;
+    border: none;
+    outline: none;
+}
+
+hr {
+    background: #ccc;
+}
+
+blockquote {
+    position: relative;
+    height: 8rem;
+    font-style: italic;
+    font-weight: bold;
+    border-left: 3px solid #ccc;
+}
+
+blockquote>p {
+    margin-left: 1.5rem;
+}
+
+blockquote>p:last-child {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+}
+
