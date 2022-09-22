@@ -1,31 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { CardMainComponent } from './card-main/card-main.component';
-import { CardAsideComponent } from './card-aside/card-aside.component';
-import { ThemeListComponent } from './theme-list/theme-list.component';
 import { ForumService } from './forum.service';
 import { HttpClientModule } from '@angular/common/http';
-import { AsideListComponent } from './aside-list/aside-list.component';
+import { HomeComponent } from './home/home.component';
+import { CoreModule } from './core/core.module';
+import { UserModule } from './user/user.module';
+import { ThemeModule } from './theme/theme.module';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    CardMainComponent,
-    CardAsideComponent,
-    ThemeListComponent,
-    AsideListComponent,
+    HomeComponent,
+    NotFoundPageComponent,
   ],
   imports: [
     BrowserModule,
+    CoreModule,
+    UserModule,
+    ThemeModule,
+    SharedModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [
     ForumService

@@ -51,6 +51,10 @@ header {
         width: 100%;
         background-color: #6ba1b8;
 
+        .btn {
+            cursor: pointer;
+        }
+
         li+li {
             border-left: 1px solid lightgrey;
             padding-left: .5em;

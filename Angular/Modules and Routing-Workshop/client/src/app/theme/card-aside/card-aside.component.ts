@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IPost } from '../shared/interfaces';
+import { IPost } from '../../shared/interfaces';
 
 @Component({
   selector: 'app-card-aside',
