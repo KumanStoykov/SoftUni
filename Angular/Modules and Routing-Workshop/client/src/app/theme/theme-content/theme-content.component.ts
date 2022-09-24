@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ForumService } from 'src/app/forum.service';
 import { ITheme } from 'src/app/shared/interfaces';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
     selector: 'app-theme-content',
@@ -11,9 +12,14 @@ import { ITheme } from 'src/app/shared/interfaces';
 export class ThemeContentComponent {
     theme: ITheme | undefined;
 
+    get isLogged(): boolean {
+        return this.userService.isLogged;
+    }
+
     constructor(
         private forumService: ForumService,
-        private activateRoute: ActivatedRoute
+        private activateRoute: ActivatedRoute,
+        private userService: UserService
     ) {
         this.fetchTheme();
     }

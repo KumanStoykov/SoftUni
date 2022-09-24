@@ -5,7 +5,7 @@
         <div class="theme-title">
             <div class="theme-name-wrapper">
                 <div class="theme-name">
-                    <h2>Angular 10</h2>
+                    <h2>{{theme!.themeName}}</h2>
                     <p>
                         Date: <time>{{ theme!.created_at }}</time>
                     </p>
@@ -44,7 +44,7 @@
                 </p>
             </div>
         </div>
-        <div class="answer-comment">
+        <div *ngIf="isLogged" class="answer-comment">
             <p><span>currentUser</span> comment:</p>
             <div class="answer">
                 <form>

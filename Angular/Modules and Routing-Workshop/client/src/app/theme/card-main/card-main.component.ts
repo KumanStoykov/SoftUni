@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from 'src/app/user/user.service';
 import { ITheme } from '../../shared/interfaces';
 
 @Component({
@@ -10,7 +11,11 @@ export class CardMainComponent implements OnInit {
 
     @Input() theme!: ITheme;
 
-  constructor() { }
+    get isLogged(): Boolean{
+        return this.userService.isLogged;
+    }
+
+  constructor( private userService: UserService) { }
 
   ngOnInit(): void {
   }
