@@ -1,0 +1,29 @@
+html {
+    font-family: Helvetica, sans-serif;
+}
+body {
+    margin: 50px;
+}
+header {
+    border-bottom: 2px solid black;
+}
+h1 {
+    display: inline-block;
+}
+nav {
+    display: inline-block;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 10px;
+            
+}
+a {
+    text-decoration: none;
+    color: rgb(28, 202, 28);
+    font-weight: 500;
+}
+h2 {
+    font-family: Georgia, serif;
+}
