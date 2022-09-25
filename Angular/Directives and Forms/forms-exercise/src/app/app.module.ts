@@ -9,11 +9,15 @@ import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 import { AboutComponent } from './about/about.component';
 import { TestModule } from './test/test.module';
+import { HighlightDirective } from './highlight.directive';
+import { MyIfDirective } from './my-if.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent
+    AboutComponent,
+    HighlightDirective,
+    MyIfDirective
   ],
   imports: [
     BrowserModule,
