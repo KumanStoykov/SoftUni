@@ -1,0 +1,24 @@
+.container{
+    width:100%;
+    h1 {
+        position: relative;
+        text-align: center;
+        margin-bottom: 4rem;
+
+        &::after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            transform: scaleX(0.15);
+        }
+    }
+
+    p{
+        letter-spacing: 1px;
+        margin-bottom: 3rem;
+    }
+}

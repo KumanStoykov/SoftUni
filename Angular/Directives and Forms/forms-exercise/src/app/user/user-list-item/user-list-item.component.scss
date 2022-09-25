@@ -1,0 +1,25 @@
+.email {
+  display: block;
+  margin: 1.5rem 0;
+  padding-bottom: 3px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  font-size: 1.25rem;
+}
+
+button {
+    cursor: pointer;
+    color: #fff;
+    background-color: #FF9671;
+    border: none;
+    padding: 8px 14px;
+    margin-right: 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+
+    &:hover {
+        background-color: #FFA18E;
+    }
+}
+

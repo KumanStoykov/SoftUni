@@ -1,0 +1,39 @@
+.header {
+    text-align: center;
+    font-size: 3rem;
+    background-color: #42a5f5;
+    color: #fff;
+
+    .nav {
+        display: flex;
+        justify-content: space-around;
+
+        .item-wrap {
+            display: flex;
+            gap: 3rem;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        a.active {
+            border-bottom: 2px solid #fff;
+        }
+    }
+}
+
+.time {
+    font-size: 2rem;
+    margin: 0.7rem;
+    padding: 0.3rem;
+    border-radius: 12px 6px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
