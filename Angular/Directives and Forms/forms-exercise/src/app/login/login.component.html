@@ -1,0 +1,58 @@
+<section class="container-form">
+    <h2>Login</h2>
+    <form #form="ngForm" (ngSubmit)="loginHandler(form)">
+        <div class="form-group">
+            <label for="email" [appHighlight]="true">Email:</label>
+            <input
+                type="email"
+                name="email"
+                id="email"
+                #emailInput="ngModel"
+                ngModel
+                required
+                email
+            />
+            <div *ngIf="emailInput.invalid && emailInput.touched" class="errors">
+                <p *ngIf="emailInput.errors?.['required']">Email is required!</p>
+                <p *ngIf="emailInput.errors?.['email']">Email is invalid!</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                #password="ngModel"
+                ngModel
+                required
+                [minlength]="6"
+            />
+            <div *ngIf="password.invalid && password.touched" class="errors">
+                <p *ngIf="password.errors?.['required']">Password is required!</p>
+                <p *ngIf="password.errors?.['minlength']">Password should be at 6 characters long!</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="repeatPassword">Re-Password:</label>
+            <input
+                type="password"
+                name="repeatPassword"
+                id="repeatPassword"
+                #repeatPassword="ngModel"
+                ngModel
+                required
+                appSameFieldValue="password"
+                [minlength]="6"
+            />
+            <div *ngIf="repeatPassword.invalid && repeatPassword.touched" class="errors">
+                <p *ngIf="repeatPassword.errors?.['required']">Re-password is required!</p>
+                <p *ngIf="repeatPassword.errors?.['minlength']">Re-password should be at 6 characters long!</p>
+                <p *ngIf="repeatPassword.errors?.['sameValue']">Password don't match!</p>
+            </div>
+        </div>
+        <div class="btn-wrap">
+            <button>Login</button>
+        </div>
+    </form>
+</section>
