@@ -1,0 +1,18 @@
+<div class="container">
+    <main>
+        <article class="welcome">
+            <app-welcome-section></app-welcome-section>
+        </article>
+        <div *ngIf="themes" class="theme-title">
+            <app-card-main
+                *ngFor="let theme of themes"
+                [theme]="theme"
+            ></app-card-main>
+        </div>
+        <p class="loading" *ngIf="!themes">Loading...</p>
+    </main>
+    <aside>
+        <h2 class="title">Recent posts</h2>
+        <app-aside-list></app-aside-list>
+    </aside>
+</div>

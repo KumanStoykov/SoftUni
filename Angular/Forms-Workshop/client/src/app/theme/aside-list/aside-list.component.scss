@@ -1,0 +1,19 @@
+.aside {
+ border: 1px solid #999;
+ border-radius: 0.3em;
+    .aside * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .aside>div {
+        padding: 0.3em 0.5em;
+        margin: 1rem 0;
+    }
+
+    .title {
+        font-size: 1.5em;
+        border-bottom: none;
+    }
+}
+
