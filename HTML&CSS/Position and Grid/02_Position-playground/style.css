@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+}
+img {
+    width: 200px;
+}
+
+.viewport:first-child {
+    height: 50vh;
+    position: relative;
+    background-image: linear-gradient(
+        to right top,
+        #1b639d,
+        #007dae,
+        #0096b3,
+        #00adad,
+        #3ec2a1
+    );
+}
+
+.viewport:first-child .card {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.viewport + .viewport {
+    height: 50vh;
+    position: relative;
+    background-image: linear-gradient(
+        to right top,
+        #a93476,
+        #c33963,
+        #d34a4c,
+        #d86333,
+        #d17f16
+    );
+}
+.viewport + .viewport .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+.card img {
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.fa-link {
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    bottom: 9px;
+    right: 4px;
+}
+
+.fa-star {
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    bottom: 9px;
+    right: 4px;
+}
