@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import { emailValidator } from 'src/app/shared/validators';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,11 +11,14 @@ import { UserService } from '../user.service';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+    
 
     icons = {
         faEnvelope,
         faLock
     }
+
+    emailValidator = emailValidator;
 
     constructor(
         private userService: UserService,
@@ -22,7 +27,9 @@ export class LoginComponent {
     ) { }
 
 
-    login(email: string, password: string): void {
+    login(form: NgForm): void {
+        if(form.invalid) { return; }
+        const { email, password } = form.value;
         this.userService.login(email, password);
         const redirectUrl = this.activatedRoute.snapshot.queryParams['redirectUrl'] || '/';
         this.router.navigate([redirectUrl]);
