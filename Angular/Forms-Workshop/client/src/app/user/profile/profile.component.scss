@@ -64,9 +64,16 @@
 }
 
 .red-button {
+    cursor: pointer;
     background-color: red;
 }
 
 .green-button {
+    cursor: pointer;
     background-color: green;
+}
+
+.edit-button {
+    background-color: #4ebced;
+    cursor: pointer;
 }

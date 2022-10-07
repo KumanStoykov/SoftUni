@@ -1,5 +1,10 @@
-<app-header></app-header>
+<div *ngIf="isAuthenticated">
+    Loading...
+</div>
+<ng-container *ngIf="!isAuthenticated">
+    <app-header></app-header>
 
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 
-<app-footer></app-footer>
+    <app-footer></app-footer>
+</ng-container>

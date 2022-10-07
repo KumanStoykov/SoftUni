@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { WelcomeSectionComponent } from './welcome-section/welcome-section.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
+import { CustomValidatorDirective } from './custom-validator.directive';
 
 
 
 @NgModule({
   declarations: [
-    WelcomeSectionComponent
+    WelcomeSectionComponent,
+    CustomValidatorDirective
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   exports: [
-    WelcomeSectionComponent
+    WelcomeSectionComponent,
+    CustomValidatorDirective
   ]
 })
 export class SharedModule { }

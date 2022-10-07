@@ -1,15 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ForumService } from 'src/app/forum.service';
 
 @Component({
   selector: 'app-new-theme',
   templateUrl: './new-theme.component.html',
   styleUrls: ['./new-theme.component.scss']
 })
-export class NewThemeComponent implements OnInit {
+export class NewThemeComponent  {
 
-  constructor() { }
+  constructor(
+    private forumService: ForumService,
+    private router: Router
+  ) { }
 
-  ngOnInit(): void {
+  createTheme(form: NgForm): void {
+    if(form.invalid) { return; }
+
+    this.forumService.saveTheme(form.value).subscribe({
+        next: () => {
+            this.router.navigate(['/themes']);
+        },
+        error(err) {
+            console.log(err);
+        },
+    })
   }
 
 }

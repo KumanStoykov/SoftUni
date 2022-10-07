@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { UserService } from './user/user.service';
 
 
 @Component({
@@ -6,13 +7,20 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
+    get isAuthenticated(): boolean {
+        return this.userService.user === undefined;
+    }
 
-    constructor() { }
-
-    ngOnInit(): void {
-
+    constructor(
+        private userService: UserService
+    ) {
+        this.userService.getProfileInfo().subscribe({
+            error: () => {
+                this.userService.user = null;
+            }
+        })
     }
 
 }

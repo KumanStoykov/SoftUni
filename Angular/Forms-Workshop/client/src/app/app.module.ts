@@ -25,9 +25,9 @@ import { SharedModule } from './shared/shared.module';
     UserModule,
     ThemeModule,
     SharedModule,
-    AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AppRoutingModule
   ],
   providers: [
     ForumService

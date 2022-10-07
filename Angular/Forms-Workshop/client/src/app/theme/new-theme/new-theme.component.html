@@ -2,10 +2,10 @@
     <div class="header-background">
         <span>New Theme</span>
     </div>
-    <form>
+    <form #form="ngForm" (ngSubmit)="createTheme(form)">
         <div class="new-theme-title">
             <label for="themeName">Title <span class="red">*</span></label>
-            <input type="text" name="themeName" id="themeName" />
+            <input type="text" name="themeName" id="themeName" ngModel required minlength="5" />
             <p class="error">Theme name is required.</p>
             <p class="error">Theme name must be at least 5 characters long.</p>
         </div>
@@ -17,12 +17,15 @@
                 id="postText"
                 rows="8"
                 class="height"
+                ngModel
+                required
+                minlength="10"
             ></textarea>
             <p class="error">The field with your post is required.</p>
             <p class="error">Post must be at least 10 characters long.</p>
         </div>
         <div class="new-theme-buttons">
-            <button class="cancel">Cancel</button>
+            <button type="button" class="cancel" routerLink="/themes">Cancel</button>
             <button class="public">Post</button>
         </div>
     </form>

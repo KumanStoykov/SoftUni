@@ -8,6 +8,7 @@ import { AsideListComponent } from './aside-list/aside-list.component';
 import { CardAsideComponent } from './card-aside/card-aside.component';
 import { SharedModule } from '../shared/shared.module';
 import { ThemeContentComponent } from './theme-content/theme-content.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -24,6 +25,7 @@ import { ThemeContentComponent } from './theme-content/theme-content.component';
         CommonModule,
         SharedModule,
         ThemeRoutingModule,
+        FormsModule
     ]
 })
 export class ThemeModule { }

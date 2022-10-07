@@ -11,7 +11,7 @@ import { UserService } from '../user.service';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-    
+
 
     icons = {
         faEnvelope,
@@ -28,11 +28,17 @@ export class LoginComponent {
 
 
     login(form: NgForm): void {
-        if(form.invalid) { return; }
+        if (form.invalid) { return; }
         const { email, password } = form.value;
-        this.userService.login(email, password);
-        const redirectUrl = this.activatedRoute.snapshot.queryParams['redirectUrl'] || '/';
-        this.router.navigate([redirectUrl]);
+        this.userService.login({ email, password }).subscribe({
+            next: () => {
+                const redirectUrl = this.activatedRoute.snapshot.queryParams['redirectUrl'] || '/';
+                this.router.navigate([redirectUrl]);
+            },
+            error: (err) => {
+                console.log(err.error.message);
+            }
+        });
     }
 
 }

@@ -27,7 +27,6 @@ export class ThemeContentComponent {
     fetchTheme(): void {
         this.theme = undefined;
         const id = this.activateRoute.snapshot.params['themeId'];
-        console.log(id)
         this.forumService.loadTheme(id).subscribe(theme => this.theme = theme);
     }
 
