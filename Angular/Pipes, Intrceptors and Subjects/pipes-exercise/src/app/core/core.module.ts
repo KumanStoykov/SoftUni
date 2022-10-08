@@ -5,6 +5,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { appInterceptorProvider } from './app-interceptor';
+
 
 
 
@@ -22,6 +24,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
   exports: [
     HeaderComponent,
     FooterComponent
+  ],
+  providers: [
+    appInterceptorProvider
   ]
 })
 export class CoreModule { }

@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { UserModule } from './user/user.module';
 import { AboutComponent } from './about/about.component';
 import { TestModule } from './test/test.module';
 import { HighlightDirective } from './highlight.directive';
@@ -33,7 +32,6 @@ import { RegisterComponent } from './register/register.component';
     ReactiveFormsModule,
     CoreModule,
     SharedModule.forRoot(),
-    UserModule,
     TestModule,
     AppRoutingModule,
   ],
