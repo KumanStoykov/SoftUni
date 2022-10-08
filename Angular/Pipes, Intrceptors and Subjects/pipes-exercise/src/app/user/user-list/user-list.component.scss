@@ -1,0 +1,41 @@
+.container {
+    margin: 0 auto;
+    width: 30rem;
+    text-align: center;
+
+    .input-label {
+        font-size: 2rem;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .input {
+        width: 100%;
+        margin: 1rem 0;
+        padding: 6px;
+        font-size: 1rem;
+    }
+
+    .wrap-btn {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 2rem;
+
+        button {
+            cursor: pointer;
+            color: #fff;
+            background-color: #00c9a7;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 4px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+
+            &:hover {
+                background-color: #00c2a8;
+            }
+        }
+    }
+}

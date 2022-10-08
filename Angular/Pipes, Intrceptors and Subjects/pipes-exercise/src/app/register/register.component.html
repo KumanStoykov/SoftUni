@@ -1,0 +1,48 @@
+<section class="container-form">
+    <h2>Register</h2>
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label for="email" [appHighlight]="true">Email:</label>
+            <input
+                type="email"
+                name="email"
+                id="email"
+                formControlName="email"
+            />
+            <div *ngIf="form.get('email')!.invalid && form.get('email')!.touched" class="errors">
+                <p *ngIf="form.get('email')!.errors?.['required']">Email is required!</p>
+                <p *ngIf="form.get('email')!.errors?.['email']">Email is invalid!</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                formControlName="password"
+            />
+            <div *ngIf="form.get('password')!.invalid && form.get('password')!.touched" class="errors">
+                <p *ngIf="form.get('password')!.errors?.['required']">Password is required!</p>
+                <p *ngIf="form.get('password')!.errors?.['minlength']">Password should be at 6 characters long!</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="repeatPassword">Re-Password:</label>
+            <input
+                type="password"
+                name="repeatPassword"
+                id="repeatPassword"
+                formControlName="repeatPassword"
+            />
+            <div *ngIf="form.get('repeatPassword')!.invalid && form.get('repeatPassword')!.touched" class="errors">
+                <p *ngIf="form.get('repeatPassword')!.errors?.['required']">Re-password is required!</p>
+                <p *ngIf="form.get('repeatPassword')!.errors?.['minlength']">Re-password should be at 6 characters long!</p>
+                <p *ngIf="form.get('repeatPassword')!.errors?.['sameValue']">Password don't match!</p>
+            </div>
+        </div>
+        <div class="btn-wrap">
+            <button>Register</button>
+        </div>
+    </form>
+</section>
