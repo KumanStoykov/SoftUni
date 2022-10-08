@@ -1,12 +1,12 @@
 <div class="container">
     <label class="input-label" for="input">Search: </label>
-    <input id="input" class="input" #searchInput [class.hidden]="!users" type="text" />
+    <input id="input" class="input" #searchInput [class.hidden]="!(users$ | async)" type="text" />
     <div class="error" *ngIf="errorLoadingUsers">
         Error loading users! Check your connection!
     </div>
-    <div *ngIf="users">
+    <div *ngIf="(users$ | async) as users">
         <div class="wrap-btn">
-            <button (click)="reloadButtonHandler(searchInput)">Reload</button>
+            <button (click)="loadUsers()">Reload</button>
             <button (click)="searchButtonHandler(searchInput)">Search</button>
         </div>
         <div>
@@ -16,5 +16,5 @@
             ></app-user-list-item>
         </div>
     </div>
-    <app-loader *ngIf="!users"></app-loader>
+    <app-loader *ngIf="!(users$ | async)"></app-loader>
 </div>

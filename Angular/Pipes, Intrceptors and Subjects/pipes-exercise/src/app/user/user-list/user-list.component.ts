@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
 })
 export class UserListComponent implements OnInit {
 
-    users: IUser[] | undefined;
+    users$ = this.userService.users$;
     errorLoadingUsers = false;
 
 
@@ -20,22 +20,7 @@ export class UserListComponent implements OnInit {
         this.loadUsers();
     }
 
-    loadUsers(search?: string): void {
-        this.users = undefined;
-
-
-        this.userService.loadUsers().pipe(
-            //SwitchMap canceled subscription than margeMap
-            switchMap(users => this.userService.loadUser(users[0].id))  
-        ).subscribe(loadedUser => { console.log(this.loadUsers) });
-
-        this.userService.loadUsers(search).subscribe((users) => this.users = users);
-    }
-
-    reloadButtonHandler(searchInput: HTMLInputElement) {
-        this.loadUsers();
-        searchInput.value = '';
-    }
+    loadUsers = this.userService.loadUsers;
 
     searchButtonHandler(searchInput: HTMLInputElement) {
         const { value } = searchInput;

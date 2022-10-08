@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, tap } from 'rxjs/operators';
 import { IUser } from 'src/app/shared/interfaces/user';
 import { UserService } from '../user.service';
 
@@ -9,25 +8,14 @@ import { UserService } from '../user.service';
     templateUrl: './user-detail.component.html',
     styleUrls: ['./user-detail.component.scss']
 })
-export class UserDetailComponent implements OnInit {
-    user: IUser | undefined;
+export class UserDetailComponent {
+    user$ = this.userService.user$;
 
     constructor(
-        private activatedRoute: ActivatedRoute,
+        activatedRoute: ActivatedRoute,
         private userService: UserService
-    ) { }
+    ) {
+        activatedRoute.params.subscribe(({ id }) => this.userService.loadUser(id));
 
-    ngOnInit(): void {
-        // this.userService.loadUser(this.activatedRoute.snapshot.params['id']).subscribe(user => {
-        //     this.user = user;
-        // });
-        this.activatedRoute.params.pipe(
-            tap(() => this.user = undefined),
-            switchMap(({ id }) => this.userService.loadUser(id))
-        ).subscribe(user => this.user = user);
-        // this.activatedRoute.params.subscribe(({ id }) => {
-        //     this.userService.loadUser(Number(id));
-        // });
-    }
-
+     }
 }
