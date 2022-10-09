@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  background-color: #e4e4e4;
+}
+
+ul {  
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  border: 5px solid #000;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 5px 10px 18px rgb(0, 0, 0, 0.3);
+}
+img {  
+  display: block;
+}
