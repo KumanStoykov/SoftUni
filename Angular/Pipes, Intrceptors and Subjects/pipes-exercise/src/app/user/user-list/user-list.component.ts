@@ -26,7 +26,7 @@ export class UserListComponent implements AfterViewInit {
         fromEvent(this.searchInput.nativeElement, 'input')
             .pipe(
                 map((e) => (e.target as HTMLInputElement).value),
-                debounceTime(500),
+                debounceTime(700),
                 distinctUntilChanged()
             )
             .subscribe((value) => this.loadUsers(value));
