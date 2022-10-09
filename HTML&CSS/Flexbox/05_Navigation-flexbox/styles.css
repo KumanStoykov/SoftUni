@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 3rem;
+}
+
+header {
+  border-bottom: 2px solid rgb(0,0,0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h1 {
+  font-size: 2rem;
+}
+
+ul {
+  display: flex;
+  gap: 2rem;
+}
+
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: rgb(0, 153, 0);
+}
