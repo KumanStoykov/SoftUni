@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: rgb(238, 238, 238);
+}
+
+header {
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+h1 {
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+main {
+    flex: 1;
+    padding: 2rem;
+}
+
+
+footer {
+    background-color: rgb(102, 102, 102);
+    color: rgb(255, 255, 255);
+}
