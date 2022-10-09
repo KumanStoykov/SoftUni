@@ -1,0 +1,25 @@
+body,
+html {
+    display: flex;
+    justify-content: space-between;
+    font-family: Helvetica, sans-serif;
+    line-height: 1.5;
+    margin: 5rem auto;
+    font-size: 20px;
+}
+
+.container {
+  max-width: 15vw;
+  height: 35rem;
+  display: flex;
+  align-items: center;
+}
+
+span {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
