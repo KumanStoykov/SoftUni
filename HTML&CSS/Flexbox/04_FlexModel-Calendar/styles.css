@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+   display: flex;
+   justify-content: center;
+   margin: auto;
+   width: 100%;
+   max-width: 65vw;
+}
+
+.container article:not(:last-child) {
+  display: flex;
+  flex-direction: column;
+}
+
+.week{
+  text-align: center;
+}
+
+body div span {
+  border: 1px solid #000;
+  padding: 2rem;
+}
+.notes{
+  display: flex;
+  text-align: center;
+}
+
+.aside-week {
+  display: flex;
+  justify-content: end;
+}
+
+.aside-week span {
+  padding: 2rem 4rem;
+}
+
+.second span {
+  padding: 2rem 8.9rem;
+}
+.special {
+  max-width: 226px;
+}
+.special span {
+  padding: 2rem 3rem;
+  width: 226px;
+}
