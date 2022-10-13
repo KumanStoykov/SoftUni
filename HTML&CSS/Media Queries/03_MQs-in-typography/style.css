@@ -1,0 +1,114 @@
+body {
+    margin: 5rem;
+    background: rgb(238, 238, 238);
+}
+img {
+    display: block;
+    width: 100%;
+}
+.img-container {
+    width: 150px;
+    border: 2px solid #000;
+    padding: 0.3rem;
+    background-color: #fff;
+    box-shadow: 5px 10px 18px rgb(0, 0, 0, 0.25);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #000;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+}
+
+header p {
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+header nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 102, 0) ;
+    font-weight: bold;
+}
+
+main {
+    width: 70%;
+    float: left;
+}
+
+
+.first-article section::after,
+.third-article section::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+.first-article .img-container {
+    float: right;
+    margin: 1rem;
+}
+
+
+
+
+.second-article .block-wrap{
+    display: flex;
+    
+}
+.second-article .block-wrap>p{
+    position: relative;
+
+}
+
+.second-article .block-wrap>p::after {
+    content: '';
+    height: 90%;
+    width: 3px;
+    background: #ccc;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.second-article blockquote {
+    font-style: italic;
+    color: #878787;
+}
+
+.third-article .img-container {
+    float: left;
+    margin: 1rem;
+}
+
+
+aside {
+    width: 20%;
+    float: right;
+    vertical-align: middle;
+}
+
+aside a {
+    color: rgb(0, 102, 0);
+    text-decoration: none;
+    font-weight: 500;
+}
