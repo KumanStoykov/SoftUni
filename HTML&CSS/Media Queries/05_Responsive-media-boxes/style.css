@@ -1,0 +1,51 @@
+html {
+    font-family: Helvetica, sans-serif;
+}
+body {
+    margin: 0;
+    background: rgb(238, 238, 238);
+}
+
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(255, 255, 255);
+    width: 400px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+div:nth-child(2) {
+    position: relative;
+    padding: 1rem;
+}
+
+img {
+    width:100%;
+}
+
+.card h3 {
+    font-family: Georgia, serif;
+    font-size: 1em;
+}
+
+.card p {
+    margin-bottom: 3.5rem;  
+    line-height: 1.5;
+
+}
+
+.card a {
+    background: rgb(0, 153, 0);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+}
