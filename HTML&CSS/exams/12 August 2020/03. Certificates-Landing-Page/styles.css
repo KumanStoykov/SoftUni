@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+
+
+/* font-family: 'Lato', sans-serif; */
+/* Heading */
+/* font-family: 'Montserrat', sans-serif; */
+
+:root {
+    --clr-blue-solid: rgb(41, 57, 75);
+    --clr-gray-light: rgb(244, 245, 247);
+    --clr-icons: #3e4c5d;
+    --clr-blue-nav: rgb(66, 171, 248);
+    --clr-font: #3f4d5e;
+    --clr-font-footer: #cecece;
+    --clr-with: #fff;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+
+/* Header */
+
+.header {
+    position: fixed;
+    width: 100%;     
+    z-index: 100;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    padding: 1.5rem;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: var(--clr-with);
+}
+
+.logo {
+    width: 140px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.list-item {
+    list-style: none;
+    position: relative;
+}
+
+.list-item a  {
+    text-decoration: none;
+    color: var(--clr-font);
+    font-family: 'Lato', sans-serif;
+    font-size: 1.25rem;
+}
+
+.spec a {
+    background: var(--clr-blue-nav);
+    color: var(--clr-with);
+    padding: 0.8rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    box-shadow: rgb(66, 171, 248) 0px 20px 30px -10px;
+}
+
+.active::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: var(--clr-blue-nav);
+    top: -40px;
+}
+
+
+/* Hero */
+
+.hero {
+    position: relative;
+    background: url(images/hero-certificates.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10rem;
+}
+
+.hero::before {
+    content: '';
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    background: rgb(255, 255, 255, 0.8);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+    gap: 5rem;
+    width: 100%;
+    padding-left: 6rem;
+}
+
+.certification {
+    background-color: var(--clr-blue-solid);
+    color: var(--clr-with);
+    max-width: 700px;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.hero-desc {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.cer-img {
+    position: relative;
+    display: flex;
+}
+
+.cer-img img:nth-child(2) {
+    transform: scale(1.1);
+    position: absolute;
+    top: -45px;
+    right: -217px;
+}
+
+
+.hero-text {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding-left: 6rem;
+    margin-top: 2rem;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--clr-blue-solid);
+}
+
+/* Diploma */
+
+.diploma {
+    margin: 5rem auto;
+}
+.diploma-title {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+}
+.diploma-content {
+    background: var(--clr-gray-light);
+    padding: 1.5rem;
+}
+
+
+.diploma-desc {
+    line-height: 1.5;
+    font-family: 'Lato', sans-serif;
+}
+
+.diploma-end-text {
+    font-family: 'Lato', sans-serif;
+
+}
+
+/* Explore */
+
+.explore {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--clr-with);
+    font-family: 'Lato', sans-serif;
+    margin: 7rem auto 9rem auto;
+}
+
+.explore img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+}
+
+.overlay {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 122%;
+    background: rgb(41, 57, 75, 0.5 );
+    border-radius: 12px;
+}
+.explore-title {
+    position: relative;
+    z-index: 10;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+.explore-sub-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.25rem;
+    position: relative;
+    z-index: 10;
+}
+
+.explore-btn-wrap {
+    padding-top: 3rem;
+}
+.left-btn {
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    background: var(--clr-with);
+    color: var(--clr-blue-nav);
+    border: none;
+    padding: 14px 32px;
+    font-size: 1.25rem;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 12px;
+    border: 1px solid var(--clr-with);
+    font-weight: 500;
+} 
+
+
+.right-btn {
+    cursor: pointer;
+    position: relative;
+    background: transparent;
+    color: var(--clr-with);
+    border: 1px solid var(--clr-with);
+    padding: 14px 32px;
+    font-size: 1.25rem;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 12px;
+    margin-left: 5rem;
+    font-weight: 500;
+}
+
+.right-btn::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    transform: scaleY(0.7);
+    background: var(--clr-with);
+    top: 0;
+    left: -40px;
+}
+
+/* Footer */
+
+.footer {
+    border-top: 1px solid black;
+    padding: 3rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-logo {
+    display: flex;
+
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-logo img {
+    width: 130px;
+}
+
+.footer-logo span {
+    color: var(--clr-font-footer);
+}
+
+.footer-list {
+    display: flex;
+    gap: 1.5rem;
+}
+.footer-list-item {
+    list-style: none;
+}
+
+.footer-list-item a {
+    text-decoration: none;
+    color: var(--clr-font);
+    font-family: 'Lato', sans-serif;
+}
