@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+
+
+/* font-family: 'Lato', sans-serif; */
+/* Heading */
+/* font-family: 'Montserrat', sans-serif; */
+
+:root {
+    --clr-blue-light: #e3f3fd;
+    --clr-blue-solid: #44a9f8;
+    --clr-blue-check: #4faef8;
+    --clr-font: #616161;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.page-content {
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    margin: auto;
+}
+
+.left {
+    background: var(--clr-blue-light);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.row-input {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Lato', sans-serif;
+    width: 100%;
+}
+
+.row-input p {
+    margin: 0.5rem 0;
+    color: var(--clr-font);
+}
+
+.fa-check {
+    color:var(--clr-blue-check);
+}
+
+.right {
+    flex-grow: 1;
+    display: flex;
+    border: 5px solid var(--clr-blue-solid);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+} 
+
+
+
+.price {
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--clr-font);
+}
+.price span {
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--clr-blue-solid);
+}
+
+
+.price-desc {
+    font-family: 'Lato', sans-serif;
+    color: var(--clr-font);
+    font-size: 1.5rem;
+}
+
+
+.btn {
+    background: var(--clr-blue-solid);
+    color: #fff; 
+    border: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
