@@ -1,0 +1,79 @@
+@media all and (max-width: 600px) {
+
+    .banner {
+        padding: 4rem 0 2rem 0;
+    }
+
+    .banner h2 {
+        width: 95%;
+        font-size: 2rem;
+    }
+
+    .banner p {
+        font-size: 1.35rem;
+    }
+
+    .wrapper {
+        padding: 3rem 0 0.5rem 0;
+    }
+
+    header.major {
+        margin-bottom: 1rem;
+    }
+
+    .actions li {
+        width: 95%;
+    }
+
+    .actions a {
+        width: 100%;
+    } 
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .feature {
+        width: 95%;
+        
+    }
+
+    .wrapper > .inner {
+        width: 100%;
+    }
+
+    .wrapper > .inner.narrow {
+        width: 100%;
+    }
+
+    .grid-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grid-form .form-control.narrow {
+        width: 95%;
+    }
+
+    .grid-form .form-control {
+        width: 95%;
+    }
+
+    .wrapper.style2 input[type="submit"] {
+        width: 100%;
+    }
+
+    .footer {
+        padding: 2rem 0;
+    }
+
+    .footer:before {
+        width: 85%;
+        left: 7%;
+    }
+
+    .footer .copyright {
+        margin: 0;
+    }
+}
