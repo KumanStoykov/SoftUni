@@ -1,0 +1,48 @@
+@media all and (max-width: 600px) {
+
+    .tm-container-inner {
+        padding-right: 0;
+    }
+
+   .parallax-window .row.tm-header-inner {
+        align-items: unset;
+    }
+
+    .row {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tm-site-text-box .tm-site-title {
+        font-size: 2.75rem;
+    }
+
+    .tm-site-text-box .tm-site-description {
+        font-size: 1.5rem;
+    }
+    
+    .tm-section-title {
+        margin-left: 0;
+        font-size: 3rem
+    }
+
+    .tm-gallery {
+        margin-left: 0;
+
+    }
+
+    .tm-gallery-page {
+        margin: 0;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    
+ 
+    .tm-cta-section {
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+}
