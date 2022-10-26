@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --clr-primary: #a4c639;
+    --clr-card-bg: #f7f7f7;
+    --clr-font: #727272;
+    --clr-with: #fff;
+
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;  
+    align-items: center; 
+    font-family: 'Poppins', sans-serif; 
+}
+
+.container {
+    width: 1300px;
+}
+
+.title-wrap {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.title {
+   font-size: 2.5rem; 
+   margin-bottom: 0.5rem;
+   font-weight: 600;
+}
+
+.cards-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-wrap span {
+    color: var(--clr-primary);
+}
+
+.sub-title {
+    color: var(--clr-font);
+}
+
+.card {
+    width: 400px;
+    background: var(--clr-card-bg);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    margin: 1rem 0 0 0;
+
+}
+
+.desc {
+    color: var(--clr-font);
+    line-height: 2;
+}
+
+.info {
+    padding: 2rem;
+}
+
+.btn {
+    background: var(--clr-primary);
+    color: var(--clr-with);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 3rem;
+    font-weight: 600;
+}
