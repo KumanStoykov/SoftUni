@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --clr-bg: #d4d4d5;
+    --clr-font: #cccccc;
+    --clr-font-plc: #999b9e;
+    --clr-with: #fff;
+    --clr-dark: #111111;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;  
+    align-items: center; 
+    font-family: 'Open Sans', sans-serif;
+    background: var(--clr-bg);
+}
+
+.container {
+    width: 800px;
+    display: flex;
+}
+
+.img-wrap {
+    position: relative;
+    width: 50%;
+    color: var(--clr-with);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.img-wrap img {
+    object-fit: cover;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    filter: brightness(40%);
+}
+
+.softuni {
+    font-weight: 700;
+    align-self: start;
+}
+
+.title-wrap {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.title {
+    font-weight: 300;
+    margin: 0;
+}
+
+.sub-title {
+    margin: 0;
+    font-weight: 300;
+}
+
+.icon-wrap i{
+    margin: 0 0.3rem;
+}
+
+
+.form-wrap {
+    width: 50%; 
+    background: var(--clr-with);
+}
+
+.form {
+    padding: 2rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.label {
+    margin-bottom: 0.7rem;
+    color: var(--clr-font);
+    font-weight: 500;
+}
+
+.input {
+    padding: 0.5rem;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--clr-font);
+}
+
+::placeholder {
+    color: var(--clr-font-plc);
+    font-size: 16px;
+}
+
+.btn-wrap {
+    margin: 3rem 0 0.5rem 0;
+}
+
+.btn {
+    background: var(--clr-dark);
+    color: var(--clr-with);
+    padding: 12px 42px;
+    border: none;
+    border-radius: 3rem;
+    font-weight: 600;
+}
+
+.ready {
+    text-decoration: underline;
+    color: var(--clr-font-plc);
+    padding-left: 0.5rem;
+}
