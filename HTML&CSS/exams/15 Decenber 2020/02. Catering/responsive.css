@@ -1,0 +1,38 @@
+@media all and (max-width:  600px) {
+    .w3-top .w3-hide-small {
+        display: none;
+    }
+
+    #about {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #about img  {
+        display: none;
+    }
+    
+    .w3-col.m6 {
+        width: 100%;
+
+    }
+
+    .w3-padding-64 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } 
+
+    .w3-col.l6 {
+        width: 100%;
+    }
+
+    #contact h1{
+        width: 100%;
+    }
+
+    #contact > form {
+        width: 100%;
+    }
+}
