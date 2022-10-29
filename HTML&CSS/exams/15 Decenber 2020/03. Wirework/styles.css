@@ -248,6 +248,6 @@ body {
     color: var(--clr-foot);
 }
 
-.footer p span {
+.footer p a {
     color: #a2d4c5;
 } 
