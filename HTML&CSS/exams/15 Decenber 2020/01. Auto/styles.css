@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --font-heading: 'Montserrat', sans-serif;
+    --font-text: 'Poppins', sans-serif;
+    --clr-red: #d5664d;
+    --clr-font: #8f8f8f;
+    --clr-with: #ffffff;
+    --clr-dark: #292929;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;  
+    align-items: center; 
+    font-family: var(--font-text);
+}
+
+.container {
+    width: 1300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-wrap {
+    flex: 0 0 50%;
+}
+
+.title {
+    margin-top: 0;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.desc {
+    font-size: 14px;
+    color: var(--clr-font);
+}
+
+.services {
+    margin-top: 2rem;
+}
+
+.row-wrap {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+.row-wrap img {
+    width: 60px;
+    height: 60px;
+}
+
+.row {
+    padding-left: 1rem;
+}
+
+.row-title {
+    font-weight: 600;
+    margin: 0;
+}
+
+.row-desc {
+    margin: 0;
+    color: var(--clr-font);
+    font-size: 14px;
+}
