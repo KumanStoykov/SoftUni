@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --clr-primary: #d01919;
+    --clr-red-text: #d22e2e;
+
+    --clr-with: #ffffff;
+    --clr-dark: #000000;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Utils */
+img {
+    display: block;
+    width: 100%;
+}
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 1500px;
+    margin: auto;
+}
+
+.card-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 290px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans', sans-serif;
+}
+
+/* Header */
+
+.info-nav {
+    background: var(--clr-primary);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3rem;
+    color: var(--clr-with);
+    font-size: 1.1rem;
+}
+
+.contact-links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.links-item a {
+    color: var(--clr-with);
+}
+
+.nav-list {
+    display: flex;
+    gap: 3rem;
+    justify-content: flex-end;
+    padding: 0 3rem;
+    font-size: 1.1rem;
+}
+
+.nav-item a {
+    color: var(--clr-with);
+}
+
+/* Hero */
+
+.hero {
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img-container {
+    overflow: hidden;
+}
+
+.img-container img {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--clr-with);
+}
+
+.title {
+    font-size: 4.5rem;
+    font-weight: 400;
+    letter-spacing: 7px;
+    margin-bottom: 1rem;
+}
+
+.hero-text {
+    font-size: 1.2rem;
+    width: 560px;
+    margin: auto;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    cursor: pointer;
+    color: var(--clr-with);
+    background: var(--clr-primary);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+/* Welcome */
+
+.welcome {
+    text-align: center;
+    padding: 2rem;
+}
+
+.welcome-title {
+    position: relative;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 4rem;
+    margin-top: 0;
+}
+
+.welcome-title::after {
+    content: '';
+    position: absolute;
+    bottom: -29px;
+    left: 0;
+    background: var(--clr-primary);
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0.03);
+}
+
+.icon-wrap {
+    width: 90px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: var(--clr-red-text);
+    margin: 1.5rem 0;
+}
+
+/* Coaches */
+
+.coaches {
+    text-align: center;
+    background: #efefef;
+    padding: 2rem;
+}
+
+.coaches-title {
+    position: relative;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 4rem;
+}
+
+.coaches-title::after {
+    content: '';
+    position: absolute;
+    bottom: -29px;
+    left: 0;
+    background: var(--clr-primary);
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0.03);
+}
+
+.img-wrap {
+    border-radius: 8px;
+    overflow: hidden;
+    width: 350px;
+}
+.coaches .card-title {
+    margin: 1rem 0;
+}
+
+.coaches .card-title {
+    color: var(--clr-dark);
+}
+
+.sub-title {
+    color: var(--clr-red-text);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.coaches .card-desc {
+    color: #cac8ca;
+}
+
+/* Footer */
+
+.footer {
+    background: var(--clr-primary);
+    text-align: center;
+}
+
+.footer-text {
+    margin: 0;
+    padding: 1rem;
+}
