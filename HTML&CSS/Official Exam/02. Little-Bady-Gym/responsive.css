@@ -1,0 +1,134 @@
+@media all and (max-width: 600px) {
+    .site-main {
+        margin: 0;
+    }
+
+    .entry-header {
+        background-position: center;
+    }
+ 
+    .site-navigation {
+        display: none;
+    }
+
+    .entry-header-title {
+        font-size: 3rem
+    }
+
+    .site-logos-container {
+        min-width: unset;
+    }
+
+
+    .site-information-image {
+        display: none;
+    }
+    .site-information {
+        align-items: center;
+        justify-content: center;
+    }
+    .site-information-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: unset;
+    }
+
+    .site-information-text .entry-title {
+        text-align: center;
+    }
+
+    .entry-description  {
+        width: 100%;
+        text-align: center;
+    }
+
+    .button {
+        width: 130px;
+    } 
+
+    .entry-content .button {
+        width: 100px;
+    }
+
+    .site-form-container .entry-title {
+        font-size: 0.5rem;
+    } 
+
+    .site-form {
+        margin-top: 0;
+    }
+    .site-form form > p {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .site-form input {
+        width: 100%;
+
+    }
+
+    .site-form button {
+        margin: auto;
+    }
+
+    .site-posts {
+        flex-direction: column;
+    } 
+    
+    .site-blog-container {
+        margin-top: 0;
+    }
+
+    .site-post {
+        margin: 1rem 2rem;
+    }
+
+    
+
+    .site-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+@media all and (max-width: 500px) {
+
+    .entry-header-description {
+        font-size: 1.45rem;
+        top: 60px;
+    }
+
+}
+@media all and (max-width: 400px) {
+
+    .site-header-logo {
+        font-size: 1.5rem;
+    } 
+
+    .entry-header-description {
+        font-size: 0.75rem;
+        top: 70px;
+    }
+
+    .site-logo:not(:last-child) {
+        margin: 0;
+    }
+
+    .entry-content {
+        font-size: 14px;
+    }
+
+    .site-information-text {
+        padding: 2rem 1rem;
+    }
+
+    .site-information-text .entry-subtitle {
+        font-size: 1.2rem;
+    }
+    .site-information-text .entry-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+}
