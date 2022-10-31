@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <title>Fitness Calculator</title>
+    </head>
+    <body>
+        <section class="container">
+            <div class="img-wrap">
+                <img src="image/calculator.png" alt="image" />
+            </div>
+
+            <div class="info-wrap">
+                <h1 class="title">FITNESS CALCULATOR</h1>
+
+                <div class="btn-wrap">
+                    <button class="btn green-btn">Standart units (US)</button>
+                    <button class="btn">Metric units</button>
+                </div>
+
+                <form class="form" action="">
+                    <div class="input-row">
+                        <label for="">Gender</label>
+                        <div class="input-row-two">
+                            <select name="gander" id="gender">
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <input
+                                class="input"
+                                type="text"
+                                placeholder="Years..."
+                            />
+                        </div>
+                    </div>
+
+                    <div class="input-row row-two">
+                        <label for="">Weight</label>
+                        <input
+                            class="input"
+                            type="text"
+                            placeholder="Pounds..."
+                        />
+                    </div>
+                    <div class="input-row row-three">
+                        <label for="">Height</label>
+                        <div class="input-row-two">
+                            <input
+                                class="input"
+                                type="text"
+                                placeholder="Feet..."
+                            />
+                            <input
+                                class="input"
+                                type="text"
+                                placeholder="Inches..."
+                            />
+                        </div>
+                    </div>
+                    <div class="btn-wrap">
+                        <button class="btn blue-btn">Calculate</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>

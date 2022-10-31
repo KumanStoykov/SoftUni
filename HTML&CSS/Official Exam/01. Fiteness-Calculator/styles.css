@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --clr-blue: #05a2d3;   
+    --clr-green: #86d862;   
+    --clr-silver: #e0e0df;   
+    --clr-bg: #f6f7f8;   
+    --clr-with: #ffffff;
+    --clr-dark: #292929;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+input {
+    outline: none;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;  
+    align-items: center; 
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid var(--clr-dark);
+}
+
+.img-wrap {
+    filter: brightness(70%);
+}
+
+.info-wrap {
+    flex: 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--clr-bg);
+    padding: 2rem;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.btn-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+}
+
+
+.btn {
+    background: var(--clr-silver);
+    cursor: pointer;
+    padding: 8px 24px;
+    border-radius: 8px;
+    border: 1px solid var(--clr-dark);
+    font-size: 1rem;
+}
+
+.green-btn {
+    background: var(--clr-green);
+}
+.blue-btn {
+    background: var(--clr-blue);
+    color: var(--clr-with);
+    width: 100%;
+    margin-top: 2rem;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.form {
+    width: 100%;
+}
+
+.input-row {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.input-row-two {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    
+}
+
+#gender {
+    width: 177px;
+}
+
+
+.form label {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.input {
+    border-radius: 4px;
+    border: 1px solid var(--clr-dark);
+}
+
+.row-two {
+    width: 85%;
+    margin: 2rem auto;
+
+}
+.row-two .input {
+    padding: 0.3rem;
+}
+
+.row-three {
+    width: 90%;
+    margin: 2rem auto;
+}
+.row-three .input {
+    width: 100%;
+    padding: 0.1rem 0.3rem;
+}
+
