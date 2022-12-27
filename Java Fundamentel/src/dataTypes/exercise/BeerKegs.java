@@ -9,7 +9,6 @@ public class BeerKegs {
         byte groups = Byte.parseByte(scanner.nextLine());
         String biggestKeg = "";
         double biggestVolume = 0;
-
         for (int i = 0; i < groups; i++) {
             String model = scanner.nextLine();
             float radius = Float.parseFloat(scanner.nextLine());
