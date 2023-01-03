@@ -23,7 +23,11 @@ public class SimpleTextEditor {
                     currentText.push(oldText);
                     break;
                 case "2":
-                    erases(currentText, Integer.parseInt(condition));
+                    String text = currentText.peek();
+                    if (text.length() >= Integer.parseInt(condition)) {
+                        String newText = text.substring(0, text.length() - Integer.parseInt(condition));
+                        currentText.push(newText);
+                    }
                     break;
                 case "3":
                     if (currentText.peek() != null) {
@@ -34,16 +38,6 @@ public class SimpleTextEditor {
                     currentText.poll();
                     break;
             }
-
         }
-    }
-
-    private static ArrayDeque<String> erases(ArrayDeque<String> currentStack, int count) {
-        String oldText = currentStack.peek();
-        if (oldText.length() >= count) {
-            String newText = oldText.substring(0, oldText.length() - count);
-            currentStack.push(newText);
-        }
-        return currentStack;
     }
 }
