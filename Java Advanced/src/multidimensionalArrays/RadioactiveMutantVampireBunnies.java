@@ -133,7 +133,6 @@ public class RadioactiveMutantVampireBunnies {
                 }
             }
 
-
             if (isWon) {
                 printMatrix(matrix);
                 System.out.printf("won: %d %d", rowPlayer, colPlayer);
