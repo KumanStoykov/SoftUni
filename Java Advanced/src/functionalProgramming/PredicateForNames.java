@@ -14,6 +14,6 @@ public class PredicateForNames {
 
         String[] names = scanner.nextLine().split("\\s+");
 
-        Arrays.stream(names).filter(checkLength).forEach(w -> System.out.println(w));
+        Arrays.stream(names).filter(checkLength).forEach(System.out::println);
     }
 }
