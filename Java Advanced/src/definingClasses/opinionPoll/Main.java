@@ -20,8 +20,8 @@ public class Main {
             people.add(new Person(name, age));
         }
         people.stream()
-                .filter(p -> p.age > 30)
+                .filter(p -> p.getAge() > 30)
                 .sorted(Comparator.comparing(Person::getName))
-                .forEach(p -> System.out.printf("%s - %d%n", p.name, p.age));
+                .forEach(p -> System.out.printf("%s - %d%n", p.getName(), p.getAge()));
     }
 }
