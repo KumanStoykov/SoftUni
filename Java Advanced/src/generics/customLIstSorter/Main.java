@@ -1,9 +1,8 @@
-package generics.customList;
+package generics.customLIstSorter;
 
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -47,6 +46,9 @@ public class Main {
                 case "Min":
                     System.out.println(customList.getMin());
                     break;
+                case "Sort":
+                    customList.sort();
+                    break;
                 case "Print":
                     System.out.println(customList.toString());
                     break;
@@ -55,17 +57,4 @@ public class Main {
             input = scanner.nextLine();
         }
     }
-
 }
-
-//Add aa
-//Add bb
-//Add cc
-//Max
-//Min
-//Greater bb
-//Swap 0 2
-//Contains aa
-//Print
-//END
-
