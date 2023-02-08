@@ -24,10 +24,10 @@ public class ListyIterator {
         return false;
     }
 
-    public String print() {
-        if (currentIndex > elements.size() || elements.isEmpty()) {
-            return "Invalid Operation!";
+    public void print() {
+        if (elements.isEmpty()) {
+            throw  new IllegalStateException("Invalid Operation!");
         }
-        return elements.get(currentIndex);
+        System.out.println(elements.get(currentIndex));
     }
 }

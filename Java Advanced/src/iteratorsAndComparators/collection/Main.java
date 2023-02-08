@@ -1,4 +1,4 @@
-package iteratorsAndComparators.listyIterator;
+package iteratorsAndComparators.collection;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -39,6 +39,9 @@ public class Main {
                     } catch (IllegalStateException e) {
                         System.out.println(e.getMessage());
                     }
+                    break;
+                case "PrintAll":
+                    listyIterator.printAll();
                     break;
             }
 
