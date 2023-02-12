@@ -19,12 +19,7 @@ public class Clinic {
     }
 
     public boolean remove(String name) {
-        boolean isExist = data.stream().anyMatch(p -> p.getName().equals(name));
-        if (isExist) {
-            data.removeIf(p -> p.getName().equals(name));
-            return true;
-        }
-        return false;
+          return data.removeIf(p -> p.getName().equals(name));
     }
 
     public Pet getPet(String name, String owner) {
