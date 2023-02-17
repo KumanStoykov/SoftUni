@@ -55,5 +55,4 @@ public class Bakery {
 
         return sb.toString();
     }
-	
 }
